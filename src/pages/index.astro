@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import JournalSpotlight from '../components/JournalSpotlight.astro';
+import RecentPublications from '../components/RecentPublications.astro';
+import AboutStrip from '../components/AboutStrip.astro';
 ---
 
 <Layout
@@ -8,7 +11,7 @@ import Hero from '../components/Hero.astro';
   description="Idara Ulum-Al-Qur'an is an academic institute established in 1984 at Aligarh Muslim University, dedicated to Qur'anic research and scholarship."
 >
   <Hero />
-  <main class="container" style="padding-top: 3rem; padding-bottom: 3rem;">
-    <p>More sections coming soon.</p>
-  </main>
+  <JournalSpotlight />
+  <RecentPublications />
+  <AboutStrip />
 </Layout>
