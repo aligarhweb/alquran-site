@@ -1,0 +1,129 @@
+---
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <div class="site-brand">
+      <a href="/en/" class="brand-link">
+        <span class="brand-name">ادارہ علوم القرآن</span>
+        <span class="brand-name-en">Idara Ulum-Al-Qur'an</span>
+        <span class="brand-tagline">Established 1984 · Aligarh</span>
+      </a>
+    </div>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="/en/about/">About</a></li>
+        <li><a href="/en/journal/">Journal</a></li>
+        <li><a href="/en/publications/">Publications</a></li>
+        <li><a href="/en/seminars/">Seminars</a></li>
+        <li><a href="/en/competitions/">Competitions</a></li>
+        <li><a href="/en/contact/" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="lang-switch">
+      <a href="/" lang="ur">اردو</a>
+      <span>|</span>
+      <a href="/en/" class="active">English</a>
+    </div>
+
+  </div>
+</header>
+
+<style>
+.site-header {
+  background-color: var(--color-primary);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.brand-name {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  line-height: 1.8;
+}
+
+.brand-name-en {
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  opacity: 0.9;
+}
+
+.brand-tagline {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-list a {
+  color: #FFFFFF;
+  opacity: 0.85;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.nav-list a:hover {
+  opacity: 1;
+  background: rgba(255,255,255,0.1);
+  text-decoration: none;
+}
+
+.nav-cta {
+  background: var(--color-accent) !important;
+  opacity: 1 !important;
+  color: #FFFFFF !important;
+  font-weight: 600;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  white-space: nowrap;
+}
+
+.lang-switch a {
+  color: rgba(255,255,255,0.7);
+}
+
+.lang-switch a.active {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.lang-switch a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+</style>

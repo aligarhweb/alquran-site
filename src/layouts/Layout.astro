@@ -1,4 +1,6 @@
- ---
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 const { title, description, lang = "en", dir = "ltr" } = Astro.props;
 ---
 
@@ -15,6 +17,8 @@ const { title, description, lang = "en", dir = "ltr" } = Astro.props;
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
