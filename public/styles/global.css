@@ -1,0 +1,69 @@
+/* ─── Reset & Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Colour Variables ─── */
+:root {
+  --color-bg: #FAF8F4;
+  --color-white: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-primary: #1B5E4F;
+  --color-accent: #A68B3C;
+  --color-link: #2E7D68;
+  --color-border: #E8E3DB;
+  --color-muted: #6B6560;
+}
+
+/* ─── Body ─── */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* ─── Urdu / RTL ─── */
+:lang(ur) {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 20px;
+  line-height: 2.1;
+  direction: rtl;
+  text-align: right;
+}
+
+/* ─── Typography ─── */
+h1, h2, h3, h4 {
+  color: var(--color-primary);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ─── Layout ─── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ─── Utility ─── */
+.text-muted {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
