@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="About the Institute"
+  description="Idara Ulum-Al-Qur'an was established in 1984 at Aligarh Muslim University, following the scholarly tradition of Imam Hamid al-Din Farahi."
+>
+  <main class="container page-content">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span>›</span>
+      <span>About</span>
+    </nav>
+
+    <h1>About the Institute</h1>
+
+    <div class="page-grid">
+      <article class="page-body">
+
+        <h2>Our Mission</h2>
+        <p>Idara Ulum-Al-Qur'an is an independent academic institute established in 1984 at Aligarh Muslim University, Aligarh. The institute is dedicated to the research, teaching, and publication of works in the field of Qur'anic sciences.</p>
+
+        <h2>Intellectual Tradition</h2>
+        <p>The institute follows the scholarly methodology of Imam Hamid al-Din Farahi (1863–1930), one of the most original Qur'anic scholars of the modern era. Farahi's approach emphasised the internal coherence and thematic unity (<em>nazm</em>) of the Qur'an. His student, Maulana Amin Ahsan Islahi, carried this tradition forward through his monumental tafsir <em>Tadabbur-i-Qur'an</em>.</p>
+
+        <h2>Activities</h2>
+        <p>The institute carries out the following activities:</p>
+        <ul>
+          <li>Publishing the biannual peer-reviewed journal <em>Ulum al-Qur'an</em> since 1985</li>
+          <li>Organising annual Qur'anic seminars and monthly scholars' seminars</li>
+          <li>Conducting national competitions in Qur'anic studies</li>
+          <li>Publishing books and research papers on Qur'anic themes</li>
+          <li>Running a special lecture series on Qur'anic sciences</li>
+          <li>Maintaining a specialised library of Qur'anic literature</li>
+        </ul>
+
+        <h2>Location</h2>
+        <p>The institute is located within the campus of Aligarh Muslim University, one of India's premier central universities, in Aligarh, Uttar Pradesh.</p>
+
+      </article>
+
+      <aside class="page-sidebar">
+        <div class="sidebar-card">
+          <h3>Quick Facts</h3>
+          <ul class="fact-list">
+            <li><span class="fact-label">Founded</span><span class="fact-value">1984</span></li>
+            <li><span class="fact-label">Location</span><span class="fact-value">AMU, Aligarh</span></li>
+            <li><span class="fact-label">Journal</span><span class="fact-value">Since 1985</span></li>
+            <li><span class="fact-label">Volumes</span><span class="fact-value">39</span></li>
+            <li><span class="fact-label">Languages</span><span class="fact-value">Urdu, English, Hindi</span></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Related Links</h3>
+          <ul class="link-list">
+            <li><a href="/en/journal/">Biannual Journal</a></li>
+            <li><a href="/en/publications/">Publications</a></li>
+            <li><a href="/en/seminars/">Seminars</a></li>
+            <li><a href="/en/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+  </main>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--color-link);
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.page-body h2 {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-body p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.page-body ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.page-body ul li {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+.page-body em {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.sidebar-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-card h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.fact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.fact-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.fact-label {
+  color: var(--color-muted);
+}
+
+.fact-value {
+  color: var(--color-text);
+  font-weight: 600;
+  text-align: right;
+}
+
+.link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link-list a {
+  font-size: 0.9rem;
+  color: var(--color-link);
+}
+
+.link-list a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .page-grid {
+    display: block;
+  }
+
+  .page-sidebar {
+    margin-top: 2.5rem;
+  }
+}
+</style>
