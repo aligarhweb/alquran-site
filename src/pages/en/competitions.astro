@@ -1,0 +1,673 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const competitions = [
+  {
+    year: "2018",
+    edition: "10th",
+    title: "دسویں کل ہند مقابلۂ انشائیہ نویسی",
+    topic: "Amal Salih: Mafhum aur Jihat Qur'an o Sunnat ki Roshni mein",
+    topicEn: "Righteous Deeds: Meaning and Dimensions in the Light of the Qur'an and Sunnah",
+    groups: [
+      {
+        name: "Announcement",
+        results: [
+          { prize: "1st Prize", name: "Rs. 10,000", institution: "" },
+          { prize: "2nd Prize", name: "Rs. 8,000", institution: "" },
+          { prize: "3rd Prize", name: "Rs. 6,000", institution: "" },
+          { prize: "Consolation", name: "Rs. 1,000 each", institution: "" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2017",
+    edition: "9th",
+    title: "Essay Competition 2017",
+    topic: "The Construction of Humanity and the Quran",
+    topicEn: "The Construction of Humanity and the Quran",
+    groups: [
+      {
+        name: "Results",
+        results: [
+          { prize: "1st Prize", name: "Farhath Thaqib Falahi", institution: "Jami'ah al-Falah, Balliaganj — Rs. 10,000" },
+          { prize: "2nd Prize", name: "Abu Qays bin Abu Bakr", institution: "Madrasah al-Islah, Sarai Mir — Rs. 8,000" },
+          { prize: "3rd Prize", name: "Abdul-Saeed", institution: "Jami'ah Mishbah al-Ulum, Chaukaniyan — Rs. 6,000" },
+          { prize: "Consolation", name: "Muhammad Haider Azad", institution: "AMU, Aligarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Asma Athari bint Aashiq Ali", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Abdul-Rauf Hadhiq", institution: "Jami'ah Dar al-Salam, Umarabad — Rs. 1,000" },
+          { prize: "Consolation", name: "Adiba bint Abdul-Majid", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Aarif bin Muhammad Khalid", institution: "Madrasah al-Islah, Sarai Mir — Rs. 1,000" },
+          { prize: "Consolation", name: "Roshni bint Jalal al-Din Ansari", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Fatima bint Abdul-Qadir", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "K. Ikhlas Ahmad", institution: "Jami'ah Dar al-Salam, Umarabad — Rs. 1,000" },
+          { prize: "Consolation", name: "Fawaz Habib bin Abdul-Samad", institution: "Jami'ah Islamiyyah Sanabel, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Fatima Shabbir bint Shabir Ahmad", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2016",
+    edition: "8th",
+    title: "Essay Competition 2016",
+    topic: "The Rise and Fall of Nations in the Light of the Quran",
+    topicEn: "The Rise and Fall of Nations in the Light of the Quran",
+    groups: [
+      {
+        name: "Results",
+        results: [
+          { prize: "1st Prize", name: "Rashad Ahmed bin Wasim Ahmed", institution: "Madrasah al-Islah, Sarai Mir — Rs. 10,000" },
+          { prize: "2nd Prize", name: "Abdul Afu bin Umar Ali", institution: "Jami'ah Dar al-Salam, Umarabad — Rs. 8,000" },
+          { prize: "3rd Prize", name: "Tabarak Ali Khan bin Ayub Khan", institution: "Jami'ah Dar al-Salam, Umarabad — Rs. 6,000" },
+          { prize: "Consolation", name: "Salwa bint Abubakar", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Gulnaz bint Muhammad Umar", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Ishrat Jahan bint Ashraf Punjabi", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Ainin Salim bin Muhammad Salim", institution: "Jami'ah Dar al-Salam, Umarabad — Rs. 1,000" },
+          { prize: "Consolation", name: "Ariba bint Abdul Majeed", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Abu Qays bin Abu Bakr", institution: "Madrasah al-Islah, Sarai Mir — Rs. 1,000" },
+          { prize: "Consolation", name: "Aseela Parveen", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Syed Wasim Pasha bin Syed Kaleemullah", institution: "Jami'ah Dar al-Salam, Umarabad — Rs. 1,000" },
+          { prize: "Consolation", name: "Fatima bint Abdul Qadir", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Nasha Lutfi bint Lutullah", institution: "Aisha Siddiqa Shariat College, Delhi — Rs. 1,000" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2015",
+    edition: "7th",
+    title: "Essay Competition 2015",
+    topic: "The Foundations of Cooperation with Non-Muslims in the Light of the Quran",
+    topicEn: "The Foundations of Cooperation with Non-Muslims in the Light of the Quran",
+    groups: [
+      {
+        name: "Results",
+        results: [
+          { prize: "1st Prize", name: "Rashad Ahmed bin Wasim Ahmed", institution: "Madrasah al-Islah, Sarai Mir — Rs. 10,000" },
+          { prize: "2nd Prize", name: "Abdur Rahman bin Zubair Ahmed", institution: "Jami'ah Dar al-Salam, Umarabad — Rs. 8,000" },
+          { prize: "3rd Prize", name: "Tabriz Pasha bin Chand Pasha", institution: "Jami'ah Dar al-Salam, Umarabad — Rs. 6,000" },
+          { prize: "Consolation", name: "Muhammad Faiz bin Muhammad Alqamah", institution: "Jami'ah Mu'in al-Din Chishti, Ajmer — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Rehan Ghazali", institution: "Darul Uloom Nadwat al-Ulama, Lucknow — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Faheem bin Musa", institution: "Gulbarga, Karnataka — Rs. 1,000" },
+          { prize: "Consolation", name: "Abu Sufyan Latifi bin Muhammad Abbas", institution: "Madrasah al-Islah, Sarai Mir — Rs. 1,000" },
+          { prize: "Consolation", name: "Abdullah Shamim Azami", institution: "Shibli National College, Agra — Rs. 1,000" },
+          { prize: "Consolation", name: "Sheikh Hassan bin Ghulam", institution: "Darul Huda Islamic University, Kerala — Rs. 1,000" },
+          { prize: "Consolation", name: "Tabarak Ali Khan bin Ayub Khan", institution: "Jami'ah Dar al-Salam, Umarabad — Rs. 1,000" },
+          { prize: "Consolation", name: "Abdur Afu bin Umar Ali", institution: "Jami'ah Dar al-Salam, Umarabad — Rs. 1,000" },
+          { prize: "Consolation", name: "Saddam Hussain bin Akhtar Ali", institution: "Jami'ah Sayyid Ahmad Shahid, Malihabad — Rs. 1,000" },
+          { prize: "Consolation", name: "Abdul Ahad bin Abdul Hamid", institution: "Jami'ah Mishbah al-Ulum, Chaukaniyan — Rs. 1,000" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2014",
+    edition: "6th",
+    title: "Essay Competition 2014",
+    topic: "Group A: The Quran and the Prevention of Corruption | Group B: The Concept of Tawheed in the Quran and the Vedas",
+    topicEn: "",
+    groups: [
+      {
+        name: "Group A — Muslim Students",
+        results: [
+          { prize: "1st Prize", name: "Muhammad Fateh Alam", institution: "Darul Uloom Nadwatul Ulama, Lucknow — Rs. 10,000" },
+          { prize: "2nd Prize", name: "Shamahat al-Anbar", institution: "Dr. Ram Manohar Lohia Awadh University, Faizabad — Rs. 8,000" },
+          { prize: "3rd Prize", name: "Ismat Jahan", institution: "Mohammad Masood Khan Degree College, Azamgarh — Rs. 6,000" },
+          { prize: "Consolation", name: "Muhammad Abbas", institution: "Jamia Moinuddin Chishti, Kamalpur — Rs. 1,000" },
+          { prize: "Consolation", name: "Saif Khalid bin Saifullah", institution: "Madrasa-tul-Uloom al-Islamiya, Aligarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Saddam Hussain", institution: "Jamia Syed Ahmad Shaheed, Malihabad — Rs. 1,000" },
+          { prize: "Consolation", name: "Abdullah", institution: "Jamia Miftah al-Ulum, Sidhart Nagar — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Sufiyan", institution: "Jamia Sanabul, New Delhi — Rs. 1,000" },
+          { prize: "Consolation", name: "Ziaul Hasan", institution: "AMU — Rs. 1,000" },
+          { prize: "Consolation", name: "Sharaf Alam", institution: "Darul Uloom Nadwatul Ulama, Lucknow — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Rehan Ghazali", institution: "Darul Uloom Nadwatul Ulama, Lucknow — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Ashraf bin Sufiyan", institution: "Madrasa-tul-Islah Sarai Mir, Azamgarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Intikhab", institution: "Darul Uloom Nadwatul Ulama — Rs. 1,000" },
+        ]
+      },
+      {
+        name: "Group B — Non-Muslim Scholars",
+        results: [
+          { prize: "1st Prize", name: "Abhijit Kumar bin Sunil Kumar", institution: "Adarsh Nagar, Muzaffarpur, Bihar — Rs. 20,000" },
+          { prize: "2nd Prize", name: "Gorakh Prasad Dakhi Lal", institution: "Bilariaganj, Naya Chowk, Azamgarh — Rs. 15,000" },
+          { prize: "3rd Prize", name: "Khushboo Kumari", institution: "Bilariaganj, Naya Chowk, Azamgarh — Rs. 12,000" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2013",
+    edition: "5th",
+    title: "Essay Competition 2013",
+    topic: "The Believer in the Mirror of the Quran",
+    topicEn: "The Believer in the Mirror of the Quran",
+    groups: [
+      {
+        name: "Results",
+        results: [
+          { prize: "1st Prize", name: "Abdul Majeed bin Saleemullah", institution: "Darul Uloom Nadwatul Ulama, Lucknow — Rs. 10,000" },
+          { prize: "2nd Prize", name: "Umara Ahsan Siddiqui", institution: "Jamiatul Falah, Azamgarh — Rs. 8,000" },
+          { prize: "3rd Prize", name: "Aalimullah bin Inayatullah Bhattiavi", institution: "Jamia Salafiya, Varanasi — Rs. 6,000" },
+          { prize: "Consolation", name: "Nafeesa Khalid", institution: "AMU, Aligarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Syed Furqan Malik", institution: "Darul Uloom Nadwatul Ulama, Lucknow — Rs. 1,000" },
+          { prize: "Consolation", name: "Dhuhi Tahir", institution: "Faculty of Women, Jamiatul Falah — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Salman Lakhimpuri", institution: "Jamia Syed Ahmad Shaheed, Lucknow — Rs. 1,000" },
+          { prize: "Consolation", name: "Maryam Jameela bint Badr-ul-Alam Falahi", institution: "Faculty of Women, Jamiatul Falah — Rs. 1,000" },
+          { prize: "Consolation", name: "Razia Sultan", institution: "Faculty of Women, Jamiatul Falah — Rs. 1,000" },
+          { prize: "Consolation", name: "Inamullah bin Azamtullah", institution: "Jamia Dar-ul-Salam, Omarabad — Rs. 1,000" },
+          { prize: "Consolation", name: "Aaftab Fatima Falahi", institution: "Shabli College, Azamgarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Omar Saifi bin Muhammad Ismail", institution: "Darul Uloom Nadwatul Ulama, Lucknow — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Shahid Sitapuri", institution: "Darul Uloom Deoband — Rs. 1,000" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2012",
+    edition: "4th",
+    title: "Essay Competition 2012",
+    topic: "Group A: The Quran — For All | Group B: Is it Necessary to Read the Quran with Understanding?",
+    topicEn: "",
+    groups: [
+      {
+        name: "Group A — Non-Muslim Scholars",
+        results: [
+          { prize: "1st Prize", name: "Abhijit Kumar son of Sunil Kumar", institution: "Adarsh Nagar, Muzaffarpur, Bihar — Rs. 20,000" },
+          { prize: "2nd Prize", name: "Dhanushree Kulshreshtha (Journalist)", institution: "Aurangabad, Maharashtra — Rs. 15,000" },
+          { prize: "3rd Prize", name: "Gorkh Prasad Dakhi Lal", institution: "Bilariaganj, Naya Chowk, Azamgarh — Rs. 12,000" },
+        ]
+      },
+      {
+        name: "Group B — Muslim Students",
+        results: [
+          { prize: "1st Prize", name: "Muhammad Akram", institution: "Jamia Islamiy, Shanthapuram, Kerala — Rs. 10,000" },
+          { prize: "2nd Prize", name: "Tobi Anis", institution: "Jamiatul Salehat, Nasirpur, Azamgarh — Rs. 8,000" },
+          { prize: "3rd Prize", name: "Ashfaq Ahmad Wasi Allah", institution: "Jamia Islamiy, Sanabul, New Delhi — Rs. 6,000" },
+          { prize: "Consolation", name: "Asma Firoz bint Firoz Ahmad", institution: "Bilariaganj, Azamgarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Ismat Jahan bint Abdul Rahman", institution: "Teachers Colony, Mangrawalan, Azamgarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Mursalin bin Muhammad Hashim", institution: "Athar Hostel, Nadwatul Ulama, Lucknow — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Faheem bin Muhammad Usman Aadri", institution: "Madrasatul Islah, Sarai Mir, Azamgarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Fazl Muhammad Fahuash", institution: "AMU, Aligarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Mohsin bin Muhammad Hashim", institution: "Darul Uloom Nadwatul Ulama — Rs. 1,000" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2011",
+    edition: "3rd",
+    title: "Essay Competition 2011",
+    topic: "The Rights of the Quran and Our Attitude",
+    topicEn: "The Rights of the Quran and Our Attitude",
+    groups: [
+      {
+        name: "Results",
+        results: [
+          { prize: "1st Prize", name: "Muhammad Akram", institution: "Jamia Islamiy, Shanthapuram, Kerala — Rs. 10,000" },
+          { prize: "2nd Prize", name: "Abu Hurairah bin Abrar Ahmad", institution: "Madrasatul Islah, Sarai Mir, Azamgarh — Rs. 8,000" },
+          { prize: "3rd Prize", name: "Abdullah bin Hanif", institution: "Jamiatul Falah, Bilariaganj, Azamgarh — Rs. 6,000" },
+          { prize: "Consolation", name: "Muhammad Salman Sadiq", institution: "Madrasatul Islah, Sarai Mir, Azamgarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Abul Kalam", institution: "Jamiatul Falah, Bilariaganj, Azamgarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Faheemuddin bin Musa", institution: "Jamia Darul Salam, Omarabad, Chennai — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Nayab Hassan", institution: "Darul Jadid, Darul Uloom Deoband — Rs. 1,000" },
+          { prize: "Consolation", name: "Asmaa bint Firoz Ahmad", institution: "Jamiatul Falah, Bilariaganj, Azamgarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Faheem bin Muhammad Usman Aadri", institution: "Madrasatul Islah, Sarai Mir, Azamgarh — Rs. 1,000" },
+          { prize: "Consolation", name: "Muhammad Abdul Aziz bin Muhammad Azmat Ali", institution: "Jamia Darul Salam, Omarabad, Chennai — Rs. 1,000" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2010",
+    edition: "2nd",
+    title: "Essay Competition 2010",
+    topic: "Group A: Desired Curriculum for Teaching the Quran in Religious Schools | Group B: The Quran — The Book of Guidance",
+    topicEn: "",
+    groups: [
+      {
+        name: "Group A — Scholars & Ulema",
+        results: [
+          { prize: "1st Prize", name: "Maulana Anis Ahmad Falahi Madani", institution: "Jamiatul Falah, Balariaganj, Azamgarh — Rs. 15,000" },
+          { prize: "2nd Prize", name: "Maulana Umar Aslam Asafi", institution: "Madrasa Al-Islah, Sarai Mir, Azamgarh — Rs. 12,000" },
+          { prize: "3rd Prize", name: "Maulana Ijaz Ahmad Qasmi", institution: "Jamiatul Falah, Balliaganj, Azamgarh — Rs. 8,000" },
+        ]
+      },
+      {
+        name: "Group B — Non-Muslim Scholars",
+        results: [
+          { prize: "1st Prize", name: "Abhijeet Kumar", institution: "Muzaffarpur, Bihar — Rs. 15,000" },
+          { prize: "2nd Prize", name: "Dhirj Kesh Soni", institution: "Rakabganj, Feizabad — Rs. 12,000" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2009",
+    edition: "1st",
+    title: "Essay Competition 2009",
+    topic: "Group A: Contemporary Issues and Quranic Teachings | Group B: Family System and Quranic Teachings",
+    topicEn: "",
+    groups: [
+      {
+        name: "Group A — Researchers & Scholars",
+        results: [
+          { prize: "1st Prize", name: "Maulana Muhammad Umar Aslam Asafi", institution: "Madrasa Aal-e-Islah, Sarai Mir, Azamgarh — Rs. 10,000" },
+          { prize: "2nd Prize", name: "Ms. Tamanna Mubin Azmi", institution: "New Delhi — Rs. 8,000" },
+          { prize: "3rd Prize", name: "Mr. Muhammad Ismail Asafi", institution: "AMU, Aligarh — Rs. 6,000" },
+        ]
+      },
+      {
+        name: "Group B — Madrasa & University Students",
+        results: [
+          { prize: "1st Prize", name: "Muhammad Faheem", institution: "Madrasa Al-Islah, Sarai Mir, Azamgarh — Rs. 5,000" },
+          { prize: "2nd Prize", name: "Zahir Ahmad bin Basmallah", institution: "Jamiatul Falah, Balliaganj, Azamgarh — Rs. 4,000" },
+          { prize: "3rd Prize", name: "Muhammad Faheemuddin", institution: "Jamia Darul Salam, Omarabad, Chennai — Rs. 3,000" },
+          { prize: "3rd Prize", name: "Abdul Latif", institution: "Nadwatul Ulama, Lucknow — Rs. 3,000" },
+          { prize: "Encouragement", name: "Parvez Alam Ansari", institution: "Jamia Tul Falah, Balliaganj, Azamgarh — Rs. 1,000" },
+          { prize: "Encouragement", name: "Shahab Thaqib", institution: "Jamia Tul Falah, Balliaganj, Azamgarh — Rs. 1,000" },
+          { prize: "Special Prize", name: "Bushra Siraj", institution: "Women's College, Jamiatul Falah, Azamgarh — Rs. 1,000" },
+        ]
+      }
+    ]
+  },
+];
+---
+
+<Layout
+  title="Annual Essay Competitions"
+  description="Since 2009, Idara Ulum-Al-Qur'an has organised a nationwide essay competition inviting students from madrasas and universities to engage with Qur'anic themes."
+  canonicalUrl="/en/competitions/"
+>
+  <main class="container page-content">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span>›</span>
+      <span>Competitions</span>
+    </nav>
+
+    <h1>Annual Essay Competitions</h1>
+
+    <div class="intro-section">
+      <p>
+        Since 2009, Idara Ulum-Al-Qur'an has been organising a nationwide essay
+        competition titled <strong>"Return to the Qur'an"</strong>. This initiative aims to:
+      </p>
+      <ul class="aims-list">
+        <li>Attract students towards the Holy Qur'an by inspiring them to delve deeper into its teachings.</li>
+        <li>Address non-Muslim concerns about the Qur'an and open the floor for constructive dialogue.</li>
+        <li>Equip students to directly grasp the timeless and universal message of the Qur'an.</li>
+      </ul>
+
+      <div class="how-it-works">
+        <h2>How It Works</h2>
+        <ul class="how-list">
+          <li>Students from madrasas and universities interested in research and writing are invited to participate.</li>
+          <li>Each competition focuses on specific themes related to the Qur'an and its interpretations.</li>
+          <li>Essays are judged by two independent expert referees assessing content, relevance, style, and source usage.</li>
+          <li>To ensure anonymity, essays are coded and personal information is removed before evaluation.</li>
+          <li>The Head of the Institute, after reviewing both referees' assessments, makes the final decision on winners.</li>
+          <li>A committee oversees the entire process to ensure transparency and fairness.</li>
+          <li>Each participant receives a participation certificate; winners are awarded cash prizes.</li>
+        </ul>
+      </div>
+
+      <div class="participate-cta">
+        <p>To participate in the upcoming competition or receive announcements, please contact us.</p>
+        <a href="/en/contact/" class="btn-primary">Contact to Participate</a>
+      </div>
+    </div>
+
+    <h2 class="results-heading">Previous Competitions & Results</h2>
+
+    <div class="competitions-list">
+      {competitions.map((comp) => (
+        <details class="comp-item">
+          <summary class="comp-summary">
+            <div class="comp-year-badge">{comp.year}</div>
+            <div class="comp-info">
+              <span class="comp-edition">{comp.edition} Competition</span>
+              <span class="comp-topic">{comp.topic}</span>
+            </div>
+            <span class="comp-arrow">›</span>
+          </summary>
+
+          <div class="comp-body">
+            {comp.groups.map((group) => (
+              <div class="group-section">
+                <h3 class="group-name">{group.name}</h3>
+                <table class="results-table">
+                  <thead>
+                    <tr>
+                      <th>Prize</th>
+                      <th>Name</th>
+                      <th>Institution & Prize Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {group.results.map((r) => (
+                      <tr class={r.prize.startsWith('1st') ? 'row-gold' : r.prize.startsWith('2nd') ? 'row-silver' : r.prize.startsWith('3rd') ? 'row-bronze' : ''}>
+                        <td class="td-prize">{r.prize}</td>
+                        <td class="td-name">{r.name}</td>
+                        <td class="td-inst">{r.institution}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </main>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--color-link);
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* ─── Intro ─── */
+.intro-section {
+  margin-bottom: 3rem;
+}
+
+.intro-section > p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  max-width: 780px;
+}
+
+strong {
+  color: var(--color-primary);
+}
+
+.aims-list {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 780px;
+}
+
+.aims-list li {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.how-it-works {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 780px;
+}
+
+.how-it-works h2 {
+  font-size: 1.15rem;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.how-list {
+  padding-left: 1.5rem;
+}
+
+.how-list li {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+.participate-cta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.participate-cta p {
+  font-size: 0.97rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+  text-decoration: none;
+}
+
+/* ─── Results Heading ─── */
+.results-heading {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* ─── Competition Items ─── */
+.competitions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.comp-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.comp-item[open] {
+  border-color: var(--color-primary);
+}
+
+.comp-summary {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.2s;
+}
+
+.comp-summary::-webkit-details-marker {
+  display: none;
+}
+
+.comp-summary:hover {
+  background: #f7f5f1;
+}
+
+.comp-year-badge {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  text-align: center;
+}
+
+.comp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.comp-edition {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.comp-topic {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.comp-arrow {
+  font-size: 1.2rem;
+  color: var(--color-muted);
+  transition: transform 0.2s;
+}
+
+.comp-item[open] .comp-arrow {
+  transform: rotate(90deg);
+}
+
+/* ─── Competition Body ─── */
+.comp-body {
+  padding: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.group-section {
+  margin-bottom: 1.5rem;
+}
+
+.group-section:last-child {
+  margin-bottom: 0;
+}
+
+.group-name {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+/* ─── Results Table ─── */
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.results-table th {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.results-table td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  vertical-align: top;
+}
+
+.results-table tr:last-child td {
+  border-bottom: none;
+}
+
+.row-gold td { background: #fffbeb; }
+.row-silver td { background: #f8f9fa; }
+.row-bronze td { background: #fff8f3; }
+
+.td-prize {
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+  font-size: 0.82rem;
+}
+
+.td-name {
+  font-weight: 600;
+  min-width: 160px;
+}
+
+.td-inst {
+  color: var(--color-muted);
+  font-size: 0.82rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .comp-summary {
+    grid-template-columns: 55px 1fr auto;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .comp-topic {
+    font-size: 0.85rem;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  .participate-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
