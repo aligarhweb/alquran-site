@@ -3,58 +3,148 @@ import Layout from '../../layouts/Layout.astro';
 
 const publications = [
   {
-    title: "Khandani Nizam aur Qur'ani Ta'limat",
-    titleEn: "Family System and Qur'anic Teachings",
-    author: "Dr. Hamid al-Din Farahi",
-    year: "2018",
-    pages: "320",
-    language: "Urdu",
-    slug: "khandani-nizam"
-  },
-  {
-    title: "Mabadi Tadabbur-i-Qur'an",
-    titleEn: "Principles of Qur'anic Contemplation",
-    author: "Amin Ahsan Islahi",
-    year: "2016",
-    pages: "280",
-    language: "Urdu",
-    slug: "mabadi-tadabbur"
-  },
-  {
-    title: "Tajalli-e-Qur'an",
-    titleEn: "The Manifestation of the Qur'an",
-    author: "Idara Ulum-Al-Qur'an",
-    year: "2014",
-    pages: "210",
-    language: "Urdu",
-    slug: "tajalli-e-quran"
-  },
-  {
-    title: "Qur'an aur Jadeed Ulum",
-    titleEn: "The Qur'an and Modern Sciences",
-    author: "Idara Ulum-Al-Qur'an",
-    year: "2012",
-    pages: "195",
-    language: "Urdu",
-    slug: "quran-aur-jadeed-ulum"
-  },
-  {
-    title: "Asalib al-Qur'an",
-    titleEn: "Literary Styles of the Qur'an",
-    author: "Dr. Hamid al-Din Farahi",
-    year: "2010",
-    pages: "245",
-    language: "Urdu",
-    slug: "asalib-al-quran"
-  },
-  {
-    title: "Nazm-e-Qur'an",
-    titleEn: "The Thematic Coherence of the Qur'an",
-    author: "Amin Ahsan Islahi",
+    title: "Asr-i Hazir ke Masail aur Qur'ani Ta'limat",
+    titleEn: "Problems of the Modern Age and Teachings of the Quran",
+    editors: "—",
     year: "2009",
-    pages: "310",
-    language: "Urdu",
-    slug: "nazm-e-quran"
+    pages: "376",
+    price: "Rs. 200",
+    desc: "Proceedings of the seminar organised on August 9–10, 2008. Articles identify burning issues of the modern age and seek their solution in the light of Qur'anic teachings."
+  },
+  {
+    title: "Khandani Nizam aur Qur'ani Ta'limat",
+    titleEn: "Family Life and the Teachings of the Quran",
+    editors: "Ishtiyaq Ahmad Zilli & Abu Sufyan Islahi",
+    year: "2010",
+    pages: "392",
+    price: "Rs. 250",
+    desc: "Proceedings of the seminar of November 20–21, 2009. Examines family life under strain in modern times and the Qur'anic framework for a stable family structure."
+  },
+  {
+    title: "Ma'ashi Masa'il aur Qur'ani Ta'limat (Urdu)",
+    titleEn: "Economic Problems and the Teachings of the Quran",
+    editors: "Ausaf Ahmad & Abdul Azim Islahi",
+    year: "2011",
+    pages: "256",
+    price: "Rs. 160",
+    desc: "Papers from the seminar of November 6–7, 2010. Presented in Urdu, English, and Arabic. Addresses global economic crisis in the light of Qur'anic principles."
+  },
+  {
+    title: "Ruju Ila al-Qur'an: Ahmiyat aur Taqaze — Vol. 1",
+    titleEn: "Return to the Qur'an: Importance and Requirements — Vol. 1",
+    editors: "Ashhad Rafeeque Nadvi",
+    year: "—",
+    pages: "528",
+    price: "Rs. 300",
+    desc: "A collection of 21 articles under six chapters covering introduction to the Qur'an, reference to the Qur'an, education and learning, and contemporary guidance."
+  },
+  {
+    title: "Ruju Ila al-Qur'an: Ahmiyat aur Taqaze — Vol. 2",
+    titleEn: "Return to the Qur'an: Importance and Requirements — Vol. 2",
+    editors: "Ashhad Rafeeque Nadvi",
+    year: "—",
+    pages: "368",
+    price: "Rs. 275",
+    desc: "17 articles covering self-purification, social and economic demands of the Qur'an, relations with non-Muslims, and Qur'anic teaching for contemporary life."
+  },
+  {
+    title: "Samaji Buraeon ka Insidad aur Qur'ani Taleemat",
+    titleEn: "How to Abolish Social Evils in the Light of the Qur'an",
+    editors: "Ashhad Rafeeque Nadvi",
+    year: "2014",
+    pages: "440",
+    price: "Rs. 360",
+    desc: "23 essays from the two-day seminar of September 27–28, 2014, organised in collaboration with the Department of Arabic, Jamia Millia Islamia, Delhi."
+  },
+  {
+    title: "Gair Muslimin ke Sath Rabt o Ta'awun Qur'an ki Roshni mein",
+    titleEn: "Connection and Cooperation with Non-Muslims in the Light of the Qur'an",
+    editors: "Mohd Rashid Islahi",
+    year: "2015–16",
+    pages: "372",
+    price: "Rs. 400",
+    desc: "21 articles from two seminars (2015 & 2016). Covers rights of non-Muslims, social and economic relations, religious tolerance, and cooperation with non-Muslim governments."
+  },
+  {
+    title: "Qur'an Majeed ka Tasawwur-e-Uroj o Zawal",
+    titleEn: "The Concept of Rise and Fall of Nations in the Holy Qur'an",
+    editors: "Abu Saad Islahi",
+    year: "2017",
+    pages: "304",
+    price: "Rs. 250",
+    desc: "18 articles from the seminar of November 26–27, 2017. Analyses causes of Muslim decline under Qur'anic guidance with contributions from leading scholars."
+  },
+  {
+    title: "Qurani Ulum Biswin Sadi Mein",
+    titleEn: "Qur'anic Sciences in the Twentieth Century",
+    editors: "—",
+    year: "2006",
+    pages: "532",
+    price: "Rs. 200 (hardbound)",
+    desc: "Special issue of Ulum al-Qur'an. Over 20 articles evaluating developments in Qur'anic Sciences during the twentieth century and assessing contributions of major exegetes."
+  },
+  {
+    title: "Mawlana Amin Ahsan Islahi Number",
+    titleEn: "Special Issue of Ulum al-Qur'an on Mawlana Islahi",
+    editors: "—",
+    year: "2000",
+    pages: "600",
+    price: "Rs. 150 / Rs. 200 (hardbound)",
+    desc: "25 well-researched articles on the life and intellectual heritage of Mawlana Amin Ahsan Islahi, including a detailed interview, bibliography, and studies on Tadabbur-i-Qur'an."
+  },
+  {
+    title: "Qurani Afkar o Talimaat aur Maujudah Daur mein Uski Ma'nawiyat",
+    titleEn: "Qur'anic Thoughts, Teachings and Their Spirituality in the Present Times",
+    editors: "Prof. Zafarul Islam Islahi",
+    year: "—",
+    pages: "160",
+    price: "Rs. 100",
+    desc: "Seven chapters covering Shah Waliullah's call to the Qur'an, Qur'anic concepts of worship, trust, human rights, justice, wisdom, and its challenge to Western civilisation."
+  },
+  {
+    title: "Index of Articles Published in Bi-Annual Ulum al-Qur'an (1985–2003)",
+    titleEn: "Subject-wise Index of Ulum al-Qur'an",
+    editors: "Prof. Zafarul Islam Islahi",
+    year: "2005",
+    pages: "32",
+    price: "Rs. 15",
+    desc: "A subject-wise index of all articles published in the biannual Ulum al-Qur'an from 1985 to 2003."
+  },
+  {
+    title: "Kitabiyat-i Farahi",
+    titleEn: "A Bibliography on Mawlana Hamiduddin Farahi",
+    editors: "Prof. Zafarul Islam Islahi",
+    year: "1991",
+    pages: "78",
+    price: "Rs. 15",
+    desc: "Comprehensive bibliography of Mawlana Farahi's published works, with information on available literature on his personality, thought, and contributions to Qur'anic exegesis."
+  },
+  {
+    title: "Urdu Rasail ke Qur'ani Mazamin ka Ishariya",
+    titleEn: "Index of Qur'anic Articles in Urdu Journals",
+    editors: "Dr Abu Sufyan Islahi",
+    year: "2005",
+    pages: "323",
+    price: "Rs. 150",
+    desc: "Thematic index of Qur'anic articles published in 33 standard Urdu journals of the subcontinent over more than a century — an invaluable research tool."
+  },
+  {
+    title: "Qurani Maqalat",
+    titleEn: "Selected Essays on Qur'anic Studies",
+    editors: "—",
+    year: "1991 (2nd ed. 2012)",
+    pages: "320",
+    price: "Rs. 60 / Rs. 85 (hardbound)",
+    desc: "Selected essays from monthly Al-Islah covering Usul al-Tafsir, Nazm al-Qur'an, Qur'anic oaths, and explanation of Qur'anic verses. Contributors include Farahi, Islahi, and others."
+  },
+  {
+    title: "Haqiqat-i Namaz",
+    titleEn: "The Reality of Prayer",
+    editors: "Mawlana Amin Ahsan Islahi (annotations by Mawlana Sultan Ahmad Islahi)",
+    year: "—",
+    pages: "—",
+    price: "—",
+    desc: "A small but valuable book on the most important pillar of Islam and its place in the spiritual life of Muslims, with references and annotations added by Maulana Sultan Ahmad Islahi."
   },
 ];
 ---
@@ -62,7 +152,7 @@ const publications = [
 <Layout
   title="Publications"
   description="Browse books and research publications by Idara Ulum-Al-Qur'an on Qur'anic sciences, tafsir, and related disciplines."
-canonicalUrl="/en/publications/"
+  canonicalUrl="/en/publications/"
 >
   <main class="container page-content">
 
@@ -75,34 +165,59 @@ canonicalUrl="/en/publications/"
     <h1>Publications</h1>
 
     <p class="page-intro">
-      Idara Ulum-Al-Qur'an publishes books and research papers on Qur'anic
-      sciences, tafsir, and related disciplines. All publications follow the
-      scholarly methodology of Imam Hamid al-Din Farahi.
+      Idara Ulum-Al-Qur'an publishes books, seminar proceedings, and research
+      papers on Qur'anic sciences and related disciplines. All publications
+      follow the scholarly methodology of Imam Hamid al-Din Farahi.
+      To order any publication, please <a href="/en/contact/">contact us</a>.
     </p>
 
-    <div class="pub-grid">
-      {publications.map((pub) => (
+    <div class="pub-list">
+      {publications.map((pub, i) => (
         <article class="pub-card">
-          <div class="pub-cover">
-            <span class="pub-cover-urdu">{pub.title.slice(0, 8)}</span>
-          </div>
-          <div class="pub-info">
+          <div class="pub-number">{String(i + 1).padStart(2, '0')}</div>
+          <div class="pub-body">
             <h2 class="pub-title">{pub.title}</h2>
             <p class="pub-title-en">{pub.titleEn}</p>
-            <ul class="pub-meta-list">
-              <li><span class="meta-label">Author</span><span class="meta-value">{pub.author}</span></li>
-              <li><span class="meta-label">Year</span><span class="meta-value">{pub.year}</span></li>
-              <li><span class="meta-label">Pages</span><span class="meta-value">{pub.pages}</span></li>
-              <li><span class="meta-label">Language</span><span class="meta-value">{pub.language}</span></li>
-            </ul>
-            <a href="/en/contact/" class="btn-enquire">Enquire to Order</a>
+            <p class="pub-desc">{pub.desc}</p>
+            <div class="pub-meta">
+              {pub.editors !== "—" && (
+                <span class="meta-item">
+                  <span class="meta-label">Editor/Author</span>
+                  <span class="meta-value">{pub.editors}</span>
+                </span>
+              )}
+              <span class="meta-item">
+                <span class="meta-label">Year</span>
+                <span class="meta-value">{pub.year}</span>
+              </span>
+              {pub.pages !== "—" && (
+                <span class="meta-item">
+                  <span class="meta-label">Pages</span>
+                  <span class="meta-value">{pub.pages}</span>
+                </span>
+              )}
+              {pub.price !== "—" && (
+                <span class="meta-item">
+                  <span class="meta-label">Price</span>
+                  <span class="meta-value">{pub.price}</span>
+                </span>
+              )}
+            </div>
+          </div>
+          <div class="pub-action">
+            <a href="/en/contact/" class="btn-enquire">Enquire</a>
           </div>
         </article>
       ))}
     </div>
 
     <div class="pub-note">
-      <p>To order any publication or enquire about availability and pricing, please <a href="/en/contact/">contact us</a>.</p>
+      <p>
+        To order any publication or enquire about availability, pricing, and
+        postage, please <a href="/en/contact/">contact us</a>. Publications
+        can be ordered from Idara Ulum-Al-Qur'an, Aligarh Muslim University,
+        Aligarh — 202002.
+      </p>
     </div>
 
   </main>
@@ -127,10 +242,6 @@ canonicalUrl="/en/publications/"
   color: var(--color-link);
 }
 
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-
 h1 {
   font-size: 2.25rem;
   color: var(--color-primary);
@@ -143,15 +254,20 @@ h1 {
   font-size: 1rem;
   line-height: 1.85;
   color: var(--color-muted);
-  max-width: 680px;
+  max-width: 720px;
   margin-bottom: 2.5rem;
 }
 
-/* ─── Publication Grid ─── */
-.pub-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+.page-intro a {
+  color: var(--color-link);
+  font-weight: 600;
+}
+
+/* ─── Publication List ─── */
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-bottom: 2.5rem;
 }
 
@@ -159,88 +275,88 @@ h1 {
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  overflow: hidden;
+  padding: 1.5rem;
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 48px 1fr auto;
+  gap: 1.25rem;
+  align-items: start;
   transition: box-shadow 0.2s;
 }
 
 .pub-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
 }
 
-.pub-cover {
-  background: linear-gradient(160deg, var(--color-primary) 0%, #0d3d32 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 180px;
-  padding: 1rem;
-}
-
-.pub-cover-urdu {
-  font-family: 'Noto Nastaliq Urdu', serif;
-  font-size: 1.1rem;
-  color: var(--color-accent);
-  line-height: 2;
-  text-align: center;
-  direction: rtl;
-}
-
-.pub-info {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.pub-number {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-border);
+  line-height: 1;
+  padding-top: 0.2rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .pub-title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--color-primary);
   line-height: 1.4;
-  margin: 0;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
 }
 
 .pub-title-en {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--color-muted);
   font-style: italic;
+  margin-bottom: 0.75rem;
 }
 
-.pub-meta-list {
-  list-style: none;
+.pub-desc {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.pub-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.meta-item {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  margin-top: 0.5rem;
-}
-
-.pub-meta-list li {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.82rem;
+  gap: 0.1rem;
 }
 
 .meta-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--color-muted);
 }
 
 .meta-value {
+  font-size: 0.85rem;
   color: var(--color-text);
   font-weight: 600;
 }
 
+.pub-action {
+  padding-top: 0.2rem;
+}
+
 .btn-enquire {
   display: inline-block;
-  margin-top: auto;
   padding: 0.5rem 1rem;
   background: var(--color-primary);
   color: #FFFFFF;
   border-radius: 4px;
   font-size: 0.82rem;
   font-weight: 600;
+  white-space: nowrap;
   transition: opacity 0.2s;
-  align-self: flex-start;
 }
 
 .btn-enquire:hover {
@@ -252,13 +368,15 @@ h1 {
 .pub-note {
   background: var(--color-white);
   border: 1px solid var(--color-border);
-  border-radius: 8px;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 8px 8px 0;
   padding: 1.25rem 1.5rem;
 }
 
 .pub-note p {
   font-size: 0.95rem;
   color: var(--color-muted);
+  line-height: 1.75;
 }
 
 .pub-note a {
@@ -266,33 +384,27 @@ h1 {
   font-weight: 600;
 }
 
-.pub-note a:hover {
-  text-decoration: underline;
-}
-
 @media (max-width: 768px) {
   h1 {
     font-size: 1.75rem;
   }
 
-  .pub-grid {
-    grid-template-columns: 1fr;
-  }
-
   .pub-card {
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 36px 1fr;
+    grid-template-rows: auto auto;
   }
 
-  .pub-cover {
-    min-height: 130px;
+  .pub-action {
+    grid-column: 2;
+    padding-top: 0;
   }
 
-  .pub-cover-urdu {
-    font-size: 0.9rem;
+  .pub-number {
+    font-size: 1.1rem;
   }
 
-  .pub-info {
-    padding: 1rem;
+  .pub-title {
+    font-size: 0.97rem;
   }
 }
 </style>

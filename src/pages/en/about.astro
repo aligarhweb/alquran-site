@@ -1,10 +1,57 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const organisation = [
+  { role: "President", name: "Dr Ishtiyaq Ahmad Zilli", detail: "Professor (Retired), Centre of Advanced Study, Department of History, AMU, Aligarh", email: "Zilli@rediffmail.com" },
+  { role: "Vice President", name: "Dr S. Masood Ahmad", detail: "Retired Professor and former Dean of Life Sciences, AMU, Aligarh", email: "" },
+  { role: "Secretary", name: "Dr Abdul Azim Islahi", detail: "Former Professor of Economics, Islamic Economics Institute, King Abdulaziz University, Jeddah", email: "aaislahi@gmail.com" },
+  { role: "Assistant Secretary", name: "Dr Arafat Zafar", detail: "Associate Professor, Dept. of Arabic, AMU, Aligarh", email: "arafatzafar@gmail.com" },
+  { role: "Treasurer", name: "Mr Naseem Ahmed Khan", detail: "Associate Professor, Department of Chemical Engineering, AMU, Aligarh", email: "nakhan63@rediffmail.com" },
+];
+
+const foundingMembers = [
+  "Mawlana Amanatullah Islahi",
+  "Mawlana Abdul-Majeed Nadwi",
+  "Hakim Moinuddin Islahi",
+  "Mawlana Ashfaq Ahmad Islahi",
+  "Dr Shafiq Ahmad Islahi",
+  "Professor Ubaidullah Farahi",
+  "Dr Abu Saad Islahi",
+  "Dr Abdul Azim Islahi",
+  "Mawlana Abrar Ahmad Islahi Makki",
+  "Dr Muhammad Ajmal Islahi",
+  "Mawlana Sultan Ahmad Islahi",
+  "Dr Fakhrul Islam Azmi",
+  "Dr Rashid Ayyub Islahi",
+  "Dr Zafarul Islam Islahi",
+  "Professor Ishtiyaq Ahmad Zilli",
+];
+
+const executiveCommittee = [
+  "Dr Shafiq Ahmad Islahi",
+  "Prof. Ishtiyaq Ahmad Zilli",
+  "Dr Abdul Azim Islahi",
+  "Dr S. Masood Ahmad",
+  "Dr Zafarul Islam Islahi",
+  "Mr Abrar Ahmad Islahi",
+  "Dr Muhammad Ajmal Islahi",
+  "Prof. Abu Sufyan Islahi",
+  "Mr Ashhad Jamal Nadvi",
+  "Dr Hafiz Muhammad Rashid Islahi",
+  "Maulana Mohammad Umar Aslam Islahi",
+  "Dr Ayaz Ahmad Islahi",
+  "Janab Nasim Ahmad Khan",
+  "Dr Abdul Qayyum",
+  "Dr Arafat Zafar",
+  "Hakim Nazish Islahi",
+  "Hakim Fakhre Alam",
+  "Dr Abu Zarr Matin",
+];
 ---
 
 <Layout
   title="About the Institute"
-  description="Idara Ulum-Al-Qur'an was established in 1984 at Aligarh Muslim University, following the scholarly tradition of Imam Hamid al-Din Farahi."
+  description="Idara Ulum-Al-Qur'an was established in 1984 at Aligarh Muslim University by alumni of Madrasah al-Islah, following the scholarly methodology of Imam Hamid al-Din Farahi."
   canonicalUrl="/en/about/"
 >
   <main class="container page-content">
@@ -17,54 +64,140 @@ import Layout from '../../layouts/Layout.astro';
 
     <h1>About the Institute</h1>
 
-    <div class="page-grid">
-      <article class="page-body">
-
-        <h2>Our Mission</h2>
-        <p>Idara Ulum-Al-Qur'an is an independent academic institute established in 1984 at Aligarh Muslim University, Aligarh. The institute is dedicated to the research, teaching, and publication of works in the field of Qur'anic sciences.</p>
-
-        <h2>Intellectual Tradition</h2>
-        <p>The institute follows the scholarly methodology of Imam Hamid al-Din Farahi (1863–1930), one of the most original Qur'anic scholars of the modern era. Farahi's approach emphasised the internal coherence and thematic unity (<em>nazm</em>) of the Qur'an. His student, Maulana Amin Ahsan Islahi, carried this tradition forward through his monumental tafsir <em>Tadabbur-i-Qur'an</em>.</p>
-
-        <h2>Activities</h2>
-        <p>The institute carries out the following activities:</p>
-        <ul>
-          <li>Publishing the biannual peer-reviewed journal <em>Ulum al-Qur'an</em> since 1985</li>
-          <li>Organising annual Qur'anic seminars and monthly scholars' seminars</li>
-          <li>Conducting national competitions in Qur'anic studies</li>
-          <li>Publishing books and research papers on Qur'anic themes</li>
-          <li>Running a special lecture series on Qur'anic sciences</li>
-          <li>Maintaining a specialised library of Qur'anic literature</li>
-        </ul>
-
-        <h2>Location</h2>
-        <p>The institute is located within the campus of Aligarh Muslim University, one of India's premier central universities, in Aligarh, Uttar Pradesh.</p>
-
-      </article>
-
-      <aside class="page-sidebar">
-        <div class="sidebar-card">
-          <h3>Quick Facts</h3>
-          <ul class="fact-list">
-            <li><span class="fact-label">Founded</span><span class="fact-value">1984</span></li>
-            <li><span class="fact-label">Location</span><span class="fact-value">AMU, Aligarh</span></li>
-            <li><span class="fact-label">Journal</span><span class="fact-value">Since 1985</span></li>
-            <li><span class="fact-label">Volumes</span><span class="fact-value">39</span></li>
-            <li><span class="fact-label">Languages</span><span class="fact-value">Urdu, English, Hindi</span></li>
-          </ul>
-        </div>
-
-        <div class="sidebar-card">
-          <h3>Related Links</h3>
-          <ul class="link-list">
-            <li><a href="/en/journal/">Biannual Journal</a></li>
-            <li><a href="/en/publications/">Publications</a></li>
-            <li><a href="/en/seminars/">Seminars</a></li>
-            <li><a href="/en/contact/">Contact Us</a></li>
-          </ul>
-        </div>
-      </aside>
+    <!-- Tab Nav -->
+    <div class="tab-nav">
+      <a href="#history" class="tab-link active">History & Mission</a>
+      <a href="#aims" class="tab-link">Aims & Objectives</a>
+      <a href="#organisation" class="tab-link">Organisation</a>
+      <a href="#founding" class="tab-link">Founding Members</a>
+      <a href="#committee" class="tab-link">Executive Committee</a>
     </div>
+
+    <!-- Section 1: History -->
+    <section id="history" class="content-section">
+      <h2>History & Mission</h2>
+
+      <p>
+        Idarah Ulum al-Qur'an was established in 1984 by some alumni of
+        <strong>Madrasah al-Islah</strong> — a noted seat of Islamic learning in India —
+        based at Aligarh Muslim University, Aligarh, and some other academic centres
+        within and outside the country. The institute aims at promoting research in
+        Qur'anic Studies, working for the dissemination of the teachings of the Noble
+        Qur'an, and trying to find solutions for the problems facing the Muslim society
+        in particular and humanity at large, in the light of the guidance provided by it.
+      </p>
+
+      <p>
+        Madrasah al-Islah lays special emphasis on the study and teaching of the Noble
+        Qur'an, which is given central place in its curricula. The methodology employed
+        for the explanation of the Holy Qur'an and exploring its meanings and subtleties
+        is somewhat different from those generally used by scholars working in the area
+        of tafsir and Qur'anic studies elsewhere.
+      </p>
+
+      <div class="highlight-box">
+        <h3>The Farahi Methodology</h3>
+        <p>
+          This methodology was developed by the renowned twentieth-century scholar,
+          exegete, and reformer, <strong>Hamid al-Din Farahi (1863–1930)</strong>,
+          who was a great exponent of the concept of coherence (<em>nazm</em>) in the
+          Qur'an. After completing his education in the traditional Islamic sciences,
+          he joined Mohammedan Anglo-Oriental (M.A.O.) College, Aligarh, in 1891,
+          passing his B.A. in 1895. He later served M.A.O. College, Muir College
+          Allahabad University, and Dar al-Ulum Hyderabad before devoting the
+          remaining years of his life entirely to Qur'anic study.
+        </p>
+        <p>
+          During the last ten years of his life, he tirelessly worked to give concrete
+          shape to his Qur'anic thought and implement it at Madrasah al-Islah, which
+          was established in 1908. He wrote extensively in Arabic; his disciple and
+          intellectual heir, <strong>Amin Ahsan Islahi</strong>, rendered some of his
+          more important works into Urdu.
+        </p>
+      </div>
+
+      <p>
+        At Idarah Ulum al-Qur'an, we believe this methodology is best suited for
+        pondering over the Holy Qur'an and best calculated to lead to the correct
+        understanding of its meanings, subtleties, intricacies, and implications.
+        While we strive to propagate this methodology, we are not confined within its
+        boundaries. We consider the vast literature produced by successive generations
+        of <em>Mufassirun</em> as the most valued treasures of our religious and
+        intellectual heritage. There is no place for sectarianism or fanaticism of
+        any kind in this organisation.
+      </p>
+
+      <p>
+        The Noble Qur'an is the last book of guidance for humanity. It was due to the
+        realisation of this importance that the Institute of Qur'anic Sciences was
+        established in 1984 — to continuously bring its teachings to ever larger
+        numbers of people, because the salvation of humanity lies in following the
+        precepts and principles enshrined in the Noble Qur'an.
+      </p>
+    </section>
+
+    <!-- Section 2: Aims -->
+    <section id="aims" class="content-section">
+      <h2>Aims & Objectives</h2>
+
+      <p>The Institute was established in 1984 with the following aims and objectives:</p>
+
+      <ul class="aims-list">
+        <li>To try to find solutions for the problems confronting the Ummah and humanity at large in the light of the teachings of the Qur'an.</li>
+        <li>To try to revive and revitalise the Islamic religious sciences and purify and Islamize the modern sciences in the light of the teachings of the Qur'an.</li>
+        <li>To conduct researches on important issues and themes connected with the Qur'an.</li>
+      </ul>
+
+      <h3>Sphere of Work</h3>
+      <p>For the purposes of realising these aims and objectives, the Institute has outlined the following programme:</p>
+
+      <ul class="aims-list">
+        <li>To publish a standard specialist journal of Qur'anic Studies for the dissemination of Qur'anic sciences and teachings and promoting research in the area.</li>
+        <li>To prepare books on issues and themes related to the Qur'an and its worldview and publish them.</li>
+        <li>To establish a reference library with special emphasis on Qur'anic studies.</li>
+        <li>To arrange for the training and supervision of students to conduct research in the area of Qur'anic Studies and to provide necessary stipends and scholarships.</li>
+        <li>To organise discussions and symposia on Qur'anic themes.</li>
+        <li>To establish contacts with other centres of Islamic sciences and institutions working for the realisation of the same objectives.</li>
+      </ul>
+    </section>
+
+    <!-- Section 3: Organisation -->
+    <section id="organisation" class="content-section">
+      <h2>Organisation of the Institute</h2>
+
+      <div class="org-grid">
+        {organisation.map((member) => (
+          <div class="org-card">
+            <div class="org-role">{member.role}</div>
+            <div class="org-name">{member.name}</div>
+            <div class="org-detail">{member.detail}</div>
+            {member.email && (
+              <a href={`mailto:${member.email}`} class="org-email">{member.email}</a>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Section 4: Founding Members -->
+    <section id="founding" class="content-section">
+      <h2>Founding Members of the Institute</h2>
+      <ol class="member-list">
+        {foundingMembers.map((name) => (
+          <li>{name}</li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- Section 5: Executive Committee -->
+    <section id="committee" class="content-section">
+      <h2>Members of the Present Executive Committee</h2>
+      <ol class="member-list">
+        {executiveCommittee.map((name) => (
+          <li>{name}</li>
+        ))}
+      </ol>
+    </section>
 
   </main>
 </Layout>
@@ -88,111 +221,182 @@ import Layout from '../../layouts/Layout.astro';
   color: var(--color-link);
 }
 
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-
 h1 {
   font-size: 2.25rem;
   color: var(--color-primary);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid var(--color-border);
 }
 
-.page-grid {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 3rem;
-  align-items: start;
+/* ─── Tab Nav ─── */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
 }
 
-.page-body h2 {
-  font-size: 1.3rem;
+.tab-link {
+  padding: 0.65rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab-link:hover {
   color: var(--color-primary);
-  margin-top: 2rem;
+  text-decoration: none;
+  border-bottom-color: var(--color-border);
+}
+
+.tab-link.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* ─── Content Sections ─── */
+.content-section {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.content-section:last-child {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  color: var(--color-primary);
+  margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
 
-.page-body p {
+p {
   font-size: 1rem;
   line-height: 1.85;
   color: var(--color-text);
   margin-bottom: 1rem;
+  max-width: 780px;
 }
 
-.page-body ul {
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
+strong {
+  color: var(--color-primary);
 }
 
-.page-body ul li {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--color-text);
-  margin-bottom: 0.4rem;
-}
-
-.page-body em {
+em {
   color: var(--color-primary);
   font-style: italic;
 }
 
-.sidebar-card {
+/* ─── Highlight Box ─── */
+.highlight-box {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.highlight-box h3 {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.highlight-box p {
+  margin-bottom: 0.75rem;
+}
+
+.highlight-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Aims List ─── */
+.aims-list {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 780px;
+}
+
+.aims-list li {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin-bottom: 0.6rem;
+}
+
+/* ─── Organisation Grid ─── */
+.org-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.org-card {
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 1.25rem;
-  margin-bottom: 1.5rem;
 }
 
-.sidebar-card h3 {
-  font-size: 0.9rem;
+.org-role {
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.org-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.org-detail {
+  font-size: 0.87rem;
   color: var(--color-muted);
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-border);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
-.fact-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.fact-list li {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-}
-
-.fact-label {
-  color: var(--color-muted);
-}
-
-.fact-value {
-  color: var(--color-text);
-  font-weight: 600;
-  text-align: right;
-}
-
-.link-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.link-list a {
-  font-size: 0.9rem;
+.org-email {
+  font-size: 0.82rem;
   color: var(--color-link);
 }
 
-.link-list a:hover {
+.org-email:hover {
   text-decoration: underline;
+}
+
+/* ─── Member Lists ─── */
+.member-list {
+  column-count: 2;
+  column-gap: 2rem;
+  padding-left: 1.5rem;
+  max-width: 780px;
+}
+
+.member-list li {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+  break-inside: avoid;
 }
 
 @media (max-width: 768px) {
@@ -200,12 +404,17 @@ h1 {
     font-size: 1.75rem;
   }
 
-  .page-grid {
-    display: block;
+  .tab-link {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.7rem;
   }
 
-  .page-sidebar {
-    margin-top: 2.5rem;
+  .org-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .member-list {
+    column-count: 1;
   }
 }
 </style>

@@ -1,0 +1,411 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const quranicSeminars = [
+  { year: "2005", title: "Inaugural Two-Day Seminar on Qur'anic Studies", note: "Proceedings published in 532 pages" },
+  { year: "2008", title: "Asr-i Hazir ke Masail aur Qur'ani Ta'limat" },
+  { year: "2009", title: "Khandani Masail aur Qur'ani Ta'limat" },
+  { year: "2010", title: "Ma'ashi Masa'il aur Qur'ani Ta'limat" },
+  { year: "2010", title: "Economic Problems and the Qur'anic Teachings" },
+  { year: "2011", title: "Asre Hazir ke Siyasi Masail aur Qur'ani Taleemat" },
+  { year: "2012", title: "Ruju ila al-Qur'an: Ahmiyat aur Taqaze — Vol. 1" },
+  { year: "2013", title: "Ruju ila al-Qur'an: Ahmiyat aur Taqaze — Vol. 2" },
+  { year: "2014", title: "Samaji Buraeon ka Insidad aur Qur'ani Taleemat" },
+  { year: "2015", title: "Musalman aur Ghair-Muslimin mein Rabt o Ta'awun — Vol. 1" },
+  { year: "2016", title: "Musalman aur Ghair-Muslimin mein Rabt o Ta'awun — Vol. 2" },
+  { year: "2017", title: "Qur'an ka Tasawwur-e-Uroj o Zawal: Ahd-e-Hazir ke Khususi Sandarbh mein" },
+  { year: "2018", title: "Islah aur Fasad fi al-Arz ka Qur'ani Tasawwur o Jihat" },
+  { year: "2023", title: "Qur'an Kareem ke I'jazi Pahlu" },
+];
+
+const monthlySeminars = [
+  { no: 1, title: "Surah Yusuf Ayat 55 — A Study", presenter: "Saifullah Asghar Azam", chair: "Prof. Ishtiyaq Ahmad Zilli", date: "22 August 2015" },
+  { no: 2, title: "Mazhabi Rawadari aur Qur'ani Taleemat", presenter: "Mohammad Ismaeel", chair: "Maulana Sultan Ahmed Islahi", date: "12 September 2015" },
+  { no: 3, title: "Taliqaat-e-Imam Farahi: Tahlil o Tajziyah", presenter: "Abu Saad Azami", chair: "Prof. Ishtiyaq Ahmad Zilli", date: "10 October 2015" },
+  { no: 4, title: "Deen ke Qur'ani Uslub", presenter: "Hasibullah Islahi", chair: "Dr Mohammad Ajmal Ayyub Islahi", date: "14 November 2015" },
+  { no: 5, title: "Waleem al-Azami ki Sha'iri mein Qur'ani Asraat", presenter: "Abu Saad Azami", chair: "Prof. Abu Sufiyan Islahi", date: "12 December 2015" },
+  { no: 6, title: "Qur'an ka Tasawwur-e-Uroj o Zawal", presenter: "Habiburrahman Islahi", chair: "Prof. Ishtiyaq Ahmad Zilli", date: "21 May 2016" },
+  { no: 7, title: "Qur'an Kareem ka Matloob Momin", presenter: "Mohammad Sadiq Islahi", chair: "Prof. Abdul Azim Islahi", date: "8 September 2016" },
+  { no: 8, title: "Taweel o Mushkil al-Qur'an: Ta'aruf o Tajziyah", presenter: "Mohd Ashraf Azmi", chair: "Dr Arafat Zafar Islahi", date: "26 October 2021" },
+  { no: 9, title: "Aqsam al-Qur'an: Ta'aruf o Tajziyah", presenter: "Abu Saad Azami", chair: "Prof. Abu Sufiyan Islahi", date: "13 October 2022" },
+  { no: 10, title: "Imam Razi ki Ba'az Ara Per Maulana Farahi ka Naqd o Tabsirah", presenter: "Mohd Ashraf Azmi", chair: "Dr Arafat Zafar Islahi", date: "13 October 2023" },
+];
+---
+
+<Layout
+  title="Seminars & Events"
+  description="Idara Ulum-Al-Qur'an organises annual Qur'anic seminars, monthly scholars' seminars, and special lecture series on Qur'anic sciences at Aligarh Muslim University."
+  canonicalUrl="/en/seminars/"
+>
+  <main class="container page-content">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span>›</span>
+      <span>Seminars</span>
+    </nav>
+
+    <h1>Seminars & Events</h1>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+      <a href="#quranic-seminars" class="tab-link active">Qur'anic Seminars</a>
+      <a href="#monthly-seminars" class="tab-link">Monthly Scholars' Seminars</a>
+      <a href="#videos" class="tab-link">Videos</a>
+    </div>
+
+    <!-- Section 1: Quranic Seminars -->
+    <section id="quranic-seminars" class="content-section">
+      <h2>Qur'anic Seminars</h2>
+
+      <div class="intro-card">
+        <p>
+          On 26–27 July 2005, the Institute organised its inaugural two-day seminar.
+          Eminent scholars from Muslim religious and academic institutions as well as
+          universities participated, contributing research papers on developments in
+          Qur'anic Studies, exegetical trends, and contributions of various
+          <em>Mufassirun</em>. The proceedings were published in a volume of 532 pages.
+        </p>
+        <p>
+          Each seminar follows a rigorous peer-review process: a topic is announced,
+          authors submit summaries, then full papers, which are reviewed by external
+          referees. After revision, the papers are presented at the seminar and
+          subsequently published in book form.
+        </p>
+      </div>
+
+      <div class="seminar-list">
+        {quranicSeminars.map((s) => (
+          <div class="seminar-card">
+            <div class="seminar-year">{s.year}</div>
+            <div class="seminar-info">
+              <p class="seminar-title">{s.title}</p>
+              {s.note && <span class="seminar-note">{s.note}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Section 2: Monthly Seminars -->
+    <section id="monthly-seminars" class="content-section">
+      <h2>Monthly Scholars' Seminars</h2>
+
+      <div class="intro-card">
+        <p>
+          Idara Ulum-Al-Qur'an has established a series of Scholars' Seminars to
+          inculcate a taste for research and writing among students and promote their
+          academic potential. Students of Aligarh Muslim University and scholars of
+          the Institute of Islamic Research and Writing participate with great interest.
+          After each paper presentation, full opportunity is given for question and
+          answer. A professor or well-known scholar presides over each session.
+        </p>
+      </div>
+
+      <div class="monthly-table-wrap">
+        <table class="monthly-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Paper Title</th>
+              <th>Presenter</th>
+              <th>Chair</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {monthlySeminars.map((s) => (
+              <tr>
+                <td class="td-no">{s.no}</td>
+                <td class="td-title">{s.title}</td>
+                <td>{s.presenter}</td>
+                <td>{s.chair}</td>
+                <td class="td-date">{s.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: Videos -->
+    <section id="videos" class="content-section">
+      <h2>Seminar Videos</h2>
+      <p class="section-intro">
+        Recordings of seminars and lectures are available on the YouTube channel
+        of Anjuman Talabe Qadeem MIS, associated with the Institute.
+      </p>
+      
+        <a href="https://www.youtube.com/@AnjumantalabeqadeemMIS"
+        target="_blank"
+        rel="noopener"
+        class="youtube-btn"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+        </svg>
+        Watch on YouTube — @AnjumantalabeqadeemMIS
+      </a>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--color-link);
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* ─── Tab Nav ─── */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.tab-link {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab-link:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom-color: var(--color-border);
+}
+
+.tab-link.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* ─── Content Sections ─── */
+.content-section {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.content-section:last-child {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+}
+
+.intro-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.intro-card p {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.intro-card p:last-child {
+  margin-bottom: 0;
+}
+
+.intro-card em {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+/* ─── Quranic Seminar List ─── */
+.seminar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.seminar-card {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 1rem;
+  align-items: center;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.85rem 1.1rem;
+  transition: box-shadow 0.2s;
+}
+
+.seminar-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.seminar-year {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: #e8f5f1;
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  text-align: center;
+}
+
+.seminar-title {
+  font-size: 0.97rem;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.seminar-note {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ─── Monthly Table ─── */
+.monthly-table-wrap {
+  overflow-x: auto;
+}
+
+.monthly-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.monthly-table th {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.monthly-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  vertical-align: top;
+}
+
+.monthly-table tr:nth-child(even) td {
+  background: #f7f5f1;
+}
+
+.monthly-table tr:hover td {
+  background: #eef7f4;
+}
+
+.td-no {
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.td-title {
+  font-weight: 600;
+  min-width: 200px;
+}
+
+.td-date {
+  white-space: nowrap;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+}
+
+/* ─── Videos ─── */
+.section-intro {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.75rem;
+  background: #FF0000;
+  color: #FFFFFF;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.youtube-btn:hover {
+  opacity: 0.88;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .tab-nav {
+    gap: 0;
+  }
+
+  .tab-link {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.85rem;
+  }
+
+  .seminar-card {
+    grid-template-columns: 55px 1fr;
+    gap: 0.75rem;
+  }
+
+  .monthly-table th,
+  .monthly-table td {
+    padding: 0.6rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  .youtube-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>
