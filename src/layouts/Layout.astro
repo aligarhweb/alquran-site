@@ -1,7 +1,8 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-const { title, description, lang = "en", dir = "ltr" } = Astro.props;
+const { title, description, lang = "en", dir = "ltr", canonicalUrl } = Astro.props;
+const siteUrl = "https://alquran.in";
 ---
 
 <html lang={lang} dir={dir}>
@@ -11,6 +12,27 @@ const { title, description, lang = "en", dir = "ltr" } = Astro.props;
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} — Idara Ulum-Al-Qur'an</title>
+
+    <!-- Canonical -->
+    {canonicalUrl && <link rel="canonical" href={`${siteUrl}${canonicalUrl}`} />}
+
+    <!-- hreflang -->
+    {canonicalUrl && (
+      <>
+        <link rel="alternate" hreflang="en" href={`${siteUrl}/en${canonicalUrl === '/en/' ? '/' : canonicalUrl.replace('/en', '')}`} />
+        <link rel="alternate" hreflang="ur" href={`${siteUrl}${canonicalUrl.replace('/en', '/ur')}`} />
+        <link rel="alternate" hreflang="x-default" href={`${siteUrl}${canonicalUrl}`} />
+      </>
+    )}
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${title} — Idara Ulum-Al-Qur'an`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {canonicalUrl && <meta property="og:url" content={`${siteUrl}${canonicalUrl}`} />}
+    <meta property="og:site_name" content="Idara Ulum-Al-Qur'an" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
