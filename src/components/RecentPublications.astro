@@ -147,4 +147,25 @@ const publications = [
   font-size: 0.8rem;
   color: var(--color-muted);
 }
+@media (max-width: 768px) {
+  .pub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pub-card {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+  }
+
+  .pub-cover {
+    height: auto;
+    min-height: 110px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
 </style>

@@ -67,3 +67,173 @@ a:hover {
   color: var(--color-muted);
   font-size: 0.9rem;
 }
+/* ─── Responsive / Mobile ─── */
+@media (max-width: 768px) {
+
+  /* Fix global overflow - this is the white margin fix */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .container {
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  /* Header */
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .brand-name-en {
+    font-size: 0.8rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero-inner {
+    display: block;
+  }
+
+  .hero-heading {
+    font-size: 1.85rem;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .stat-card {
+    flex: 1 1 calc(33% - 0.75rem);
+    min-width: 90px;
+    padding: 0.85rem 0.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  /* Journal Spotlight */
+  .spotlight-content {
+    display: block;
+  }
+
+  .spotlight-heading {
+    font-size: 1.4rem;
+  }
+
+  .spotlight-desc {
+    font-size: 0.9rem;
+  }
+
+  .cover-placeholder {
+    width: 110px;
+    height: 150px;
+    margin: 1.5rem auto 0;
+  }
+
+  /* Publications */
+  .pub-grid {
+    display: block;
+  }
+
+  .pub-card {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    margin-bottom: 1rem;
+  }
+
+  .pub-cover {
+    height: auto;
+    min-height: 110px;
+  }
+
+  .pub-cover-urdu {
+    font-size: 1rem;
+  }
+
+  .pub-info {
+    padding: 0.85rem;
+  }
+
+  .pub-title {
+    font-size: 0.9rem;
+  }
+
+  .pub-title-en {
+    font-size: 0.78rem;
+  }
+
+  .pub-meta {
+    font-size: 0.75rem;
+  }
+
+  /* About Strip */
+  .about-inner {
+    display: block;
+  }
+
+  .about-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+  }
+
+  .about-numbers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-left: none;
+    padding-left: 0;
+    border-top: 2px solid var(--color-border);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .about-num {
+    font-size: 1.75rem;
+  }
+
+  /* Section header */
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  /* Footer */
+  .footer-inner {
+    display: block;
+  }
+
+  .footer-col {
+    margin-bottom: 2rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.75rem;
+  }
+}
