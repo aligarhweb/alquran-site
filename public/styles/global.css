@@ -71,8 +71,8 @@ a:hover {
 @media (max-width: 768px) {
 
   /* Fix global overflow - this is the white margin fix */
-  html, body {
-    overflow-x: hidden;
+  body {
+    overflow-x: clip;
     width: 100%;
   }
 
