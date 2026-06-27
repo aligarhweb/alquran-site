@@ -1,0 +1,352 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const volumes = [
+  { vol: 39, year: "2024", issues: 2 },
+  { vol: 38, year: "2023", issues: 2 },
+  { vol: 37, year: "2022", issues: 2 },
+  { vol: 36, year: "2021", issues: 2 },
+  { vol: 35, year: "2020", issues: 2 },
+  { vol: 34, year: "2019", issues: 2 },
+  { vol: 33, year: "2018", issues: 2 },
+  { vol: 32, year: "2017", issues: 2 },
+  { vol: 31, year: "2016", issues: 2 },
+  { vol: 30, year: "2015", issues: 2 },
+  { vol: 29, year: "2014", issues: 2 },
+  { vol: 28, year: "2013", issues: 2 },
+  { vol: 27, year: "2012", issues: 2 },
+  { vol: 26, year: "2011", issues: 2 },
+  { vol: 25, year: "2010", issues: 2 },
+  { vol: 24, year: "2009", issues: 2 },
+  { vol: 23, year: "2008", issues: 2 },
+  { vol: 22, year: "2007", issues: 2 },
+  { vol: 21, year: "2006", issues: 2 },
+  { vol: 20, year: "2005", issues: 2 },
+];
+---
+
+<Layout
+  title="Biannual Journal — Ulum al-Qur'an"
+  description="Ulum al-Qur'an is a peer-reviewed biannual journal published by Idara Ulum-Al-Qur'an since 1985, covering Qur'anic sciences, tafsir, and related disciplines."
+>
+  <main class="container page-content">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span>›</span>
+      <span>Journal</span>
+    </nav>
+
+    <h1>Biannual Journal — Ulum al-Qur'an</h1>
+
+    <div class="page-grid">
+
+      <article class="page-body">
+
+        <div class="journal-intro">
+          <div class="journal-intro-text">
+            <p>
+              <em>Ulum al-Qur'an</em> (علوم القرآن) is a peer-reviewed academic journal
+              published twice a year by Idara Ulum-Al-Qur'an since 1985. It publishes
+              original research in Qur'anic sciences, tafsir, Islamic jurisprudence,
+              and related disciplines, primarily in Urdu with occasional Arabic and
+              English contributions.
+            </p>
+            <p>
+              The journal has completed 39 volumes and remains one of the few
+              dedicated peer-reviewed publications in Urdu focusing exclusively
+              on Qur'anic scholarship.
+            </p>
+          </div>
+        </div>
+
+        <h2>Browse Volumes</h2>
+
+        <div class="volume-grid">
+          {volumes.map((v) => (
+            <div class="volume-card">
+              <div class="volume-number">Vol. {v.vol}</div>
+              <div class="volume-year">{v.year}</div>
+              <div class="volume-issues">{v.issues} issues</div>
+            </div>
+          ))}
+        </div>
+
+      </article>
+
+      <aside class="page-sidebar">
+
+        <div class="sidebar-card highlight-card">
+          <h3>Latest Issue</h3>
+          <div class="mini-cover">
+            <span class="mini-cover-urdu">علوم القرآن</span>
+            <span class="mini-cover-vol">Vol. 39 · 2024</span>
+          </div>
+          <a href="/en/contact/" class="btn-primary">Read Online</a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Subscribe</h3>
+          <p>To subscribe to <em>Ulum al-Qur'an</em>, please contact us with your name, address, and preferred subscription period.</p>
+          <a href="/en/contact/" class="btn-outline">Contact to Subscribe</a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Journal Details</h3>
+          <ul class="fact-list">
+            <li><span class="fact-label">ISSN</span><span class="fact-value">—</span></li>
+            <li><span class="fact-label">Since</span><span class="fact-value">1985</span></li>
+            <li><span class="fact-label">Frequency</span><span class="fact-value">Biannual</span></li>
+            <li><span class="fact-label">Language</span><span class="fact-value">Urdu</span></li>
+            <li><span class="fact-label">Volumes</span><span class="fact-value">39</span></li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--color-link);
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.journal-intro {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.journal-intro-text p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.journal-intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+.journal-intro-text em {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+}
+
+/* ─── Volume Grid ─── */
+.volume-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.volume-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.85rem;
+  text-align: center;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  cursor: default;
+}
+
+.volume-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(27,94,79,0.12);
+}
+
+.volume-number {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.volume-year {
+  font-size: 0.85rem;
+  color: var(--color-text);
+  margin: 0.2rem 0;
+}
+
+.volume-issues {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+/* ─── Sidebar ─── */
+.sidebar-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.highlight-card {
+  border-color: var(--color-primary);
+  border-width: 2px;
+}
+
+.sidebar-card h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-card p {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.sidebar-card em {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.mini-cover {
+  background: linear-gradient(160deg, var(--color-primary) 0%, #0d3d32 100%);
+  border-radius: 6px;
+  padding: 1.25rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mini-cover-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  line-height: 2;
+}
+
+.mini-cover-vol {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.btn-primary {
+  display: block;
+  text-align: center;
+  padding: 0.65rem 1.25rem;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+  text-decoration: none;
+}
+
+.btn-outline {
+  display: block;
+  text-align: center;
+  padding: 0.65rem 1.25rem;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.fact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.fact-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.fact-label {
+  color: var(--color-muted);
+}
+
+.fact-value {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .page-grid {
+    display: block;
+  }
+
+  .page-sidebar {
+    margin-top: 2.5rem;
+  }
+
+  .volume-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>

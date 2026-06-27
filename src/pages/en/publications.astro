@@ -1,0 +1,297 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const publications = [
+  {
+    title: "Khandani Nizam aur Qur'ani Ta'limat",
+    titleEn: "Family System and Qur'anic Teachings",
+    author: "Dr. Hamid al-Din Farahi",
+    year: "2018",
+    pages: "320",
+    language: "Urdu",
+    slug: "khandani-nizam"
+  },
+  {
+    title: "Mabadi Tadabbur-i-Qur'an",
+    titleEn: "Principles of Qur'anic Contemplation",
+    author: "Amin Ahsan Islahi",
+    year: "2016",
+    pages: "280",
+    language: "Urdu",
+    slug: "mabadi-tadabbur"
+  },
+  {
+    title: "Tajalli-e-Qur'an",
+    titleEn: "The Manifestation of the Qur'an",
+    author: "Idara Ulum-Al-Qur'an",
+    year: "2014",
+    pages: "210",
+    language: "Urdu",
+    slug: "tajalli-e-quran"
+  },
+  {
+    title: "Qur'an aur Jadeed Ulum",
+    titleEn: "The Qur'an and Modern Sciences",
+    author: "Idara Ulum-Al-Qur'an",
+    year: "2012",
+    pages: "195",
+    language: "Urdu",
+    slug: "quran-aur-jadeed-ulum"
+  },
+  {
+    title: "Asalib al-Qur'an",
+    titleEn: "Literary Styles of the Qur'an",
+    author: "Dr. Hamid al-Din Farahi",
+    year: "2010",
+    pages: "245",
+    language: "Urdu",
+    slug: "asalib-al-quran"
+  },
+  {
+    title: "Nazm-e-Qur'an",
+    titleEn: "The Thematic Coherence of the Qur'an",
+    author: "Amin Ahsan Islahi",
+    year: "2009",
+    pages: "310",
+    language: "Urdu",
+    slug: "nazm-e-quran"
+  },
+];
+---
+
+<Layout
+  title="Publications"
+  description="Browse books and research publications by Idara Ulum-Al-Qur'an on Qur'anic sciences, tafsir, and related disciplines."
+>
+  <main class="container page-content">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span>›</span>
+      <span>Publications</span>
+    </nav>
+
+    <h1>Publications</h1>
+
+    <p class="page-intro">
+      Idara Ulum-Al-Qur'an publishes books and research papers on Qur'anic
+      sciences, tafsir, and related disciplines. All publications follow the
+      scholarly methodology of Imam Hamid al-Din Farahi.
+    </p>
+
+    <div class="pub-grid">
+      {publications.map((pub) => (
+        <article class="pub-card">
+          <div class="pub-cover">
+            <span class="pub-cover-urdu">{pub.title.slice(0, 8)}</span>
+          </div>
+          <div class="pub-info">
+            <h2 class="pub-title">{pub.title}</h2>
+            <p class="pub-title-en">{pub.titleEn}</p>
+            <ul class="pub-meta-list">
+              <li><span class="meta-label">Author</span><span class="meta-value">{pub.author}</span></li>
+              <li><span class="meta-label">Year</span><span class="meta-value">{pub.year}</span></li>
+              <li><span class="meta-label">Pages</span><span class="meta-value">{pub.pages}</span></li>
+              <li><span class="meta-label">Language</span><span class="meta-value">{pub.language}</span></li>
+            </ul>
+            <a href="/en/contact/" class="btn-enquire">Enquire to Order</a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="pub-note">
+      <p>To order any publication or enquire about availability and pricing, please <a href="/en/contact/">contact us</a>.</p>
+    </div>
+
+  </main>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--color-link);
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.page-intro {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-muted);
+  max-width: 680px;
+  margin-bottom: 2.5rem;
+}
+
+/* ─── Publication Grid ─── */
+.pub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.pub-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  transition: box-shadow 0.2s;
+}
+
+.pub-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.pub-cover {
+  background: linear-gradient(160deg, var(--color-primary) 0%, #0d3d32 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  padding: 1rem;
+}
+
+.pub-cover-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  line-height: 2;
+  text-align: center;
+  direction: rtl;
+}
+
+.pub-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pub-title {
+  font-size: 1rem;
+  color: var(--color-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.pub-title-en {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.pub-meta-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.pub-meta-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.meta-label {
+  color: var(--color-muted);
+}
+
+.meta-value {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.btn-enquire {
+  display: inline-block;
+  margin-top: auto;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+
+.btn-enquire:hover {
+  opacity: 0.88;
+  text-decoration: none;
+}
+
+/* ─── Note ─── */
+.pub-note {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+
+.pub-note p {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
+.pub-note a {
+  color: var(--color-link);
+  font-weight: 600;
+}
+
+.pub-note a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .pub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pub-card {
+    grid-template-columns: 100px 1fr;
+  }
+
+  .pub-cover {
+    min-height: 130px;
+  }
+
+  .pub-cover-urdu {
+    font-size: 0.9rem;
+  }
+
+  .pub-info {
+    padding: 1rem;
+  }
+}
+</style>
