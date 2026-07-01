@@ -1,0 +1,344 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+  title="رابطہ کریں — ادارہ علوم القرآن"
+  description="ادارہ علوم القرآن سے رابطہ کریں۔ اشتراک، اشاعتیں، سیمینار اور دیگر معلومات کے لیے ہم سے تحریری یا فون پر رابطہ کریں۔"
+  lang="ur"
+  dir="rtl"
+  canonicalUrl="/ur/contact/"
+>
+  <main class="container page-content">
+
+    <nav class="breadcrumb" aria-label="بریڈکرمب">
+      <a href="/ur/">ہوم</a>
+      <span>‹</span>
+      <span>رابطہ</span>
+    </nav>
+
+    <h1>رابطہ کریں</h1>
+
+    <div class="contact-grid">
+
+      <!-- Left: Info Cards -->
+      <div class="contact-info">
+
+        <div class="info-card">
+          <h2>پتہ</h2>
+          <p>
+            ادارہ علوم القرآن<br />
+            شبلی باغ، علی گڑھ<br />
+            اتر پردیش — 202002<br />
+            ہندوستان
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h2>فون</h2>
+          <p>
+            <a href="tel:7455996990" class="phone-link">7455996990</a><br />
+            <a href="tel:9451392626" class="phone-link">9451392626</a>
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h2>ای میل</h2>
+          <p>
+            <a href="mailto:alquran85@gmail.com" class="email-link">alquran85@gmail.com</a><br />
+            <a href="mailto:aaislahi@gmail.com" class="email-link">aaislahi@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h2>اشتراک رسالہ</h2>
+          <p>
+            علوم القرآن ششماہی رسالہ ہے۔ اشتراک کے لیے ہم سے رابطہ کریں یا
+            نیچے دیے گئے فارم کے ذریعے پیغام بھیجیں۔
+          </p>
+          <a href="/ur/journal/" class="btn-outline">رسالے کی تفصیلات ←</a>
+        </div>
+
+        <div class="info-card">
+          <h2>یوٹیوب چینل</h2>
+          <p>سیمینار اور لیکچر کی ویڈیوز یوٹیوب پر دیکھیں۔</p>
+          
+            <a href="https://www.youtube.com/@AnjumantalabeqadeemMIS"
+            target="_blank"
+            rel="noopener"
+            class="btn-outline"
+          >
+            یوٹیوب پر دیکھیں ←
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="contact-form-wrap">
+        <h2>پیغام بھیجیں</h2>
+        <p class="form-note">نیچے فارم پُر کریں، ہم جلد از جلد جواب دیں گے۔</p>
+
+        <form
+          class="contact-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input type="hidden" name="access_key" value="3e882619-4829-488b-a1ca-2f94ab4d52db" />
+          <input type="hidden" name="subject" value="نیا پیغام — ادارہ علوم القرآن ویب سائٹ" />
+          <input type="hidden" name="from_name" value="alquran.in رابطہ فارم" />
+          <input type="checkbox" name="botcheck" style="display:none" />
+
+          <div class="field">
+            <label for="name">آپ کا نام</label>
+            <input type="text" id="name" name="name" required placeholder="مثلاً: احمد علی" />
+          </div>
+
+          <div class="field">
+            <label for="email">ای میل پتہ</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com" />
+          </div>
+
+          <div class="field">
+            <label for="subject">موضوع</label>
+            <select id="subject" name="subject">
+              <option value="">موضوع منتخب کریں</option>
+              <option value="اشتراک رسالہ">اشتراک رسالہ</option>
+              <option value="اشاعتیں">اشاعتیں</option>
+              <option value="سیمینار">سیمینار و تقریبات</option>
+              <option value="تحقیقی تعاون">تحقیقی تعاون</option>
+              <option value="دیگر">دیگر</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">پیغام</label>
+            <textarea id="message" name="message" rows="5" required placeholder="اپنا پیغام یہاں لکھیں…"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">پیغام بھیجیں</button>
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+  direction: rtl;
+  text-align: right;
+}
+
+nav.breadcrumb,
+nav.breadcrumb a,
+nav.breadcrumb span {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important;
+  color: var(--color-muted);
+}
+
+nav.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+nav.breadcrumb a {
+  color: var(--color-link) !important;
+  text-decoration: none;
+}
+
+nav.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+  line-height: 1.8;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ─── Info Cards ─── */
+.info-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-card h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  line-height: 1.8;
+}
+
+.info-card p {
+  font-size: 1rem;
+  line-height: 2.1;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.phone-link,
+.email-link {
+  color: var(--color-link);
+  text-decoration: none;
+  font-family: 'Source Serif 4', serif;
+  direction: ltr;
+  display: inline-block;
+}
+
+.phone-link:hover,
+.email-link:hover {
+  text-decoration: underline;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.55rem 1.25rem;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 2;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* ─── Form ─── */
+.contact-form-wrap h2 {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.8;
+}
+
+.form-note {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  margin-bottom: 1.75rem;
+  line-height: 2;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 2;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 0.65rem 0.9rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  background: var(--color-white);
+  color: var(--color-text);
+  transition: border-color 0.2s;
+  width: 100%;
+  direction: rtl;
+  text-align: right;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Email and phone fields should be LTR */
+.field input[type="email"],
+.field input[type="tel"] {
+  direction: ltr;
+  text-align: left;
+  font-family: 'Source Serif 4', serif;
+}
+
+.btn-submit {
+  padding: 0.75rem 2rem;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  line-height: 2;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+
+.btn-submit:hover {
+  opacity: 0.88;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .contact-grid {
+    display: block;
+  }
+
+  .contact-form-wrap {
+    margin-top: 2rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
