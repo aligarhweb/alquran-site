@@ -1,0 +1,1454 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+// ─── Data ──────────────────────────────────────────────
+const editors = [
+  {
+    name: "ڈاکٹر اشتیاق احمد ظلی",
+    detail: "پروفیسر (ریٹائرڈ)، سینٹر آف ایڈوانسڈ اسٹڈی، شعبہ تاریخ، علی گڑھ مسلم یونیورسٹی، علی گڑھ و سابق ناظم دار المصنفین، اعظم گڑھ",
+    email: "zilli@rediffmail.com"
+  },
+  {
+    name: "ڈاکٹر عبد العظیم اصلاحی",
+    detail: "پروفیسر (ریٹائرڈ)، اسلامک اکنامکس انسٹی ٹیوٹ، جامعہ الملک عبد العزیز، جدہ",
+    email: "aaislahi@hotmail.com"
+  },
+];
+
+const boardMembers = [
+  { name: "فخر الاسلام عظیمی", detail: "ریڈر (ریٹائرڈ)، شعبہ عربی، شبلی پوسٹ گریجویٹ کالج، اعظم گڑھ" },
+  { name: "ظفر الاسلام اصلاحی", detail: "ریٹائرڈ پروفیسر، شعبہ اسلامیات، علی گڑھ مسلم یونیورسٹی، علی گڑھ", email: "Zafarul.Islam@gmail.com" },
+  { name: "ڈاکٹر سید مسعود احمد", detail: "ریٹائرڈ پروفیسر و سابق ڈین، فیکلٹی آف لائف سائنسز، علی گڑھ مسلم یونیورسٹی، علی گڑھ" },
+  { name: "محمد اجمل اصلاحی", detail: "نئی دہلی" },
+  { name: "جناب ابرار احمد مکی", detail: "آئی کیو آر اے، نئی دہلی" },
+  { name: "ابو سفیان اصلاحی", detail: "پروفیسر، شعبہ عربی، علی گڑھ مسلم یونیورسٹی، علی گڑھ" },
+  { name: "جناب اشہد جمال ندوی", detail: "استاد، سید حامد سینئر سیکنڈری اسکول، علی گڑھ مسلم یونیورسٹی" },
+  { name: "ڈاکٹر عرفات ظفر", detail: "ایسوسی ایٹ پروفیسر، شعبہ عربی، علی گڑھ مسلم یونیورسٹی، علی گڑھ" },
+];
+
+const issues = [
+  { no: 1, period: "جولائی – دسمبر 1985", special: false, url: "https://drive.google.com/file/d/1ML0jhKL2lR-3OS7fLck-Kq_d2gNOaoLt/view?usp=drive_link" },
+  { no: 2, period: "جنوری – جون 1986", special: false, url: "https://drive.google.com/file/d/1pdXhw2OaEUpZgavCOaGptV69JvYQ70hM/view?usp=drive_link" },
+  { no: 3, period: "جولائی – دسمبر 1986", special: false, url: "https://drive.google.com/file/d/1qNpeWyPcnlVCZtNc0nLnNFYoK_7mv8cU/view?usp=drive_link" },
+  { no: 4, period: "جنوری – جون 1987", special: false, url: "https://drive.google.com/file/d/1FmNu4uBAnKtjUK7mn2XQwJf0Oi4HrKEa/view?usp=drive_link" },
+  { no: 5, period: "جولائی – دسمبر 1987", special: false, url: "https://drive.google.com/file/d/1DnQm4AAVloLADJnVKjKkqEw6-oSQ7Dsl/view?usp=drive_link" },
+  { no: 6, period: "جنوری – دسمبر 1988", special: false, url: "https://drive.google.com/file/d/1Pp7o5MHFIzOcbWT6h_-QUreajPrjl99M/view?usp=drive_link" },
+  { no: 7, period: "جنوری – جون 1989", special: false, url: "https://drive.google.com/file/d/1nSg1csEqApD6nQZ1Nf9ZpBcOEn6gEsAp/view?usp=drive_link" },
+  { no: 8, period: "جولائی – دسمبر 1989", special: false, url: "https://drive.google.com/file/d/1nvyNN-vreDbamUs7veFtUHMItT9bBi4d/view?usp=drive_link" },
+  { no: 9, period: "جنوری – جون 1990", special: false, url: "https://drive.google.com/file/d/1U8LjriYaMcEnKqIrws7mHORZfSXK2tBt/view?usp=drive_link" },
+  { no: 10, period: "جولائی – دسمبر 1990", special: false, url: "https://drive.google.com/file/d/1jTa4x9lgYPMRLtpgNZINOiQcMu0FTeW0/view?usp=drive_link" },
+  { no: 11, period: "جنوری – دسمبر 1991", special: false, url: "https://drive.google.com/file/d/12iRP6SGpmExU6fIqJDac166vO_-_SAJa/view?usp=drive_link" },
+  { no: 12, period: "جنوری – جون 1992", special: false, url: "https://drive.google.com/file/d/1RIi07xyOcqpj6NAFxvOU4wPix0YXCJqa/view?usp=drive_link" },
+  { no: 13, period: "جولائی – دسمبر 1992", special: false, url: "https://drive.google.com/file/d/1qVeveGU8IWERwKuEgo_brSxjED0uHIRB/view?usp=drive_link" },
+  { no: 14, period: "جنوری – جون 1993", special: false, url: "https://drive.google.com/file/d/1UoYisxqESSQWCEmCkYL-5Dl4W8JPDc-0/view?usp=drive_link" },
+  { no: 15, period: "جولائی – دسمبر 1993", special: false, url: "https://drive.google.com/file/d/1T3Zk-AQxRKkVhGNnTP8XEVWIUwSi0nhq/view?usp=drive_link" },
+  { no: 16, period: "جون – دسمبر 1994", special: false, url: "https://drive.google.com/file/d/1zdaI20vUy2-_87qqfoYhrYcoFow1ZVBG/view?usp=drive_link" },
+  { no: 17, period: "جنوری – دسمبر 1995", special: false, url: "https://drive.google.com/file/d/1e-BCx7KcsI1ADAOWwFq_OutbjyQjbM1S/view?usp=drive_link" },
+  { no: 18, period: "جنوری – دسمبر 1996", special: false, url: "https://drive.google.com/file/d/1SAfNpQXLom0voTWcDQjhMD87iMCq5Htj/view?usp=drive_link" },
+  { no: 19, period: "جنوری – دسمبر 1997", special: false, url: "https://drive.google.com/file/d/1oblOJLQAQUiQrMgnIT7I0UWHpxK8TIxL/view?usp=drive_link" },
+  { no: 20, period: "جنوری 1998", special: true, specialNote: "خصوصی شمارہ – مولانا امین احسن اصلاحی", url: "https://drive.google.com/file/d/1MNhosh_W3zBDW9je6no2-qGnd8S8-7Tz/view?usp=drive_link" },
+  { no: 21, period: "جنوری – دسمبر 2001", special: false, url: "https://drive.google.com/file/d/1rIZtejEAAdmThcCZFBm87qQXfYsi215F/view?usp=drive_link" },
+  { no: 22, period: "جنوری – جون 2002", special: false, url: "https://drive.google.com/file/d/1-mX9qHYfVfmj69A33yVnvctQqCvpPwrZ/view?usp=drive_link" },
+  { no: 23, period: "جولائی – دسمبر 2002", special: false, url: "https://drive.google.com/file/d/1U9vPxWwBxVQ89E-8BhWzvXmEVJJh9_9y/view?usp=drive_link" },
+  { no: 24, period: "جنوری – جون 2003", special: false, url: "https://drive.google.com/file/d/1hSycA0NVQtgwvi-Z4NVBAd_e232dBauQ/view?usp=drive_link" },
+  { no: 25, period: "جولائی – دسمبر 2003", special: false, url: "https://drive.google.com/file/d/1AtuUcQAgV-dRmWdYz5nGiQvNGvO2Z62-/view?usp=drive_link" },
+  { no: 26, period: "جنوری 2004", special: true, specialNote: "خصوصی شمارہ – قرآنی علوم بیسویں صدی میں", url: "https://drive.google.com/file/d/1EpGl4SfTLLHLLMfSHHWcnlC2FoiMpVRw/view?usp=drive_link" },
+  { no: 27, period: "جنوری – جون 2006", special: false, url: "https://drive.google.com/file/d/1J7H76INV3m5w_jRqHLw3gTYW9x550280/view?usp=drive_link" },
+  { no: 28, period: "جولائی – دسمبر 2006", special: false, url: "https://drive.google.com/file/d/1dkVYCWpwACyPmlewEjXsbJ3AYhZNQeS5/view?usp=drive_link" },
+  { no: 29, period: "جنوری – جون 2007", special: false, url: "https://drive.google.com/file/d/1g-Dv5PlZdC9LU6UPlbnUwS09DqOW-nMI/view?usp=drive_link" },
+  { no: 30, period: "جولائی 2007 – جون 2009", special: true, specialNote: "خصوصی شمارہ – عصر حاضر کے مسائل اور قرآنی تعلیمات", url: "https://drive.google.com/file/d/15_5Nj5VG46La_LHHUtlR1pPKSwpBIDSl/view?usp=drive_link" },
+  { no: 31, period: "جولائی – دسمبر 2009", special: false, url: "https://drive.google.com/file/d/15flntjrumIhY0yMldpnLISW9XwOeed41/view?usp=drive_link" },
+  { no: 32, period: "جنوری – جون 2010", special: false, url: "https://drive.google.com/file/d/1jYNjtuhVY0b3Vec_1wtRJ_qWsjmLB8if/view?usp=drive_link" },
+  { no: 33, period: "جولائی – دسمبر 2010", special: false, url: "https://drive.google.com/file/d/1eGXkn0QosMxR70NifuFnxXYP6qgrTT8W/view?usp=drive_link" },
+  { no: 34, period: "جنوری – جون 2011", special: false, url: "https://drive.google.com/file/d/1Q3Ym_fQorIxb1o3Y5vd0hFhvT_fF6LPe/view?usp=drive_link" },
+  { no: 35, period: "جولائی – دسمبر 2011", special: false, url: "https://drive.google.com/file/d/1NDDMTM4Zq4yQKQfHD8k-gEWfHBnrnPZ-/view?usp=drive_link" },
+  { no: 36, period: "جنوری – جون 2012", special: false, url: "https://drive.google.com/file/d/1CLUJOyLvO4fbMsCRgniUh1DHC4cL6dzM/view?usp=drive_link" },
+  { no: 37, period: "جولائی – دسمبر 2012", special: false, url: "https://drive.google.com/file/d/14IikWfZQ2G6d76YyyEbzTobKklHrDgse/view?usp=drive_link" },
+  { no: 38, period: "جنوری – جون 2013", special: false, url: "https://drive.google.com/file/d/1FQAego0UnsjclxX7zEsb0LgoH9WNRnS7/view?usp=drive_link" },
+  { no: 39, period: "جولائی – دسمبر 2013", special: false, url: "https://drive.google.com/file/d/1pX80rzh2BLVNjqDqhVuvakyB2b0rKZUt/view?usp=drive_link" },
+  { no: 40, period: "جنوری – جون 2014", special: false, url: "https://drive.google.com/file/d/10tQgidQQCaryoOXLmSTk3f7BHkW6a1m-/view?usp=drive_link" },
+  { no: 41, period: "جولائی – دسمبر 2014", special: false, url: "https://drive.google.com/file/d/1-OdVvex42SYP1iumjSJ9DfNuyBmTI4jS/view?usp=drive_link" },
+  { no: 42, period: "جنوری – جون 2015", special: false, url: "https://drive.google.com/file/d/1NFqJSQfllg_jBoMjqrsvfsvTOIKwdeQl/view?usp=drive_link" },
+  { no: 43, period: "جولائی – دسمبر 2015", special: false, url: "https://drive.google.com/file/d/1CLPHQvTh95s2uGWu002Acb9-E1Iq0aIx/view?usp=drive_link" },
+  { no: 44, period: "جنوری – دسمبر 2016", special: false, url: "https://drive.google.com/file/d/11IB4IaV9cTjXdHLNHvvzfTShJiTy1Z6P/view?usp=drive_link" },
+  { no: 45, period: "جنوری – جون 2017", special: false, url: "https://drive.google.com/file/d/1JTQQxSkWlZbBikNI-LC_Y29HLw24S91-/view?usp=drive_link" },
+  { no: 46, period: "جولائی – دسمبر 2017", special: false, url: "https://drive.google.com/file/d/19n1yRcZU4lzVx9Zp9iWVlMQtPFIocN52/view?usp=drive_link" },
+  { no: 47, period: "جنوری – دسمبر 2018", special: false, url: "https://drive.google.com/file/d/1sVbeIVKUS9C7AxQUbkVT6D_-abCORKHl/view?usp=drive_link" },
+  { no: 48, period: "جنوری – دسمبر 2019", special: false, url: "https://drive.google.com/file/d/1ifhdmXtYXaQKcBMltmdywdLgzPMrpUeg/view?usp=drive_link" },
+  { no: 49, period: "جنوری – جون 2020", special: false, url: "https://drive.google.com/file/d/15eIKvP9dqmrnoBqe-32KaHYD7b460vMU/view?usp=drive_link" },
+  { no: 50, period: "جولائی – دسمبر 2020", special: false, url: "https://drive.google.com/file/d/1_q2mjL56XLXwhaIKhRnRR0Ak90iznsRx/view?usp=drive_link" },
+  { no: 51, period: "جنوری – جون 2021", special: false, url: "https://drive.google.com/file/d/18QD8GdSwRQRiIUbpp2Ci7S9HYd9oWVS7/view?usp=drive_link" },
+  { no: 52, period: "جولائی – دسمبر 2021", special: false, url: "https://drive.google.com/file/d/1CG4tQpO2p4vBo0_jq8_lBQBSNW5m5u7m/view?usp=drive_link" },
+  { no: 53, period: "جنوری – جون 2022", special: false, url: "https://drive.google.com/file/d/1ZnBqqSbQnoh-bOQRAhvYLNtgbuJx78i3/view?usp=drive_link" },
+  { no: 54, period: "جولائی – دسمبر 2022", special: false, url: "https://drive.google.com/file/d/1NpHDss880nKefcmsJGrI7nl8ifq_L96x/view?usp=drive_link" },
+  { no: 55, period: "جنوری – جون 2023", special: false, url: "https://drive.google.com/file/d/11S73VfJQRgE-yc-KHN7ycbW2nscVwU8m/view?usp=drive_link" },
+  { no: 56, period: "جولائی – دسمبر 2023", special: false, url: "https://drive.google.com/file/d/1jqtBsz2A96zneqjA_3lPC91TO9JxK3mO/view?usp=drive_link" },
+  { no: 57, period: "جنوری – جون 2024", special: false, url: "https://drive.google.com/file/d/1RDp-pFog4lk3Wlz7lCJ5wYgUcBVeDdXp/view?usp=drive_link" },
+  { no: 58, period: "جولائی – دسمبر 2024", special: false, url: "https://drive.google.com/file/d/1_0a8NqZbG4WZGfWl1niWfHK_rlyx39Gi/view?usp=drive_link" },
+];
+
+const latestIssues = [...issues].reverse().slice(0, 3);
+
+// Build year‑grouped archive
+type Issue = typeof issues[0];
+const issuesByYear: Record<string, Issue[]> = {};
+for (const issue of [...issues].reverse()) {
+  const yearMatch = issue.period.match(/\d{4}/g);
+  const year = yearMatch ? yearMatch[yearMatch.length - 1] : 'Unknown';
+  if (!issuesByYear[year]) issuesByYear[year] = [];
+  issuesByYear[year].push(issue);
+}
+const yearGroups = Object.entries(issuesByYear).sort((a, b) => Number(b[0]) - Number(a[0]));
+
+// ─── Localised Text ──────────────────────────────────
+const t = {
+  title: "مجلہ ششماہی علوم القرآن",
+  description: "علوم القرآن ایک مستند تحقیقی ششماہی رسالہ ہے جو ادارہ علوم القرآن کی جانب سے 1985 سے شائع ہو رہا ہے۔ تمام 58 شمارے آن لائن پڑھیں۔",
+  navArchive: "آرکائیو",
+  navEditorial: "ادارتی بورڈ",
+  navSubscribe: "اشتراک",
+  navContact: "رابطہ",
+  breadHome: "ہوم",
+  breadCurrent: "مجلہ",
+  heroEyebrow: "ادارہ علوم القرآن، علی گڑھ",
+  heroTitle: "مجلہ ششماہی علوم القرآن",
+  heroSubtitle: "ایک تحقیقی ششماہی مجلہ جو قرآنی علوم اور اسلامی تحقیق کے لیے وقف ہے، 1985 سے مسلسل شائع ہو رہا ہے۔",
+  credEst: "قیام",
+  credIssues: "شمارے",
+  credFrequency: "دورانیہ",
+  credReview: "نظریاتی جائزہ",
+  credLang: "زبان",
+  credIssn: "آئی ایس ایس این",
+  latestHeading: "تازہ ترین شمارے",
+  issueLabel: "شمارہ",
+  specialBadge: "خصوصی شمارہ",
+  readPdf: "پی ڈی ایف پڑھیں",
+  opensNewTab: "نئی ٹیب میں کھلتا ہے",
+  archiveHeading: "مکمل آرکائیو",
+  archiveIntro: "علوم القرآن کے 1985 سے 2024 تک تمام 58 شمارے۔ ہر پی ڈی ایف نئی ٹیب میں کھلتی ہے۔",
+  searchLabel: "شمارے تلاش کریں",
+  searchPlaceholder: "شمارہ نمبر، سال، یا عنوان…",
+  filterAll: "تمام",
+  filter1980: "1980 کی دہائی",
+  filter1990: "1990 کی دہائی",
+  filter2000: "2000 کی دہائی",
+  filter2010: "2010 کی دہائی",
+  filter2020: "2020 کی دہائی",
+  filterSpecial: "خصوصی شمارے",
+  noResults: "کوئی شمارہ نہیں ملا۔",
+  browseDrive: "گوگل ڈرائیو میں تمام شمارے دیکھیں",
+  editorialHeading: "ادارتی بورڈ",
+  editorsSub: "مدیران",
+  boardSub: "اراکین مشاورتی بورڈ",
+  subscribeHeading: "اشتراک",
+  subscribeIntro: "علوم القرآن سال میں دو بار شائع ہوتا ہے۔ سالانہ اشتراک کی شرح درج ذیل ہے:",
+  regionIndia: "ہندوستان",
+  regionPakBang: "پاکستان و بنگلہ دیش",
+  regionOther: "دیگر ممالک",
+  perYear: "فی سال",
+  inrPerYear: "بھارتی روپے فی سال",
+  usdPerYear: "امریکی ڈالر فی سال",
+  bankDetails: "بینک ٹرانسفر کی تفصیلات",
+  chequeNote: "چیک یا ڈیمانڈ ڈرافٹ درج ذیل نام سے جاری کریں:",
+  acctName: "اکاؤنٹ کا نام",
+  acctNo: "اکاؤنٹ نمبر",
+  ifsc: "آئی ایف ایس سی کوڈ",
+  bank: "بینک",
+  branch: "برانچ",
+  copyLabel: "کاپی کریں",
+  copiedLabel: "کاپی ہو گیا!",
+  contactHeading: "اشتراک کے لیے رابطہ",
+  contactAddress: "پتہ",
+  contactPhone: "فون",
+  contactEmail: "ای میل",
+  contactWebsite: "ویب سائٹ",
+  btnEnquiry: "اشتراک کے لیے رابطہ کریں ←",
+};
+---
+
+<Layout
+  title={t.title}
+  description={t.description}
+  lang="ur"
+  dir="rtl"
+  canonicalUrl="/ur/journal/"
+>
+
+  <!-- ═══════════════════════════════════════════════
+       STICKY SECTION NAV
+  ═══════════════════════════════════════════════ -->
+  <nav class="section-nav" aria-label="صفحہ کے حصے">
+    <div class="section-nav__inner">
+      <a href="#archive" class="snav-link" data-target="archive">{t.navArchive}</a>
+      <a href="#editorial" class="snav-link" data-target="editorial">{t.navEditorial}</a>
+      <a href="#subscribe" class="snav-link" data-target="subscribe">{t.navSubscribe}</a>
+      <a href="#contact" class="snav-link" data-target="contact">{t.navContact}</a>
+    </div>
+  </nav>
+
+  <main class="page-main">
+
+    <!-- ═══════════════════════════════════════════════
+         BREADCRUMB
+    ═══════════════════════════════════════════════ -->
+    <nav class="breadcrumb" aria-label="بریڈکرمب">
+      <a href="/ur/">{t.breadHome}</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">{t.breadCurrent}</span>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════ -->
+    <header class="journal-hero">
+      <p class="journal-eyebrow">{t.heroEyebrow}</p>
+      <h1 class="journal-title">{t.heroTitle}</h1>
+      <p class="journal-subtitle">{t.heroSubtitle}</p>
+
+      <ul class="credential-bar" aria-label="رسالے کی تفصیلات">
+        <li class="credential">
+          <span class="cred-value">1985</span>
+          <span class="cred-label">{t.credEst}</span>
+        </li>
+        <li class="credential">
+          <span class="cred-value">58</span>
+          <span class="cred-label">{t.credIssues}</span>
+        </li>
+        <li class="credential">
+          <span class="cred-value">ششماہی</span>
+          <span class="cred-label">{t.credFrequency}</span>
+        </li>
+        <li class="credential">
+          <span class="cred-value">نظریاتی جائزہ</span>
+          <span class="cred-label">{t.credReview}</span>
+        </li>
+        <li class="credential">
+          <span class="cred-value">اردو / انگریزی</span>
+          <span class="cred-label">{t.credLang}</span>
+        </li>
+        <li class="credential">
+          <span class="cred-value">آئی ایس ایس این جاری</span>
+          <span class="cred-label">{t.credIssn}</span>
+        </li>
+      </ul>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════
+         LATEST ISSUES
+    ═══════════════════════════════════════════════ -->
+    <section class="latest-section" aria-labelledby="latest-heading">
+      <h2 id="latest-heading" class="section-heading">{t.latestHeading}</h2>
+      <div class="latest-grid">
+        {latestIssues.map((issue, i) => (
+          <a
+            href={issue.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`latest-card${i === 0 ? ' latest-card--primary' : ''}${issue.special ? ' latest-card--special' : ''}`}
+            aria-label={`${t.issueLabel} ${issue.no} (${issue.period}) ${t.readPdf} — ${t.opensNewTab}`}
+          >
+            {issue.special && (
+              <span class="special-badge" aria-label={t.specialBadge}>
+                <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
+                  <polygon points="5,0 6.18,3.82 10,3.82 6.91,6.18 8.09,10 5,7.64 1.91,10 3.09,6.18 0,3.82 3.82,3.82" fill="currentColor"/>
+                </svg>
+                {t.specialBadge}
+              </span>
+            )}
+            <span class="lc-number">{t.issueLabel} {issue.no}</span>
+            <span class="lc-period">{issue.period}</span>
+            {issue.special && issue.specialNote && (
+              <span class="lc-special-note">{issue.specialNote}</span>
+            )}
+            <span class="lc-cta" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+              </svg>
+              {t.readPdf}
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         ARCHIVE: SEARCH + FILTERS + GROUPED ISSUES
+    ═══════════════════════════════════════════════ -->
+    <section id="archive" class="archive-section" aria-labelledby="archive-heading">
+      <h2 id="archive-heading" class="section-heading">{t.archiveHeading}</h2>
+      <p class="section-intro">{t.archiveIntro}</p>
+
+      <!-- Search -->
+      <div class="archive-controls">
+        <div class="search-wrap">
+          <label for="issueSearch" class="search-label">{t.searchLabel}</label>
+          <div class="search-field-wrap">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input
+              id="issueSearch"
+              type="search"
+              class="search-input"
+              placeholder={t.searchPlaceholder}
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </div>
+        </div>
+
+        <!-- Decade filters -->
+        <div class="filter-wrap" role="group" aria-label="دہائی کے مطابق فلٹر کریں">
+          <button class="filter-btn filter-btn--active" data-decade="all" type="button">{t.filterAll}</button>
+          <button class="filter-btn" data-decade="1980" type="button">{t.filter1980}</button>
+          <button class="filter-btn" data-decade="1990" type="button">{t.filter1990}</button>
+          <button class="filter-btn" data-decade="2000" type="button">{t.filter2000}</button>
+          <button class="filter-btn" data-decade="2010" type="button">{t.filter2010}</button>
+          <button class="filter-btn" data-decade="2020" type="button">{t.filter2020}</button>
+          <button class="filter-btn" data-decade="special" type="button">{t.filterSpecial}</button>
+        </div>
+      </div>
+
+      <!-- No results message -->
+      <p id="archive-empty" class="archive-empty" hidden aria-live="polite">{t.noResults}</p>
+
+      <!-- Grouped archive -->
+      <div id="archive-groups" class="archive-groups">
+        {yearGroups.map(([year, yearIssues]) => (
+          <div class="year-group" data-year={year}>
+            <h3 class="year-heading">
+              <span class="year-rule" aria-hidden="true"></span>
+              {year}
+            </h3>
+            <div class="year-issues">
+              {yearIssues.map((issue) => (
+                <a
+                  href={issue.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={`issue-card${issue.special ? ' issue-card--special' : ''}`}
+                  data-issue={issue.no}
+                  data-period={issue.period}
+                  data-special={issue.special ? 'true' : 'false'}
+                  data-search={`${t.issueLabel} ${issue.no} ${issue.period} ${issue.special ? issue.specialNote ?? '' : ''}`.toLowerCase()}
+                  aria-label={`${t.issueLabel} ${issue.no} (${issue.period}) ${t.readPdf} — ${t.opensNewTab}${issue.special ? '. ' + t.specialBadge : ''}`}
+                >
+                  {issue.special && (
+                    <span class="ic-special-badge" aria-label={t.specialBadge}>
+                      <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
+                        <polygon points="5,0 6.18,3.82 10,3.82 6.91,6.18 8.09,10 5,7.64 1.91,10 3.09,6.18 0,3.82 3.82,3.82" fill="currentColor"/>
+                      </svg>
+                      {t.specialBadge}
+                    </span>
+                  )}
+                  <span class="ic-number">{issue.no}</span>
+                  <span class="ic-period">{issue.period}</span>
+                  {issue.special && issue.specialNote && (
+                    <span class="ic-note">{issue.specialNote}</span>
+                  )}
+                  <span class="ic-read" aria-hidden="true">
+                    {t.readPdf}
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="archive-footer">
+        <a
+          href="https://drive.google.com/drive/folders/1Z3a-TpO5AZx_Fzt68v2VTThk2jLYAMKs?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline"
+          aria-label={`${t.browseDrive} — ${t.opensNewTab}`}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+          </svg>
+          {t.browseDrive}
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         EDITORIAL BOARD
+    ═══════════════════════════════════════════════ -->
+    <section id="editorial" class="editorial-section" aria-labelledby="editorial-heading">
+      <h2 id="editorial-heading" class="section-heading">{t.editorialHeading}</h2>
+
+      <h3 class="subsection-heading">{t.editorsSub}</h3>
+      <div class="editors-grid">
+        {editors.map((e) => (
+          <div class="editor-card">
+            <p class="editor-name">{e.name}</p>
+            <p class="editor-detail">{e.detail}</p>
+            {e.email && (
+              <a href={`mailto:${e.email}`} class="editor-email">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+                {e.email}
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <h3 class="subsection-heading">{t.boardSub}</h3>
+      <div class="board-grid">
+        {boardMembers.map((m) => (
+          <div class="board-card">
+            <p class="board-name">{m.name}</p>
+            <p class="board-detail">{m.detail}</p>
+            {m.email && (
+              <a href={`mailto:${m.email}`} class="board-email">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+                {m.email}
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         SUBSCRIPTION
+    ═══════════════════════════════════════════════ -->
+    <section id="subscribe" class="subscribe-section" aria-labelledby="subscribe-heading">
+      <h2 id="subscribe-heading" class="section-heading">{t.subscribeHeading}</h2>
+      <p class="section-intro">{t.subscribeIntro}</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <p class="pricing-region">{t.regionIndia}</p>
+          <p class="pricing-amount">₹160</p>
+          <p class="pricing-note">{t.perYear}</p>
+        </div>
+        <div class="pricing-card">
+          <p class="pricing-region">{t.regionPakBang}</p>
+          <p class="pricing-amount">₹160</p>
+          <p class="pricing-note">{t.inrPerYear}</p>
+        </div>
+        <div class="pricing-card">
+          <p class="pricing-region">{t.regionOther}</p>
+          <p class="pricing-amount">$30</p>
+          <p class="pricing-note">{t.usdPerYear}</p>
+        </div>
+      </div>
+
+      <!-- Bank details (fixed) -->
+      <div class="detail-panel">
+        <h3 class="panel-heading">{t.bankDetails}</h3>
+        <p class="panel-note">{t.chequeNote}</p>
+        <table class="detail-table">
+          <tbody>
+            <tr>
+              <th scope="row" class="dt-label">{t.acctName}</th>
+              <td class="dt-value">Idara-e Uloom-ul-Quran</td>
+            </tr>
+            <tr>
+              <th scope="row" class="dt-label">{t.acctNo}</th>
+              <td class="dt-value">
+                <span id="acct-no">1214749052</span>
+                <button class="copy-btn" data-copy="acct-no" type="button" aria-label={`${t.copyLabel} ${t.acctNo}`}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  {t.copyLabel}
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="dt-label">{t.ifsc}</th>
+              <td class="dt-value">
+                <span id="ifsc-code">CBIN0281291</span>
+                <button class="copy-btn" data-copy="ifsc-code" type="button" aria-label={`${t.copyLabel} ${t.ifsc}`}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  {t.copyLabel}
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="dt-label">{t.bank}</th>
+              <td class="dt-value">Central Bank of India</td>
+            </tr>
+            <tr>
+              <th scope="row" class="dt-label">{t.branch}</th>
+              <td class="dt-value">Dodhpur, Aligarh</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         CONTACT
+    ═══════════════════════════════════════════════ -->
+    <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="section-heading">{t.contactHeading}</h2>
+      <div class="detail-panel detail-panel--contact">
+        <table class="detail-table">
+          <tbody>
+            <tr>
+              <th scope="row" class="dt-label">{t.contactAddress}</th>
+              <td class="dt-value">ادارہ علوم القرآن، شبلی باغ، علی گڑھ — ۲۰۲۰۰۲</td>
+            </tr>
+            <tr>
+              <th scope="row" class="dt-label">{t.contactPhone}</th>
+              <td class="dt-value">
+                <a href="tel:7455996990" class="contact-link">7455996990</a>
+                <span aria-hidden="true"> / </span>
+                <a href="tel:9451392626" class="contact-link">9451392626</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="dt-label">{t.contactEmail}</th>
+              <td class="dt-value">
+                <div class="email-row">
+                  <span id="sub-email-1">
+                    <a href="mailto:alquran85@gmail.com" class="contact-link">alquran85@gmail.com</a>
+                  </span>
+                  <button class="copy-btn" data-copy="sub-email-1" type="button" aria-label={`${t.copyLabel} alquran85@gmail.com`}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    {t.copyLabel}
+                  </button>
+                </div>
+                <div class="email-row">
+                  <span id="sub-email-2">
+                    <a href="mailto:aaislahi@gmail.com" class="contact-link">aaislahi@gmail.com</a>
+                  </span>
+                  <button class="copy-btn" data-copy="sub-email-2" type="button" aria-label={`${t.copyLabel} aaislahi@gmail.com`}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    {t.copyLabel}
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="dt-label">{t.contactWebsite}</th>
+              <td class="dt-value">
+                <a href="https://alquran.in" target="_blank" rel="noopener noreferrer" class="contact-link">
+                  alquran.in
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label={`(${t.opensNewTab})`} role="img" focusable="false">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="/ur/contact/" class="btn-primary">{t.btnEnquiry}</a>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  /* ── Sticky section nav active state ── */
+  const snavLinks = document.querySelectorAll('.snav-link');
+  const sections  = Array.from(snavLinks).map(l => document.getElementById(l.dataset.target ?? ''));
+
+  function updateActiveLink() {
+    let active = sections[0];
+    const scrollY = window.scrollY + 120;
+    for (const section of sections) {
+      if (section && section.offsetTop <= scrollY) active = section;
+    }
+    snavLinks.forEach(l => {
+      l.classList.toggle('snav-link--active', l.dataset.target === active?.id);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
+
+  /* ── Search & filter ── */
+  const searchInput = document.getElementById('issueSearch');
+  const filterBtns  = document.querySelectorAll('.filter-btn');
+  const cards       = document.querySelectorAll('.issue-card');
+  const yearGroups  = document.querySelectorAll('.year-group');
+  const emptyMsg    = document.getElementById('archive-empty');
+
+  let currentQuery  = '';
+  let currentDecade = 'all';
+
+  function matchesDecade(card, decade) {
+    if (decade === 'all') return true;
+    if (decade === 'special') return card.dataset.special === 'true';
+    const period = card.dataset.period ?? '';
+    const years = period.match(/\d{4}/g);
+    if (!years) return false;
+    return years.some(y => Math.floor(Number(y) / 10) * 10 === Number(decade));
+  }
+
+  function applyFilters() {
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const text    = card.dataset.search ?? '';
+      const matchQ  = !currentQuery || text.includes(currentQuery);
+      const matchD  = matchesDecade(card, currentDecade);
+      const visible = matchQ && matchD;
+      card.style.display = visible ? '' : 'none';
+      if (visible) visibleCount++;
+    });
+
+    yearGroups.forEach(group => {
+      const groupCards = group.querySelectorAll('.issue-card');
+      const anyVisible = Array.from(groupCards).some(c => c.style.display !== 'none');
+      group.style.display = anyVisible ? '' : 'none';
+    });
+
+    if (emptyMsg) {
+      emptyMsg.hidden = visibleCount > 0;
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      currentQuery = searchInput.value.trim().toLowerCase();
+      applyFilters();
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('filter-btn--active'));
+      btn.classList.add('filter-btn--active');
+      currentDecade = btn.dataset.decade ?? 'all';
+      applyFilters();
+    });
+  });
+
+  /* ── Copy to clipboard buttons ── */
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const targetId = btn.dataset.copy;
+      if (!targetId) return;
+      const el = document.getElementById(targetId);
+      if (!el) return;
+      const text = el.textContent?.trim() ?? '';
+      try {
+        await navigator.clipboard.writeText(text);
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> ${'کاپی ہو گیا!'}`;
+        btn.setAttribute('aria-label', 'Copied!');
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.setAttribute('aria-label', `Copy ${text}`);
+        }, 2000);
+      } catch {
+        // silently fail
+      }
+    });
+  });
+})();
+</script>
+
+<style>
+/* ─── CSS Variables ────────────────────────────────── */
+:root {
+  --c-ink: #1a2533;
+  --c-teal: #1b5e4f;
+  --c-teal-mid: #2d7a66;
+  --c-teal-pale: #e8f4f1;
+  --c-gold: #a0762c;
+  --c-gold-pale: #fdf7ec;
+  --c-border: #dce3e0;
+  --c-muted: #5a6a72;
+  --c-muted-lt: #8a9da8;
+  --c-bg: #ffffff;
+  --c-bg-alt: #f6f8f7;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-card: 0 1px 3px rgba(27,94,79,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 12px rgba(27,94,79,0.14);
+  --font-serif: 'Noto Nastaliq Urdu', Georgia, 'Times New Roman', serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --container-max: 920px;
+  --container-pad: clamp(1rem, 4vw, 2.5rem);
+  --header-height: 75px; /* adjust to your sticky header */
+}
+
+/* ─── RESET ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:focus-visible {
+  outline: 3px solid var(--c-teal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── STICKY SECTION NAV ──────────────────────────── */
+.section-nav {
+  position: sticky;
+  top: calc(var(--header-height) + 30px); /* header height + offset */
+  z-index: 99;
+  background: var(--c-bg);
+  border-bottom: 1px solid var(--c-border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.section-nav__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.section-nav__inner::-webkit-scrollbar { display: none; }
+
+.snav-link {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--c-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+.snav-link:hover { color: var(--c-ink); text-decoration: none; }
+.snav-link--active {
+  color: var(--c-teal);
+  border-bottom-color: var(--c-teal);
+}
+
+/* ─── PAGE LAYOUT ─────────────────────────────────── */
+.page-main {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad) 5rem;
+}
+
+/* ─── BREADCRUMB ──────────────────────────────────── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--c-muted);
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+.breadcrumb a { color: var(--c-teal); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── HERO (increased line-height) ────────────────── */
+.journal-hero {
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: 3rem;
+}
+.journal-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-teal);
+  margin-bottom: 0.75rem;
+}
+.journal-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--c-ink);
+  line-height: 1.5; /* increased from 1.2 */
+  margin-bottom: 0.85rem;
+}
+.journal-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 2; /* increased from 1.7 */
+  color: var(--c-muted);
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+/* ─── rest of hero styles unchanged ──────────────── */
+
+.credential-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+}
+.credential {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  background: var(--c-bg-alt);
+  min-width: 90px;
+  text-align: center;
+}
+.cred-value {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  line-height: 1.2;
+}
+.cred-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-muted-lt);
+  margin-top: 0.2rem;
+}
+
+/* ─── SHARED SECTION ──────────────────────────────── */
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--c-ink);
+  display: inline-block;
+}
+.subsection-heading {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+}
+.section-intro {
+  font-family: var(--font-serif);
+  font-size: 0.97rem;
+  line-height: 1.8;
+  color: var(--c-muted);
+  max-width: 640px;
+  margin-bottom: 1.75rem;
+}
+.section-intro em { font-style: italic; color: var(--c-ink); }
+
+/* ─── LATEST ISSUES ───────────────────────────────── */
+.latest-section { margin-bottom: 3.5rem; }
+.latest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.latest-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.4rem 1.3rem 1.1rem;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-top: 3px solid var(--c-teal);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: border-top-color 0.15s, box-shadow 0.15s;
+}
+.latest-card:hover {
+  border-top-color: var(--c-teal-mid);
+  box-shadow: var(--shadow-hover);
+  text-decoration: none;
+}
+.latest-card--primary {
+  background: var(--c-teal-pale);
+  border-top-color: var(--c-teal);
+}
+.latest-card--special {
+  border-top-color: var(--c-gold);
+  background: var(--c-gold-pale);
+}
+.special-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-bottom: 0.4rem;
+}
+.lc-number {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+.lc-period {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  line-height: 1.25;
+}
+.lc-special-note {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--c-gold);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.lc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--c-teal);
+}
+
+/* ─── ARCHIVE ─────────────────────────────────────── */
+.archive-section { margin-bottom: 4rem; padding-top: 1rem; }
+.archive-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.search-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--c-muted);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.03em;
+}
+.search-field-wrap {
+  position: relative;
+  max-width: 380px;
+}
+.search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-muted-lt);
+  pointer-events: none;
+}
+.search-input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.4rem;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--c-ink);
+  background: var(--c-bg);
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+}
+.search-input:focus {
+  border-color: var(--c-teal);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(27,94,79,0.12);
+}
+.search-input::placeholder { color: var(--c-muted-lt); }
+.filter-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.filter-btn {
+  padding: 0.38rem 0.85rem;
+  border: 1px solid var(--c-border);
+  border-radius: 20px;
+  background: var(--c-bg);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--c-muted);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.filter-btn:hover {
+  border-color: var(--c-teal);
+  color: var(--c-teal);
+}
+.filter-btn--active {
+  background: var(--c-teal);
+  border-color: var(--c-teal);
+  color: #fff;
+}
+.archive-empty {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--c-muted);
+  padding: 1.5rem 0;
+}
+.archive-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.year-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-bottom: 0.85rem;
+}
+.year-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--c-border);
+  order: -1;
+  max-width: 40px;
+}
+.year-issues {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+.issue-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.85rem 0.85rem 0.7rem;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+.issue-card:hover {
+  border-color: var(--c-teal);
+  box-shadow: var(--shadow-hover);
+  text-decoration: none;
+}
+.issue-card--special {
+  border-color: #d4b06a;
+  background: var(--c-gold-pale);
+}
+.ic-special-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-bottom: 0.3rem;
+}
+.ic-number {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--c-teal);
+  line-height: 1;
+}
+.ic-period {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--c-muted);
+  line-height: 1.35;
+}
+.ic-note {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  color: var(--c-gold);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.ic-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: auto;
+  padding-top: 0.55rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--c-teal);
+}
+.archive-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--c-border);
+}
+
+/* ─── BUTTONS ─────────────────────────────────────── */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 1.5px solid var(--c-teal);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--c-teal);
+  text-decoration: none;
+  transition: background 0.14s, color 0.14s;
+}
+.btn-outline:hover {
+  background: var(--c-teal);
+  color: #fff;
+  text-decoration: none;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  background: var(--c-teal);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1.25rem;
+  transition: background 0.14s;
+}
+.btn-primary:hover {
+  background: var(--c-teal-mid);
+  text-decoration: none;
+}
+
+/* ─── EDITORIAL BOARD ────────────────────────────── */
+.editorial-section { margin-bottom: 4rem; padding-top: 1rem; }
+.editors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.editor-card {
+  padding: 1.25rem;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--c-teal);
+  border-radius: var(--radius-sm);
+}
+.editor-name {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  margin-bottom: 0.4rem;
+}
+.editor-detail {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--c-muted);
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+.editor-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--c-teal);
+  text-decoration: none;
+}
+.editor-email:hover { text-decoration: underline; }
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+.board-card {
+  padding: 0.95rem 1rem;
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+}
+.board-name {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  margin-bottom: 0.25rem;
+}
+.board-detail {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--c-muted);
+  line-height: 1.5;
+}
+.board-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  color: var(--c-teal);
+  text-decoration: none;
+  margin-top: 0.35rem;
+}
+.board-email:hover { text-decoration: underline; }
+
+/* ─── SUBSCRIPTION ────────────────────────────────── */
+.subscribe-section { margin-bottom: 4rem; padding-top: 1rem; }
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.pricing-card {
+  padding: 1.4rem;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  text-align: center;
+  background: var(--c-bg);
+}
+.pricing-region {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-bottom: 0.65rem;
+}
+.pricing-amount {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--c-teal);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.pricing-note {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--c-muted-lt);
+}
+
+/* ─── DETAIL PANELS (Bank + Contact) ────────────── */
+.detail-panel {
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+.detail-panel--contact { max-width: 640px; }
+.panel-heading {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  margin-bottom: 0.5rem;
+}
+.panel-note {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--c-muted);
+  margin-bottom: 0.85rem;
+}
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.detail-table tr {
+  border-bottom: 1px solid var(--c-border);
+}
+.detail-table tr:last-child { border-bottom: none; }
+.dt-label {
+  padding: 0.55rem 0.75rem 0.55rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--c-muted);
+  white-space: nowrap;
+  width: 130px;
+  vertical-align: middle;
+  text-align: left;
+}
+.dt-value {
+  padding: 0.55rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--c-ink);
+  vertical-align: middle;
+}
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--c-border);
+  border-radius: 3px;
+  background: var(--c-bg-alt);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--c-muted);
+  cursor: pointer;
+  vertical-align: middle;
+  transition: border-color 0.12s, color 0.12s;
+}
+.copy-btn:hover {
+  border-color: var(--c-teal);
+  color: var(--c-teal);
+}
+
+/* ─── Email rows (fix contact layout) ────────────── */
+.email-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+.email-row:last-child {
+  margin-bottom: 0;
+}
+.email-row .copy-btn {
+  flex-shrink: 0;
+}
+
+/* ─── CONTACT ─────────────────────────────────────── */
+.contact-section { margin-bottom: 2rem; padding-top: 1rem; }
+.contact-link {
+  color: var(--c-teal);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+}
+.contact-link:hover { text-decoration: underline; }
+.contact-link svg {
+  vertical-align: middle;
+  margin-left: 0.2rem;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 780px) {
+  :root { --header-height: 65px; }
+  .section-nav {
+    top: calc(var(--header-height) + 20px);
+  }
+  .latest-grid { grid-template-columns: 1fr 1fr; }
+  .latest-grid .latest-card:last-child { display: none; }
+  .year-issues { grid-template-columns: repeat(3, 1fr); }
+  .editors-grid,
+  .board-grid,
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 540px) {
+  :root { --header-height: 58px; }
+  .section-nav {
+    top: calc(var(--header-height) + 15px);
+  }
+  .journal-title { font-size: 1.9rem; }
+  .journal-subtitle { font-size: 0.95rem; }
+  .credential-bar { gap: 0.45rem; }
+  .credential { padding: 0.5rem 0.7rem; min-width: 70px; }
+  .cred-value { font-size: 0.78rem; }
+  .latest-grid { grid-template-columns: 1fr; }
+  .latest-grid .latest-card:last-child { display: flex; }
+  .year-issues {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .issue-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0.85rem;
+    min-height: 44px;
+  }
+  .ic-special-badge { display: none; }
+  .ic-number {
+    font-size: 1.05rem;
+    min-width: 2ch;
+    flex-shrink: 0;
+  }
+  .ic-period {
+    flex: 1;
+    font-size: 0.8rem;
+  }
+  .ic-note { display: none; }
+  .ic-read {
+    padding-top: 0;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .section-nav__inner { gap: 0; }
+  .snav-link { padding: 0.65rem 0.75rem; font-size: 0.76rem; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .search-field-wrap { max-width: 100%; }
+  .dt-label {
+    width: 80px;
+    font-size: 0.72rem;
+  }
+  .dt-value {
+    font-size: 0.82rem;
+  }
+  .email-row {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+</style>

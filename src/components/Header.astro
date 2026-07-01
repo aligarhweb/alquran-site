@@ -1,11 +1,33 @@
 ---
+const currentPath = Astro.url.pathname;
+const isUrdu = currentPath.startsWith('/ur');
+
+const navEn = [
+  { label: "About", href: "/en/about/" },
+  { label: "Journal", href: "/en/journal/" },
+  { label: "Publications", href: "/en/publications/" },
+  { label: "Seminars", href: "/en/seminars/" },
+  { label: "Competitions", href: "/en/competitions/" },
+  { label: "Contact", href: "/en/contact/", cta: true },
+];
+
+const navUr = [
+  { label: "تعارف", href: "/ur/about/" },
+  { label: "رسالہ", href: "/ur/journal/" },
+  { label: "اشاعتیں", href: "/ur/publications/" },
+  { label: "سیمینار", href: "/ur/seminars/" },
+  { label: "مقابلے", href: "/ur/competitions/" },
+  { label: "رابطہ کریں", href: "/ur/contact/", cta: true },
+];
+
+const nav = isUrdu ? navUr : navEn;
 ---
 
-<header class="site-header">
+<header class="site-header" dir={isUrdu ? 'rtl' : 'ltr'}>
   <div class="container header-inner">
 
     <div class="site-brand">
-      <a href="/en/" class="brand-link">
+      <a href={isUrdu ? '/ur/' : '/en/'} class="brand-link">
         <span class="brand-name">ادارہ علوم القرآن</span>
         <span class="brand-name-en">Idara Ulum-Al-Qur'an</span>
         <span class="brand-tagline">Established 1984 · Aligarh</span>
@@ -20,17 +42,21 @@
 
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       <ul class="nav-list">
-        <li><a href="/en/about/">About</a></li>
-        <li><a href="/en/journal/">Journal</a></li>
-        <li><a href="/en/publications/">Publications</a></li>
-        <li><a href="/en/seminars/">Seminars</a></li>
-        <li><a href="/en/competitions/">Competitions</a></li>
-        <li><a href="/en/contact/" class="nav-cta">Contact</a></li>
+        {nav.map((item) => (
+          <li key={item.href}>
+            <a
+              href={item.href}
+              class={item.cta ? 'nav-cta' : ''}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
       </ul>
       <div class="lang-switch">
-        <a href="/" lang="ur">اردو</a>
+        <a href="/ur/" lang="ur" class={isUrdu ? 'active' : ''}>اردو</a>
         <span>|</span>
-        <a href="/en/" class="active">English</a>
+        <a href="/en/" class={!isUrdu ? 'active' : ''}>English</a>
       </div>
     </nav>
 
@@ -46,9 +72,19 @@
     hamburger.setAttribute('aria-expanded', isOpen.toString());
     hamburger.classList.toggle('is-active');
   });
+
+  // Close menu on link click (mobile)
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.classList.remove('is-active');
+    });
+  });
 </script>
 
 <style>
+/* ─── Base Header ─── */
 .site-header {
   background-color: var(--color-primary);
   padding: 1rem 0;
@@ -56,6 +92,11 @@
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* RTL specific: reduce header padding */
+[dir="rtl"] .site-header {
+  padding: 0.8rem 0;
 }
 
 .header-inner {
@@ -78,11 +119,22 @@
   line-height: 1.8;
 }
 
+/* RTL: reduce brand name size and line-height */
+[dir="rtl"] .brand-name {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 .brand-name-en {
   font-family: 'Source Serif 4', serif;
   font-size: 0.95rem;
   color: #FFFFFF;
   opacity: 0.9;
+}
+
+/* RTL: slightly smaller subtitle */
+[dir="rtl"] .brand-name-en {
+  font-size: 0.85rem;
 }
 
 .brand-tagline {
@@ -91,7 +143,12 @@
   letter-spacing: 0.05em;
 }
 
-/* ─── Hamburger Button ─── */
+/* RTL: smaller tagline */
+[dir="rtl"] .brand-tagline {
+  font-size: 0.7rem;
+}
+
+/* ─── Hamburger ─── */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -116,11 +173,9 @@
 .hamburger.is-active span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
-
 .hamburger.is-active span:nth-child(2) {
   opacity: 0;
 }
-
 .hamburger.is-active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
@@ -137,6 +192,8 @@
   list-style: none;
   gap: 0.25rem;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-list a {
@@ -146,8 +203,19 @@
   padding: 0.4rem 0.75rem;
   border-radius: 4px;
   transition: opacity 0.2s, background 0.2s;
+  font-family: 'Source Serif 4', serif;
+  text-decoration: none;
 }
 
+/* Urdu nav links – reduced size and spacing */
+[dir="rtl"] .nav-list a {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 0.9rem;      /* was 1rem */
+  line-height: 1.6;       /* was 2 */
+  padding: 0.3rem 0.6rem; /* reduced */
+}
+
+/* Keep the English (LTR) as is */
 .nav-list a:hover {
   opacity: 1;
   background: rgba(255,255,255,0.1);
@@ -157,34 +225,34 @@
 .nav-cta {
   background: var(--color-accent) !important;
   opacity: 1 !important;
-  color: #FFFFFF !important;
-  font-weight: 600;
+}
+.nav-cta:hover {
+  background: color-mix(in srgb, var(--color-accent) 80%, #000) !important;
 }
 
+/* ─── Language Switch ─── */
 .lang-switch {
   display: flex;
-  align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.7);
-  white-space: nowrap;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Source Serif 4', serif;
 }
 
 .lang-switch a {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 0.2s;
 }
-
+.lang-switch a:hover {
+  color: #FFFFFF;
+}
 .lang-switch a.active {
   color: #FFFFFF;
   font-weight: 600;
 }
 
-.lang-switch a:hover {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-/* ─── Mobile ─── */
+/* ─── Responsive ─── */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -193,10 +261,15 @@
   .site-nav {
     display: none;
     flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    padding: 1rem 0 0.5rem;
-    gap: 0.75rem;
+    align-items: stretch;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-primary);
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
 
   .site-nav.nav-open {
@@ -205,22 +278,28 @@
 
   .nav-list {
     flex-direction: column;
+    gap: 0.5rem;
     width: 100%;
-    gap: 0.1rem;
   }
 
   .nav-list a {
     display: block;
-    padding: 0.6rem 0.75rem;
-    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* On mobile, Urdu links should be larger for touch targets */
+  [dir="rtl"] .nav-list a {
+    font-size: 1rem;
+    line-height: 2;
+    padding: 0.6rem 1rem;
   }
 
   .lang-switch {
-    padding: 0.5rem 0.75rem;
-  }
-
-  .header-inner {
-    flex-wrap: wrap;
+    text-align: center;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    justify-content: center;
   }
 }
 </style>

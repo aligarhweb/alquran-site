@@ -1,33 +1,71 @@
 ---
+const currentPath = Astro.url.pathname;
+const isUrdu = currentPath.startsWith('/ur');
+
+// English content
+const en = {
+  instituteName: "Idara Ulum-Al-Qur'an",
+  address: "Aligarh Muslim University, Aligarh, Uttar Pradesh, India — 202002",
+  quickLinks: "Quick Links",
+  links: [
+    { label: "About the Institute", href: "/en/about/" },
+    { label: "Biannual Journal", href: "/en/journal/" },
+    { label: "Publications", href: "/en/publications/" },
+    { label: "Seminars", href: "/en/seminars/" },
+    { label: "Competitions", href: "/en/competitions/" },
+    { label: "Contact Us", href: "/en/contact/" },
+  ],
+  subscribeHeading: "Subscribe to Journal",
+  subscribeText: "Ulum al-Qur'an is published twice a year. Contact us to subscribe.",
+  ctaText: "Get in Touch",
+  ctaHref: "/en/contact/",
+  copyright: `© ${new Date().getFullYear()} Idara Ulum-Al-Qur'an, Aligarh Muslim University. All rights reserved.`,
+};
+
+// Urdu content
+const ur = {
+  instituteName: "ادارہ علوم القرآن",
+  address: "علی گڑھ مسلم یونیورسٹی، علی گڑھ، اتر پردیش، انڈیا — ۲۰۲۰۰۲",
+  quickLinks: "فوری روابط",
+  links: [
+    { label: "ادارہ کا تعارف", href: "/ur/about/" },
+    { label: "ششماہی رسالہ", href: "/ur/journal/" },
+    { label: "اشاعتیں", href: "/ur/publications/" },
+    { label: "سیمینار", href: "/ur/seminars/" },
+    { label: "مقابلے", href: "/ur/competitions/" },
+    { label: "رابطہ کریں", href: "/ur/contact/" },
+  ],
+  subscribeHeading: "رسالہ کے لیے اشتراک",
+  subscribeText: "علوم القرآن سال میں دو بار شائع ہوتا ہے۔ اشتراک کے لیے ہم سے رابطہ کریں۔",
+  ctaText: "رابطہ کریں",
+  ctaHref: "/ur/contact/",
+  copyright: `© ${new Date().getFullYear()} ادارہ علوم القرآن، علی گڑھ مسلم یونیورسٹی۔ جملہ حقوق محفوظ ہیں۔`,
+};
+
+const content = isUrdu ? ur : en;
 ---
 
-<footer class="site-footer">
+<footer class="site-footer" dir={isUrdu ? 'rtl' : 'ltr'}>
   <div class="container footer-inner">
 
     <div class="footer-col">
-      <h3>ادارہ علوم القرآن</h3>
-      <p>Idara Ulum-Al-Qur'an<br />
-      Aligarh Muslim University<br />
-      Aligarh, Uttar Pradesh<br />
-      India — 202002</p>
+      <h3>{content.instituteName}</h3>
+      <p>{content.address}</p>
     </div>
 
     <div class="footer-col">
-      <h3>Quick Links</h3>
+      <h3>{content.quickLinks}</h3>
       <ul>
-        <li><a href="/en/about/">About the Institute</a></li>
-        <li><a href="/en/journal/">Biannual Journal</a></li>
-        <li><a href="/en/publications/">Publications</a></li>
-        <li><a href="/en/seminars/">Seminars</a></li>
-        <li><a href="/en/competitions/">Competitions</a></li>
-        <li><a href="/en/contact/">Contact Us</a></li>
+        {content.links.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
       </ul>
     </div>
 
     <div class="footer-col">
-      <h3>Subscribe to Journal</h3>
-      <p>Ulum al-Qur'an is published twice a year. Contact us to subscribe.</p>
-      <a href="/en/contact/" class="footer-cta">Get in Touch</a>
+      <h3>{content.subscribeHeading}</h3>
+      <p>{content.subscribeText}</p>
+      <a href={content.ctaHref} class="footer-cta">{content.ctaText}</a>
       <div class="social-links">
         <a href="https://www.youtube.com/@idaraululmalquran" target="_blank" rel="noopener">YouTube</a>
       </div>
@@ -37,7 +75,7 @@
 
   <div class="footer-bottom">
     <div class="container">
-      <p>© {new Date().getFullYear()} Idara Ulum-Al-Qur'an, Aligarh Muslim University. All rights reserved.</p>
+      <p>{content.copyright}</p>
     </div>
   </div>
 </footer>
@@ -64,10 +102,22 @@
   margin-bottom: 1rem;
 }
 
+/* Urdu headings use Nastaliq */
+[dir="rtl"] .footer-col h3 {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
 .footer-col p {
   font-size: 0.9rem;
   line-height: 1.8;
   color: rgba(255,255,255,0.75);
+}
+
+[dir="rtl"] .footer-col p {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  line-height: 2.2;
 }
 
 .footer-col ul {
@@ -75,12 +125,21 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-col ul a {
   color: rgba(255,255,255,0.75);
   font-size: 0.9rem;
   transition: color 0.2s;
+  text-decoration: none;
+}
+
+[dir="rtl"] .footer-col ul a {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 1rem;
+  line-height: 2;
 }
 
 .footer-col ul a:hover {
@@ -98,11 +157,17 @@
   font-size: 0.9rem;
   font-weight: 600;
   transition: opacity 0.2s;
+  text-decoration: none;
 }
 
 .footer-cta:hover {
   opacity: 0.85;
   text-decoration: none;
+}
+
+[dir="rtl"] .footer-cta {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 1rem;
 }
 
 .social-links {
@@ -114,6 +179,7 @@
 .social-links a {
   color: rgba(255,255,255,0.7);
   font-size: 0.85rem;
+  text-decoration: none;
 }
 
 .social-links a:hover {
@@ -130,6 +196,12 @@
   color: rgba(255,255,255,0.5);
   text-align: center;
 }
+
+[dir="rtl"] .footer-bottom p {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 768px) {
   .footer-inner {
     display: block;
@@ -147,6 +219,11 @@
   .footer-col p,
   .footer-col ul a {
     font-size: 0.95rem;
+  }
+
+  [dir="rtl"] .footer-col p,
+  [dir="rtl"] .footer-col ul a {
+    font-size: 1rem;
   }
 
   .footer-cta {
