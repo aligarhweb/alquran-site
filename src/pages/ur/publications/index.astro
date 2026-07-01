@@ -1,0 +1,556 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+// Helper to convert Urdu digits to English digits for strict Schema compliance
+const urduToEnglishDigits = (str) => {
+  if (!str) return null;
+  const converted = str.replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+  const match = converted.match(/\d+/);
+  return match ? match[0] : null;
+};
+
+const publications = [
+  {
+    title: "عصر حاضر کے مسائل اور قرآنی تعلیمات ( مقالات سیمینار )",
+    titleEn: "Problems of the Modern Age and Teachings of the Quran",
+    editors: "پروفیسر اشتیاق احمد ظلی و پروفیسر ظفر الاسلام اصلاحی",
+    year: "2008", // Inferred from desc
+    pages: "۳۷۶",
+    price: "۳۰۰ روپے",
+    desc: "ادارہ علوم القرآن نے عصر حاضر کے مسائل اور قرآنی تعلیمات کے موضوع پر ۹/ ۱۰ / اگست ۲۰۰۸ کو ایک دور روزه سیمینار منعقد کیا تھا، زیر تعارف کتاب اس سیمینار کے مقالات کا مجموعہ ہے۔ اس میں اداریہ ، افتتاحی و تعارفی کلمات اور کلیدی خطبہ کے علاوہ ۶ امقالات شامل ہیں۔ ان میں سماجی و معاشرتی، ملی و بین الاقوامی ، نفسیاتی و ماحولیاتی مسائل کا تجزیہ پیش کیا گیا ہے اور قرآنی تعلیمات کی روشنی میں ان کا حل تلاش کرنے کی کوشش کی گئی ہے۔"
+  },
+  {
+    title: "خاندانی نظام اور قرآنی تعلیمات ( مقالات سیمینار )",
+    titleEn: "Family Life and the Teachings of the Quran",
+    editors: "پروفیسر اشتیاق احمد ظلی و ڈاکٹر ابو سفیان اصلاحی",
+    year: "2009", // Inferred from desc
+    pages: "۳۹۲",
+    price: "۲۵۰ روپے",
+    desc: "یہ ادارہ علوم القرآن کے تیسرے سالانہ سیمینار \"خاندانی نظام اور قرآنی تعلیمات کے موقع پر پیش کردہ مقالات کا مجموعہ ہے جو ۲۰-۲۱نومبر ۲۰۰۹ کو علی گڑھ میں منعقد ہوا تھا۔ اس مجموعہ میں خاندانی نظام کے تقریبا تمام پہلووں پر سیر حاصل گفتگو کی گئی ہے۔ یہ کتاب اپنے موضوع کے مشمولات کے اعتبار سے اس لائق ہے کہ ہر گھر میں اس کا مطالعہ ہوتا کہ خاندانی نظام جس قدر ٹوٹ پھوٹ کا شکار ہے اس کے ختم کرنے میں رہنمائی حاصل کی جاسکے۔"
+  },
+  {
+    title: "معاشی مسائل اور قرآنی تعلیمات",
+    titleEn: "Economic Problems and the Teachings of the Quran",
+    editors: "ڈاکٹر اوصاف احمد و ڈاکٹر عبد العظیم اصلاحی",
+    year: "2010", // Inferred from desc
+    pages: "۲۵۶",
+    price: "۱۶۰ روپے",
+    desc: "یه کتاب ادارہ علوم القرآن کے سالانہ سیمینار منعقدہ نومبر ۲۰۱۰ء میں پیش کیے گئے مقالات کا مجموعہ ہے ۔ اس سیمینار میں معروف اسلامی معاشیات داں جناب اوصاف احمد نے اپنا کلیدی خطبہ پیش کیا، جب کہ عبدالعظیم اصلاحی نے قرآن معاشیات پر ادبیات کا ایک مختصر جائزہ پیش کیا۔ اس سیمینار میں اُردو، عربی اور انگریزی میں مقالات پیش کیے گئے۔ اپنے موضوعات کے حوالے سے یہ مقالات وقیع بھی ہیں اور متنوع بھی۔ اس سیمینار کے کے عنوان Economical problems and the teaching of the Qur’an انگریزی مقالات کو ایک الگ مجموعه سے ادارہ نے شائع کیا۔"
+  },
+  {
+    title: "رجوع الی القرآن۔ اہمیت اور تقاضے (حصہ اول) مقالات سیمینار",
+    titleEn: "Return to the Qur'an: Importance and Requirements — Vol. 1",
+    editors: "اشہد رفیق ندوی",
+    year: "2012", // Inferred from desc
+    pages: "۵۲۸",
+    price: "۳۰۰ روپے",
+    desc: "ادارہ علوم القرآن علی گڑھ ہر سال قرآن مجید سے متعلق کسی اہم پہلو پر سیمینار منعقد کرتا ہے۔ زیر نظر کتاب ۲۲ / اکتوبر ۲۰۱۲ کو منعقد ہونے والے سیمینار بعنوان ‘رجوع الی القرآن۔ اہمیت اور تقاضے میں پیش کیے گئے مقالات کا مجموعہ ہے۔ یہ چھ ابواب کے تحت اکیس مقالات پر مشتمل ہے۔ پہلے باب میں افتتاحی اجلاس کے کلیدی مباحث نہیں، جن میں مرکزی موضوع کا تعارف، سیمینار کے مقاصد ، منبج اور ترجیحات کی وضاحت کی گئی ہے۔ باب دوم تعارف قرآن’ پر ہے۔ اس میں تین مقالات شامل ہیں۔ تیسر ا باب رجوع الی القرآن کے عنوان سے ہے۔ اس میں پانچ وقیع مقالات شامل ہیں، باب سوم تعلیم و تعلم کے عنوان سے ہے۔ باب چہارم میں فہم قرآن میں معاون علوم وفنون، وسائل اور ذرائع پر اجمالی نظر ڈالی گئی ہے۔ اس میں پانچ مقالات شامل ہیں۔ اس کتاب کا آخری باب \"عصر حاضر میں قرآن مجید کی رہنمائی’ کے عنوان سے ہے۔اس میں بعض معاصر مسائل کو موضوع بحث بنا کر قرآن کی روشنی میں ان کا حل پیش کرنے کی کوشش کی گئی ہے۔ یہ مجموعہ مقالات مجموعی اعتبار سے ہر سطح کے قارئین کے لئے مفید ہے۔"
+  },
+  {
+    title: "رجوع الی القرآن۔ اہمیت اور تقاضے (حصہ دوم) مقالات سیمینار",
+    titleEn: "Return to the Qur'an: Importance and Requirements — Vol. 2",
+    editors: "اشہد رفیق ندوی",
+    year: "2013", // Inferred from desc
+    pages: "۳۶۸",
+    price: "۲۷۵ روپے",
+    desc: "یہ مجموعہ بھی ۲۰۱۳ میں اس موضوع پر منعقد ہونے والے سمینار کا مجموعہ ہے۔ اس میں پیش لفظ ، عرض مرتب اور استقبالیہ کلمات کے علاوہ ۱۷ مقالات شامل ہیں جن میں سیمینار کے موضوع کے مختلف پہلووں پر روشنی ڈالی گئی ہے۔ ان مقالات میں قرآن کریم کے مضامین کے امتیازات اور عصر حاضر میں رجوع الی القرآن کی اہمیت اور اس کے تقاضوں کو واضح کرنے کے علاوہ تزکیہ نفس کا قرآنی تصور ، اس کا عملی پہلو اور اس کے حصول کے طریق سے بحث کی گئی ہے۔ بعض مقالات میں سماجی و معاشی زندگی کے حوالہ سے قرآن کے مطالبات پر روشنی ڈالی گئی۔ عام لوگوں میں قرآنی افکار و تعلیمات کی اشاعت کے لئے درس قرآن کی کیا اہمیت ہے اور عصری تقاضوں کے مطابق اس طرح کی مجالس کو کیسے مزید مفید بنایا جائے اس پر بعض مقالات میں تفصیل سے روشنی ڈالی گئی ہے۔ یہ مجموعہ ان شاء اللہ رجوع الی القرآن کی اہمیت اور اس کے تقاضوں و طریق کار کا سمجھنے کے لئے مفید ثابت ہو گا۔"
+  },
+  {
+    title: "سماجی برائیوں کا انسداد اور قرآنی تعلیمات",
+    titleEn: "How to Abolish Social Evils in the Light of the Qur'an",
+    editors: null,
+    year: "2014", // Inferred from desc
+    pages: "۴۴۰",
+    price: "۳۶۰ روپے",
+    desc: "ادارہ علوم القرآن کے زیر اہتمام ۲۸/۲۷ ستمبر ۲۰۱۴ کو \"سماجی برائیوں کا انسداد اور قرآنی تعلیمات ” کے عنوان سے منعقد ہونے والے دوروزہ سیمینار میں پیش کیے گئے مقالات کو ادارہ نے مجموعہ کی شکل میں شائع کیا۔ عرض مرتب، افتتاحی کلمات اور کلیدی خطاب کے علاوہ اس میں مقالات شامل ہیں۔ یہ مقالات سیمینار کے مرکزی موضوع کے مختلف اہم پہلووں سے تعلق رکھتے ہیں۔ ان میں کچھ اہم موضوعات یہ ہیں: فساد فی الارض تعریف و جہات ، اخلاقی فتنہ وفساد کی اصل بنیاد، سماجی برائیوں کے انسداد کی قرآنی تدابیر و حکمت علمی، سماجی برائیوں کا انسداد اور استحضار آخرت، سماجی تفاخر کا انسداد قرآنی، انسداد استکبار۔ قرآن کی روشنی میں ظلم و جبر کا قرآنی تصور، نفاق کا مرض اور اس کا قرآں یا علاج، شراب اور نشہ کی ممانعت۔ قرآن وحدیث کی روشنی میں، جنسی استحصال کا انسداد اور قرآنی تعلیمات، رحم مادر میں بچیوں کے قتل کا مسئلہ اور اس کا قرآنی حل، گداگری اور اس کا اسلامی علاج، ترسیل اطلاعات کے آداب و حدود کتاب و سنت کی روشنی میں۔ کتاب کے آخر میں سیمینار کی تفصیلی رپورٹ بھی مندرج ہے۔ یہ مجموعہ مقالات اپنے موضوع پر ایک محقق دستاویز کی حیثیت رکھتا ہے۔"
+  },
+  {
+    title: "غیر مسلموں کے ساتھ ربط و تعاون قرآن کریم کی روشنی میں",
+    titleEn: "Connection and Cooperation with Non-Muslims in the Light of the Qur'an",
+    editors: "پروفیسر محمد راشد اصلاحی",
+    year: "2015-16",
+    pages: "۳۷۲",
+    price: "۴۰۰ روپے",
+    desc: "ادارہ علوم القرآن نے ۲۰۱۵ اور ۲۰۱۶ میں دو سیمینار \"غیر مسلموں کے ساتھ ربط و تعاون قرآن مجید کی روشنی میں ” کے عنوان سے منعقد کیا۔ زیر نظر مجموعہ انہیں سیمینار میں پیش کیے گئے مقالات کا انتخاب ہے۔ مقدمہ ، عرض مرتب اور افتتاحی کلمات کے علاوہ اس میں کل ۲۱ مقالات شامل ہیں جن میں غیر مسلموں سے تعلقات وروابط کی قرآنی بنیادوں کو اجاگر کیا گیا ہے، ان کے حقوق کی وضاحت کی گئی ہے، ان سے عام انسانی، معاشی و معاشرتی تعلقات کے سلسلہ میں قرآنی تعلیمات پر روشنی ڈالی گئی ہے۔ دیگر ادیان کے احترام سے متعلق اسلامی تعلیمات کو واضح کیا گیا ہے، غیر مسلم حکومت سے تعاون، کلمہ سوا کی دعوت اور اس کی معنویت کے سلسلہ میں ضروری ہدایت فراہم کی گئی ہیں۔ تکریم انسانیت، مذہبی رواداری اور مروجہ مذاہب کے ساتھ تعلقات کی جہات کا جائزہ پیش کیا گیا ہے۔ غیر مسلم والدین اور غیر مسلم رشتہ دار سے متعلق اسلامی تعلیمات فراہم کی گئی ہیں۔ غیر مسلموں سے تعلقات کے سلسلہ میں قرآن وسنت کی ٹھوس اور اساسی تعلیمات کو واضح کرنے میں اس کتاب کا اہم کردار ہے۔"
+  },
+  {
+    title: "قرآن کا تصور عروج و زوال عصر حاضر کے خصوصی تناظر میں",
+    titleEn: "The Concept of Rise and Fall of Nations in the Holy Qur'an",
+    editors: "ڈاکٹر ابو سعد اعظمی",
+    year: "2017",
+    pages: "۳۰۴",
+    price: "۲۵۰ روپے",
+    desc: "زیر تعارف کتاب ان مقالات کا مجموعہ ہے جو ۲۶-۲۷ نومبر ۲۰۱۷ کو ادارہ علوم القرآن کے کا نفرنس ہال میں ” قرآن کا تصور عروج وزوال۔ عصر حاضر کے خصوصی تناظر میں ” کے موضوع پر منعقد ہوا تھا۔ اس میں پیش لفظ، عرض مرتب اور استقبالیہ کلمات کے علاوہ کل اٹھارہ مقالات شامل ہیں۔ ایک ایسے وقت میں جب مسلمانوں کی ذلت و نکبت ضرب المثل بن چکی ہے اور وہ دینی، سیاسی، معاشی و اخلاقی ہر سطح پر زوال سے دوچار ہیں۔ یہ کتاب ملت اسلامیہ کے ان باشعور اور حساس افراد کے لیے ایک قیمتی تحفہ ہے جو زوال کے بھنور سے نکل کر عروج و ترقی کا سفر طے کرنا چاہتے ہیں۔ اس کتاب میں عروج وزوال سے متعلق مغربی مفکرین کی آرا کا تجزیہ ہے، ہندوستانی مفکرین کے فلسفہ عروج وزوال کو واضح کیا گیا ہے اور قرآن کے تصور عروج وزوال پر بھی خاطر خواہ روشنی ڈالی گئی ہے۔"
+  },
+  {
+    title: "قرآنی علوم بیسویں صدی میں (ششماہی علوم القرآن کی خصوصی اشاعت) مقالات سیمینار",
+    titleEn: "Qur'anic Sciences in the Twentieth Century",
+    editors: "پروفیسر اشتیاق احمد ظلی و پروفیسر ظفر الاسلام اصلاحی",
+    year: "2005",
+    pages: "۵۳۲",
+    price: "۲۰۰ روپے",
+    desc: "یہ مجموعہ مقالات ۲۰۰۵ میں منعقد ہونے والے سیمینار میں پڑھے گئے مقالات کا مجموعہ ہے جس میں بیسویں صدی میں قرآنیات کے موضوع پر ہونے والے علمی، فکری، تصنیفی اور تحقیقی کاموں کا جائزہ تفاسیر اور تراجم کے میدان میں ہونے والی پیش رفت کا تجزیاتی مطالعہ ، لغات قرآن، نظم قرآن، اسالیب قرآن، اسباب نزول، حروف مقطعات کے موضوعات پر سیر حاصل بحث فہم قرآن کے میدان میں بیسویں صدی کی اہم ترین پیش رفت، مولانا فراہی کی قرآنی فکر کی مختلف جہات کا تعارف اور مطالعہ فہم قرآن میں عصری علوم سے استفادہ، قرآنی نظریہ کا اثبات ، دنیا کی موجودہ مادی تقسیم قرآنی تعلیمات کی روشنی میں، دہشت گردی اور قرآنی اور مدارس اسلامیہ میں تدریس قرآن کی صورت حال جیسے وقیع مقالات شامل ہیں۔"
+  },
+  {
+    title: "مولانا امین احسن اصلاحی نمبر (ششماہی علوم القرآن کی خصوصی اشاعت)",
+    titleEn: "Special Issue on Mawlana Amin Ahsan Islahi",
+    editors: "پروفیسر اشتیاق احمد ظلی وپروفیسر ظفر الاسلام اصلاحی",
+    year: null,
+    pages: "۶۰۰",
+    price: "۲۰۰ روپے",
+    desc: "ششماہی علوم القرآن کا یہ خاص نمبر ترجمان القرآن مولانا حمید الدین فراہیؒ کے ممتاز شاگرد اور صاحب تدبر قرآن مولانا امین احسن اصلاحیؒ کی شخصیت وعلمی خدمات پر ایک قیمتی دستاویز کی حیثیت رکھتا ہے۔ ۲۵ مقالات پرمشتمل یہ مجموعہ اب تک مولانا اصلاحیؒ پر شائع ہونے والے تمام خصوصی شماروں سے زیادہ جامع ومبسوط ہے۔ حالاتِ زندگی سے متعلق مولانا اصلاحیؒ کے ایک طویل انٹرویو کے علاوہ اس میں مولاناکی جملہ تصانیف کا مفصل تعارف کرایا گیا ہے۔ ان کی شاہکار تالیف تفسیر تدبر قرآن کا تفصیلی مطالعہ اور مختلف پہلوؤں سے اس کے مشتملات کا جائزہ اس مجموعہ کا خصوصی حصہ ہے۔ مولانا اصلاحی کے بعض قریبی اعزہ وممتاز تلامذہ کے تاثرات اور ان کی مطبوعہ کتب اور ان پر شائع شدہ مضامین کے جامع اشاریہ سے اس خصوصی شمارہ کی افادیت اور بڑھ گئی ہے۔"
+  },
+  {
+    title: "قرآنی افکار وتعلیمات اور موجودہ دور میں ان کی معنویت",
+    titleEn: "Qur'anic Thoughts, Teachings and Their Spirituality in the Present Times",
+    editors: "ڈاکٹر ظفر الاسلام اصلاحی",
+    year: null,
+    pages: "۱۶۰",
+    price: "۱۰۰ روپے",
+    desc: "اللہ رب العزت نے انسانوں کو بے شمار نعمتوں سے نوازا ہے، ان میں سب سے بڑی نعمت قرآن مجید کا نزول ہے۔ اس لیے کہ یہ کتاب عزیز انسانیت کو وہ راہ دکھاتی ہے جو اس کے لیے دنیاوی واخروی فلاح کی ضامن ہے۔ بلاشبہ یہی کامیابی انسان کی اصل کامیابی ہے جسے قرآن نے فوز عظیم سے تعبیر کیا ہے، انسانوں کی بھلائی کے لیے اس کتاب کا کیا پیغام ہے؟ اس سے روز مرہ کی زندگی میں انہیں کیا رہنمائی ملتی ہے؟ اس کی تشریح وتوضیح کا سلسلہ زمانہ نزول سے جاری ہے زیر نظر کتاب بھی اسی سلسلہ کی ایک کڑی ہے۔ اس سے قبل مصنف کی قرآنی موضوعات وتعلیمات پر متعدد کتابیں شائع ہوکر مقبولیت عام حاصل کرچکی ہیں۔ زیر نظر کتاب ( قرآنی افکار وتعلیمات اور موجودہ دور میں ان کی معنویت)سات ابواب پر مشتمل ہے اور اس میں یہ موضوعات زیر بحث آئے ہیں: شاہ ولی اللہ کی دعوت ِ رجوع الی القرآن والسنہ اور موجودہ دور میں اس کی معنویت، قرآن کا تصور عبادت، قرآن کا تصورِ امانت، قرآن کا تصور حقوق انسانی، قرآن مجید کا تصور عدل اور معاشرتی امن وامان، قرآن حکیم اور عقلی استدلال، قرآن عظیم مغربی تہذیب کے لیے سب سے بڑا چیلنج۔ اس کتاب کا جدید ایڈیشن فاضل مصنف کی جانب سے نظر ثانی اور دوباب کے اضافے کے بعد شائع کیا گیا ہے۔"
+  },
+  {
+    title: "اشاریہ ششماہی علوم القرآن",
+    titleEn: "Index of Articles Published in Bi-Annual Ulum al-Qur'an",
+    editors: "ڈاکٹر ظفر الاسلام اصلاحی",
+    year: "1985-2003",
+    pages: "۵۶",
+    price: "۲۰ روپے",
+    desc: "ششماہی علوم القرآن کی ۱۸ جلدوں ( ۲۰۰۳۱۹۸۵ ) کا اشاریہ یکجا کتابی صورت میں شائع ہوا ہے۔ مجلہ کے مضامین ودیگر مشتملات کو موضوع کے اعتبار سے مختلف حصوں میں تقسیم کرکے جدید طرز پر ان کا اشاریہ مرتب کیا گیا ہے۔ اس میں مضمون، مضمون نگار، جلد وشمارہ، ماہ وسن اور صفحات وغیرہ کی ضروری معلومات فراہم کی گئی ہیں۔ اور ہر موضوع کے تحت مندرجات کی ترتیب میں حروف تہجی کی رعایت کی گئی ہے اس میں مقالات کے علاوہ مجلہ کے مستقل کالم (اداریہ، تعارف وتبصرہ، کتاب نما وخبرنامہ) کے مشتملات کا بھی احاطہ کیا گیا ہے۔"
+  },
+  {
+    title: "کتابیات فراہی",
+    titleEn: "A Bibliography on Mawlana Hamiduddin Farahi",
+    editors: "ڈاکٹر ظفر الاسلام اصلاحی",
+    year: null,
+    pages: "۸۰",
+    price: "۲۰ روپے",
+    desc: "بیسویں صدی کے معروف مفسر قرآن مولانا حمید الدین فراہیؒ کی مطبوعہ کتب، عربی تفاسیر وکتب کے اردو تراجم، مضامین، مضامین کی صورت میں ان کی عربی تحریروں کے اردو تراجم، افادات فراہی کے تحت شائع ہونے والے مضامین، خطوط اور عربی وفارسی کلام کے بارے میں معلومات فراہم کی گئی ہیں۔ نیز مولانا فراہی کی حیات وخدمات پر پیش کردہ غیر مطبوعہ تحقیقی مقالات، مطبوعہ کتب، مضامین اور مراثی، پی ایچ ڈی، ایم فل کے مقالات، اور مولانا کی کتابوں پر اہل علم کی رایوں اور تبصروں کے بارے میں ضروری معلومات جمع کردی گئی ہیں۔فراہیات میں دلچسپی رکھنے والے طلبہ و محققین کے لیے بہت قیمتی تحفہ ہے۔"
+  },
+  {
+    title: "اردو رسائل کے قرآنی مضامین کا اشاریہ",
+    titleEn: "Index of Qur'anic Articles in Urdu Journals",
+    editors: "ڈاکٹر ابوسفیان اصلاحی",
+    year: null,
+    pages: "۲۵۰",
+    price: "۱۵۰ روپے",
+    desc: "ہندوپاک کے۳۳معروف اردو مجلات ورسائل میں شائع شدہ قرآنی مضامین کا موضوعاتی اشاریہ جو ان موضوعات کے تحت مرتب کیا گیا ہے۔ احکام القرآن،اعجازالقرآن، تاریخ نزول وتدوین قرآن، تحقیقات قرآنی، تفسیر وتاویل، تراجم وتفاسیر، قرآنی افکاروتعلیمات،قرآن اورحديث، قرآن اور سماجی علوم، قرآن کریم اور تاریخ عالم، قرآن کریم اور سائنس، قرآن کریم اور دیگر آسمانی کتابیں، قرآن کریم اور عربی ادبیات۔ یہ کتاب عام قاری کے علاوہ علمی وتحقیقی کام کرنے والے اسکالرس کے لیے ایک نادر تحفہ ہے۔"
+  },
+  {
+    title: "قرآنی مقالات",
+    titleEn: "Selected Essays on Qur'anic Studies",
+    editors: "پروفیسراشتیاق احمد ظلی",
+    year: null,
+    pages: "۳۳۶",
+    price: "۲۵۰ روپے",
+    desc: "دائرہ حمیدیہ مدرسۃ الاصلاح، سرائے میر اعظم گڑھ کے ترجمان ماہنامہ الاصلاح کے منتخب مقالات کا مجموعہ ہے۔ یہ مقالات علوم قرآن کے مختلف مباحث سے تعلق رکھتے ہیںجوقرآن مجید میں تدبر کی راہ میں پیش آ نے والی مشکلات کا تسلی بخش حل پیش کرتے ہیں اور قرآن فہمی کی نئی راہیں کھولتے ہیں۔ حواشی وحوالوں کے ساتھ جدید انداز میں مرتبہ اصول تفسیر، نظم قرآن اور دوسرے اہم قرآنی مباحث پر تحقیقاتی مضامین کا نادر مرقع۔ مقالات کا یہ قیمتی مجموعہ پاکستان (دار التذکیر، علامہ اقبال روڈ، لاہور) سے بھی شائع ہوا ہے۔"
+  },
+  {
+    title: "حقیقت نماز",
+    titleEn: "The Reality of Prayer",
+    editors: "مولانا امین احسن اصلاحی (تخریج وتحقیق : مولانا سلطان احمد اصلاحی)",
+    year: null,
+    pages: "۶۰",
+    price: "۲۰ روپے",
+    desc: "نماز کی اہمیت دین میں مسلم ہے۔ اسی لیے ہر دور میں امت کے علماء اور صلحاء نے اس پر یکساں توجہ کی ہے۔ اور دوسرے ذرائع کے ساتھ تحریر وتصنیف کے ذریعہ اس کے مختلف گوشوں کو سامنے لاتے رہے ہیں۔ لیکن پیش نظر کتاب اس پہلو سے بڑی امتیازی اہمیت کی حامل ہے کہ اس کے اندر خاص طور پر اسلام کی اولین اصل واساس قرآن کو محور بناکر نماز کی حقیقت کو اجاگر کرنے کی کوشش کی گئی ہے۔ جس کے نتیجے میں بندہ مومن اللہ تعالیٰ سے اپنے ربط وتعلق کو استوار کرنے کے ساتھ دنیا کے اندر ایک ناقابل شکست قوت میں تبدیل ہوجاتا ہے۔"
+  }
+];
+
+// Generate JSON-LD Schema (with localized digit parsing)
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": publications.map((pub, index) => {
+    const bookSchema = {
+      "@type": "Book",
+      "name": pub.title,
+      "alternateName": pub.titleEn, 
+      "description": pub.desc,
+      "inLanguage": "ur"
+    };
+
+    if (pub.editors) {
+      bookSchema.author = { "@type": "Person", "name": pub.editors };
+    }
+
+    if (pub.year) {
+      const cleanYear = String(pub.year).match(/\d{4}/);
+      if (cleanYear) bookSchema.datePublished = cleanYear[0];
+    }
+
+    if (pub.pages) {
+      const parsedPages = urduToEnglishDigits(pub.pages);
+      if (parsedPages) bookSchema.numberOfPages = parsedPages;
+    }
+
+    if (pub.price) {
+      const priceMatch = urduToEnglishDigits(pub.price);
+      if (priceMatch) {
+        bookSchema.offers = {
+          "@type": "Offer",
+          "price": priceMatch,
+          "priceCurrency": "INR"
+        };
+      }
+    }
+
+    return {
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": bookSchema
+    };
+  })
+};
+---
+
+<Layout
+  title="اشاعتیں — ادارہ علوم القرآن"
+  description="ادارہ علوم القرآن کی قرآنی علوم، تفسیر اور متعلقہ موضوعات پر اشاعتیں براؤز کریں۔"
+  lang="ur"
+  dir="rtl"
+  canonicalUrl="/ur/publications/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+  <main class="container page-content">
+    <nav class="breadcrumb" aria-label="بریڈکرمب">
+      <a href="/ur/">ہوم</a>
+      <span>‹</span>
+      <span>اشاعتیں</span>
+    </nav>
+
+    <h1>اشاعتیں</h1>
+
+    <p class="page-intro">
+      ادارہ علوم القرآن قرآنی علوم اور متعلقہ موضوعات پر کتابیں، سیمینار کی کارروائی
+      اور تحقیقی مقالات شائع کرتا ہے۔ کسی بھی اشاعت کے حصول کے لیے
+      <a href="/ur/contact/">ہم سے رابطہ کریں</a>۔
+    </p>
+
+    <div class="pub-list">
+      {publications.map((pub, i) => (
+        <article class="pub-card">
+          <div class="pub-number">{String(i + 1).padStart(2, '0')}</div>
+          <div class="pub-body">
+            <h2 class="pub-title">{pub.title}</h2>
+            {pub.titleEn && <p class="pub-title-en">{pub.titleEn}</p>}
+            
+            <div class="desc-container">
+              <p class="pub-desc">{pub.desc}</p>
+              <button class="btn-read-more" aria-expanded="false">مزید پڑھیں</button>
+            </div>
+
+            <div class="pub-meta">
+              {pub.editors && (
+                <span class="meta-item">
+                  <span class="meta-label">مرتب / مصنف</span>
+                  <span class="meta-value">{pub.editors}</span>
+                </span>
+              )}
+              {pub.year && (
+                <span class="meta-item">
+                  <span class="meta-label">سال</span>
+                  <span class="meta-value">{pub.year}</span>
+                </span>
+              )}
+              {pub.pages && (
+                <span class="meta-item">
+                  <span class="meta-label">صفحات</span>
+                  <span class="meta-value">{pub.pages}</span>
+                </span>
+              )}
+              {pub.price && (
+                <span class="meta-item">
+                  <span class="meta-label">قیمت</span>
+                  <span class="meta-value">{pub.price}</span>
+                </span>
+              )}
+            </div>
+          </div>
+          <div class="pub-action">
+            <a href={`/ur/contact/?book=${encodeURIComponent(pub.title)}`} class="btn-enquire">دریافت کریں</a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="pub-note">
+      <p>
+        کسی بھی اشاعت کے حصول، دستیابی، قیمت اور ڈاک کے بارے میں معلومات کے لیے
+        <a href="/ur/contact/">ہم سے رابطہ کریں</a>۔ اشاعتیں ادارہ علوم القرآن،
+        شبلی باغ، علی گڑھ — 202002 سے منگوائی جا سکتی ہیں۔
+      </p>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Client-side script to handle the "Show More" / "Show Less" toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const readMoreButtons = document.querySelectorAll('.btn-read-more');
+    
+    readMoreButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const descElement = btn.previousElementSibling;
+        descElement.classList.toggle('expanded');
+        
+        const isExpanded = descElement.classList.contains('expanded');
+        btn.setAttribute('aria-expanded', isExpanded);
+        btn.innerText = isExpanded ? 'کم دکھائیں' : 'مزید پڑھیں';
+      });
+    });
+  });
+</script>
+
+<style>
+.page-content {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+  direction: rtl;
+  text-align: right;
+}
+
+nav.breadcrumb,
+nav.breadcrumb a,
+nav.breadcrumb span {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important;
+  color: var(--color-muted);
+}
+
+nav.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+nav.breadcrumb a {
+  color: var(--color-link) !important;
+  text-decoration: none;
+}
+
+nav.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+  line-height: 1.8;
+}
+
+.page-intro {
+  font-size: 1rem;
+  line-height: 2.1;
+  color: var(--color-muted);
+  max-width: 720px;
+  margin-bottom: 2.5rem;
+}
+
+.page-intro a {
+  color: var(--color-link);
+  font-weight: 600;
+}
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.pub-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 1.25rem;
+  align-items: start;
+  transition: box-shadow 0.2s;
+}
+
+.pub-card:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+}
+
+.pub-number {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-border);
+  line-height: 1.8;
+  font-family: 'Source Serif 4', serif;
+}
+
+.pub-title {
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  line-height: 1.8;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.pub-title-en {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  font-family: 'Source Serif 4', serif !important;
+  direction: ltr !important;
+  text-align: left !important;
+  display: inline-block;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 4px 4px 0;
+  padding: 0.2rem 0.75rem;
+}
+
+/* ─── Show More / Less Styles ─── */
+.desc-container {
+  margin-bottom: 1rem;
+}
+
+.pub-desc {
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  
+  /* Line clamp for hiding content */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  
+  /* The comment below forces Autoprefixer to LEAVE THIS ALONE */
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pub-desc.expanded {
+  /* Switching to block removes the clamp behavior and shows everything */
+  display: block; 
+}
+
+.btn-read-more {
+  background: transparent !important;
+  border: none !important;
+  color: var(--color-link);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-read-more:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* ─── Meta Styles ─── */
+.pub-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.meta-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+  font-family: 'Source Serif 4', serif;
+}
+
+.meta-value {
+  font-size: 0.88rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.pub-action {
+  padding-top: 0.2rem;
+}
+
+.btn-enquire {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 2;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.btn-enquire:hover {
+  opacity: 0.88;
+  text-decoration: none;
+}
+
+.pub-note {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-right: 4px solid var(--color-primary);
+  border-radius: 8px 0 0 8px;
+  padding: 1.25rem 1.5rem;
+}
+
+.pub-note p {
+  font-size: 0.97rem;
+  color: var(--color-muted);
+  line-height: 2;
+}
+
+.pub-note a {
+  color: var(--color-link);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .pub-card {
+    grid-template-columns: 36px 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .pub-action {
+    grid-column: 2;
+    padding-top: 0;
+    margin-top: 0.5rem; 
+  }
+
+  .pub-number {
+    font-size: 1.1rem;
+  }
+
+  .pub-title {
+    font-size: 0.97rem;
+  }
+
+  .btn-enquire {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+}
+</style>
