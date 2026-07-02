@@ -1,0 +1,451 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const quranicSeminars = [
+  { year: "2005", title: "قرآنی علوم پر افتتاحی دو روزہ سیمینار", note: "کارروائی 532 صفحات میں شائع" },
+  { year: "2008", title: "عصر حاضر کے مسائل اور قرآنی تعلیمات" },
+  { year: "2009", title: "خاندانی مسائل اور قرآنی تعلیمات" },
+  { year: "2010", title: "معاشی مسائل اور قرآنی تعلیمات" },
+  { year: "2011", title: "عصر حاضر کے سیاسی مسائل اور قرآنی تعلیمات" },
+  { year: "2012", title: "رجوع الی القرآن: اہمیت اور تقاضے — جلد اول" },
+  { year: "2013", title: "رجوع الی القرآن: اہمیت اور تقاضے — جلد دوم" },
+  { year: "2014", title: "سماجی برائیوں کا انسداد اور قرآنی تعلیمات" },
+  { year: "2015", title: "مسلمان اور غیر مسلمین میں ربط و تعاون — جلد اول" },
+  { year: "2016", title: "مسلمان اور غیر مسلمین میں ربط و تعاون — جلد دوم" },
+  { year: "2017", title: "قرآن مجید کا تصوّر عروج و زوال: عصر حاضر کے خصوصی تناظر میں" },
+  { year: "2018", title: "اصلاح اور فساد فی الارض کا قرآنی تصوّر و جہات" },
+  { year: "2023", title: "قرآن کریم کے اعجازی پہلو" },
+];
+
+const monthlySeminars = [
+  { no: 1, title: "سورہ یوسف آیت 55 — ایک مطالعہ", presenter: "سیف اللہ اصغر اعظم", chair: "پروفیسر اشتیاق احمد ظلی", date: "22 اگست 2015" },
+  { no: 2, title: "مذہبی رواداری اور قرآنی تعلیمات", presenter: "محمد اسماعیل", chair: "مولانا سلطان احمد اصلاحی", date: "12 ستمبر 2015" },
+  { no: 3, title: "تعلیقاتِ امام فراہی: تحلیل و تجزیہ", presenter: "ابو سعد اعظمی", chair: "پروفیسر اشتیاق احمد ظلی", date: "10 اکتوبر 2015" },
+  { no: 4, title: "دین کے قرآنی اسالیب", presenter: "حاصب اللہ اصلاحی", chair: "ڈاکٹر محمد اجمل ایوب اصلاحی", date: "14 نومبر 2015" },
+  { no: 5, title: "ولیم الاعظمی کی شاعری میں قرآنی اثرات", presenter: "ابو سعد اعظمی", chair: "پروفیسر ابو سفیان اصلاحی", date: "12 دسمبر 2015" },
+  { no: 6, title: "قرآن کا تصوّر عروج و زوال", presenter: "حبیب الرحمن اصلاحی", chair: "پروفیسر اشتیاق احمد ظلی", date: "21 مئی 2016" },
+  { no: 7, title: "قرآن کریم کا مطلوب مومن", presenter: "محمد صادق اصلاحی", chair: "پروفیسر عبد العظیم اصلاحی", date: "8 ستمبر 2016" },
+  { no: 8, title: "تاویل و مشکل القرآن: تعارف و تجزیہ", presenter: "محمد اشرف اعظمی", chair: "ڈاکٹر عرفات ظفر اصلاحی", date: "26 اکتوبر 2021" },
+  { no: 9, title: "اقسام القرآن: تعارف و تجزیہ", presenter: "ابو سعد اعظمی", chair: "پروفیسر ابو سفیان اصلاحی", date: "13 اکتوبر 2022" },
+  { no: 10, title: "امام رازی کی بعض آراء پر مولانا فراہی کا نقد و تبصرہ", presenter: "محمد اشرف اعظمی", chair: "ڈاکٹر عرفات ظفر اصلاحی", date: "13 اکتوبر 2023" },
+];
+---
+
+<Layout
+  title="سیمینار و تقریبات — ادارہ علوم القرآن"
+  description="ادارہ علوم القرآن کے سالانہ قرآنی سیمینار، ماہانہ علمی نشستیں اور خصوصی لیکچر سیریز کی تفصیلات۔"
+  lang="ur"
+  dir="rtl"
+  canonicalUrl="/ur/seminars/"
+>
+  <main class="container page-content">
+
+    <nav class="breadcrumb" aria-label="بریڈکرمب">
+      <a href="/ur/">ہوم</a>
+      <span>‹</span>
+      <span>سیمینار</span>
+    </nav>
+
+    <h1>سیمینار و تقریبات</h1>
+
+    <p class="page-intro">
+      ادارہ علوم القرآن قرآنی موضوعات پر سالانہ سیمینار، ماہانہ علمی نشستیں
+      اور خصوصی لیکچر سیریز کا اہتمام کرتا ہے۔ سیمینار کی ویڈیوز
+      یوٹیوب چینل پر دستیاب ہیں۔
+    </p>
+
+    <!-- Tab Nav -->
+    <div class="tab-nav">
+      <a href="#quranic-seminars" class="tab-link active">قرآنی سیمینار</a>
+      <a href="#monthly-seminars" class="tab-link">ماہانہ علمی نشستیں</a>
+      <a href="#videos" class="tab-link">ویڈیوز</a>
+    </div>
+
+    <!-- Section 1: Quranic Seminars -->
+    <section id="quranic-seminars" class="content-section">
+      <h2>قرآنی سیمینار</h2>
+
+      <div class="intro-card">
+        <p>
+          ادارہ نے اپنا پہلا دو روزہ سیمینار 26-27 جولائی 2005 کو منعقد کیا جس میں
+          ملک بھر کے著名 علماء اور ماہرین نے قرآنی علوم کے مختلف پہلوؤں پر مقالات پیش کیے۔
+          کارروائی 532 صفحات پر مشتمل کتاب میں شائع کی گئی۔
+        </p>
+        <p>
+          ہر سیمینار ایک مکمل علمی عمل سے گزرتا ہے: موضوع کا اعلان، خلاصہ کی منظوری،
+          مکمل مقالہ، ماہرانہ جائزہ، ترمیم اور پھر سیمینار میں پیشکش۔
+          بعد ازاں تمام مقالات کتابی صورت میں شائع کیے جاتے ہیں۔
+        </p>
+      </div>
+
+      <div class="seminar-list">
+        {quranicSeminars.map((s) => (
+          <div class="seminar-card">
+            <div class="seminar-year">{s.year}</div>
+            <div class="seminar-info">
+              <p class="seminar-title">{s.title}</p>
+              {s.note && <span class="seminar-note">{s.note}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Section 2: Monthly Seminars -->
+    <section id="monthly-seminars" class="content-section">
+      <h2>ماہانہ علمی نشستیں</h2>
+
+      <div class="intro-card">
+        <p>
+          ادارہ علوم القرآن نے طلباء و محققین میں تحقیق و تحریر کا ذوق پیدا کرنے اور
+          ان کی علمی صلاحیتوں کو فروغ دینے کے لیے ماہانہ علمی نشستوں کا سلسلہ شروع کیا ہے۔
+          علی گڑھ مسلم یونیورسٹی کے طلباء اور اسلامی تحقیق و تصنیف کے ادارے کے علماء
+          بڑے اشتیاق سے شرکت کرتے ہیں۔ مقالہ پیشکش کے بعد سوال و جواب کا موقع دیا جاتا ہے
+          اور ایک ممتاز استاد یا عالم صدارت کرتے ہیں۔
+        </p>
+      </div>
+
+      <div class="monthly-table-wrap">
+        <table class="monthly-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>مقالے کا عنوان</th>
+              <th>پیش کنندہ</th>
+              <th>صدر نشین</th>
+              <th>تاریخ</th>
+            </tr>
+          </thead>
+          <tbody>
+            {monthlySeminars.map((s) => (
+              <tr>
+                <td class="td-no">{s.no}</td>
+                <td class="td-title">{s.title}</td>
+                <td>{s.presenter}</td>
+                <td>{s.chair}</td>
+                <td class="td-date">{s.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: Videos -->
+    <section id="videos" class="content-section">
+      <h2>سیمینار ویڈیوز</h2>
+      <p class="section-intro">
+        سیمینار اور لیکچر کی ریکارڈنگز انجمن طلبہ قدیم ایم آئی ایس کے
+        یوٹیوب چینل پر دستیاب ہیں۔
+      </p>
+      
+        <a href="https://www.youtube.com/@AnjumantalabeqadeemMIS"
+        target="_blank"
+        rel="noopener"
+        class="youtube-btn"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+        </svg>
+        یوٹیوب پر دیکھیں — @AnjumantalabeqadeemMIS
+      </a>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+  direction: rtl;
+  text-align: right;
+}
+
+nav.breadcrumb,
+nav.breadcrumb a,
+nav.breadcrumb span {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important;
+  color: var(--color-muted);
+}
+
+nav.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+nav.breadcrumb a {
+  color: var(--color-link) !important;
+  text-decoration: none;
+}
+
+nav.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+  line-height: 1.8;
+}
+
+.page-intro {
+  font-size: 1rem;
+  line-height: 2.1;
+  color: var(--color-muted);
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+/* ─── Tab Nav ─── */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.tab-link {
+  padding: 0.65rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  line-height: 2;
+}
+
+.tab-link:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom-color: var(--color-border);
+}
+
+.tab-link.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* ─── Content Sections ─── */
+.content-section {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.content-section:last-child {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+}
+
+.intro-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-right: 4px solid var(--color-primary);
+  border-radius: 8px 0 0 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.intro-card p {
+  font-size: 0.97rem;
+  line-height: 2.1;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.intro-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Seminar List ─── */
+.seminar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.seminar-card {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 1rem;
+  align-items: center;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.85rem 1.1rem;
+  transition: box-shadow 0.2s;
+}
+
+.seminar-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.seminar-year {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: #e8f5f1;
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  text-align: center;
+  font-family: 'Source Serif 4', serif;
+  direction: ltr;
+}
+
+.seminar-title {
+  font-size: 0.97rem;
+  color: var(--color-text);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.seminar-note {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ─── Monthly Table ─── */
+.monthly-table-wrap {
+  overflow-x: auto;
+}
+
+.monthly-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.monthly-table th {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.75rem 1rem;
+  text-align: right;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.monthly-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  vertical-align: top;
+  line-height: 1.8;
+}
+
+.monthly-table tr:nth-child(even) td {
+  background: #f7f5f1;
+}
+
+.monthly-table tr:hover td {
+  background: #eef7f4;
+}
+
+.td-no {
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+  font-family: 'Source Serif 4', serif;
+  direction: ltr;
+  text-align: center;
+}
+
+.td-title {
+  font-weight: 600;
+  min-width: 200px;
+}
+
+.td-date {
+  white-space: nowrap;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+}
+
+/* ─── Videos ─── */
+.section-intro {
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.75rem;
+  background: #FF0000;
+  color: #FFFFFF;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 2;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.youtube-btn:hover {
+  opacity: 0.88;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .tab-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+
+  .tab-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-link {
+    white-space: nowrap;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.85rem;
+  }
+
+  .seminar-card {
+    grid-template-columns: 55px 1fr;
+    gap: 0.75rem;
+  }
+
+  .monthly-table th,
+  .monthly-table td {
+    padding: 0.6rem 0.65rem;
+    font-size: 0.82rem;
+  }
+
+  .youtube-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>
