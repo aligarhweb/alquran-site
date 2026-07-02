@@ -1,0 +1,664 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const competitions = [
+  {
+    year: "2018",
+    edition: "دسواں کل ہند",
+    topic: "عمل صالح: مفہوم اور جہات قرآن و سنت کی روشنی میں",
+    groups: [
+      {
+        name: "انعامات",
+        results: [
+          { prize: "اول", name: "10,000 روپے", institution: "" },
+          { prize: "دوم", name: "8,000 روپے", institution: "" },
+          { prize: "سوم", name: "6,000 روپے", institution: "" },
+          { prize: "ترغیبی", name: "1,000 روپے فی انعام", institution: "" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2017",
+    edition: "نواں کل ہند",
+    topic: "انسانیت کی تعمیر اور قرآن",
+    groups: [
+      {
+        name: "نتائج",
+        results: [
+          { prize: "اول", name: "فرحت ثاقب فلاحی", institution: "جامعۃ الفلاح، بلریاگنج — 10,000 روپے" },
+          { prize: "دوم", name: "ابو قیس بن ابو بکر", institution: "مدرسۃ الاصلاح، سرائے میر — 8,000 روپے" },
+          { prize: "سوم", name: "عبد السعید", institution: "جامعہ مصباح العلوم، چوکانیاں — 6,000 روپے" },
+          { prize: "ترغیبی", name: "محمد حیدر آزاد", institution: "علی گڑھ مسلم یونیورسٹی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "اسماء اثری بنت عاشق علی اثری", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "عبد الرؤف حاذق", institution: "جامعہ دار السلام، عمرآباد — 1,000 روپے" },
+          { prize: "ترغیبی", name: "ادیبہ بنت عبد المجید", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "محمد عارف بن محمد خالد", institution: "مدرسۃ الاصلاح، سرائے میر — 1,000 روپے" },
+          { prize: "ترغیبی", name: "روشنی بنت جلال الدین انصاری", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "فاطمہ بنت عبد القادر", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "کے اخلاص احمد", institution: "جامعہ دار السلام، عمرآباد — 1,000 روپے" },
+          { prize: "ترغیبی", name: "فواز حبیب بن عبد الصمد", institution: "جامعہ اسلامیہ سنابل، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "فاطمہ شبیر بنت شبیر احمد", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2016",
+    edition: "آٹھواں کل ہند",
+    topic: "قرآن کی روشنی میں قوموں کے عروج و زوال",
+    groups: [
+      {
+        name: "نتائج",
+        results: [
+          { prize: "اول", name: "رشاد احمد بن واصم احمد", institution: "مدرسۃ الاصلاح، سرائے میر — 10,000 روپے" },
+          { prize: "دوم", name: "عبد العفو بن عمر علی", institution: "جامعہ دار السلام، عمرآباد — 8,000 روپے" },
+          { prize: "سوم", name: "طبارک علی خان بن ایوب خان", institution: "جامعہ دار السلام، عمرآباد — 6,000 روپے" },
+          { prize: "ترغیبی", name: "سلویٰ بنت ابو بکر", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "گلناز بنت محمد عمر", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "عشرت جہاں بنت اشرف پنجابی", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "محمد عینین سالم بن محمد سالم", institution: "جامعہ دار السلام، عمرآباد — 1,000 روپے" },
+          { prize: "ترغیبی", name: "عریبہ بنت عبد المجید", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "ابو قیس بن ابو بکر", institution: "مدرسۃ الاصلاح، سرائے میر — 1,000 روپے" },
+          { prize: "ترغیبی", name: "اصیلہ پروین", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "سید واصم پاشا بن سید کلیم اللہ", institution: "جامعہ دار السلام، عمرآباد — 1,000 روپے" },
+          { prize: "ترغیبی", name: "فاطمہ بنت عبد القادر", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "نشا لطفی بنت لطف اللہ", institution: "عائشہ صدیقہ شریعت کالج، دہلی — 1,000 روپے" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2015",
+    edition: "ساتواں کل ہند",
+    topic: "قرآن کی روشنی میں غیر مسلمین سے تعاون کی بنیادیں",
+    groups: [
+      {
+        name: "نتائج",
+        results: [
+          { prize: "اول", name: "رشاد احمد بن واصم احمد", institution: "مدرسۃ الاصلاح، سرائے میر — 10,000 روپے" },
+          { prize: "دوم", name: "عبد الرحمن بن زبیر احمد", institution: "جامعہ دار السلام، عمرآباد — 8,000 روپے" },
+          { prize: "سوم", name: "تبریز پاشا بن چاند پاشا", institution: "جامعہ دار السلام، عمرآباد — 6,000 روپے" },
+          { prize: "ترغیبی", name: "محمد فیض بن محمد علقمہ", institution: "جامعہ معین الدین چشتی، اجمیر — 1,000 روپے" },
+          { prize: "ترغیبی", name: "محمد ریحان غزالی", institution: "دار العلوم ندوۃ العلماء، لکھنؤ — 1,000 روپے" },
+          { prize: "ترغیبی", name: "محمد فہیم بن موسیٰ", institution: "گلبرگہ، کرناٹک — 1,000 روپے" },
+          { prize: "ترغیبی", name: "ابو سفیان لطیفی بن محمد عباس", institution: "مدرسۃ الاصلاح، سرائے میر — 1,000 روپے" },
+          { prize: "ترغیبی", name: "عبد اللہ شمیم اعظمی", institution: "شبلی نیشنل کالج، اعظم گڑھ — 1,000 روپے" },
+          { prize: "ترغیبی", name: "شیخ حسن بن غلام", institution: "دار الہدیٰ اسلامک یونیورسٹی، کیرالہ — 1,000 روپے" },
+          { prize: "ترغیبی", name: "طبارک علی خان بن ایوب خان", institution: "جامعہ دار السلام، عمرآباد — 1,000 روپے" },
+          { prize: "ترغیبی", name: "عبد العفو بن عمر علی", institution: "جامعہ دار السلام، عمرآباد — 1,000 روپے" },
+          { prize: "ترغیبی", name: "صدام حسین بن اختر علی", institution: "جامعہ سید احمد شہید، ملیح آباد — 1,000 روپے" },
+          { prize: "ترغیبی", name: "عبد الاحد بن عبد الحمید", institution: "جامعہ مصباح العلوم، چوکانیاں — 1,000 روپے" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2014",
+    edition: "چھٹھا کل ہند",
+    topic: "گروپ الف: قرآن اور فساد کا انسداد | گروپ ب: قرآن اور وید میں توحید کا تصور",
+    groups: [
+      {
+        name: "گروپ الف — مسلم طلباء",
+        results: [
+          { prize: "اول", name: "محمد فتح عالم", institution: "دار العلوم ندوۃ العلماء، لکھنؤ — 10,000 روپے" },
+          { prize: "دوم", name: "شمامۃ العنبر", institution: "ڈاکٹر رام منوہر لوہیا اودھ یونیورسٹی، فیض آباد — 8,000 روپے" },
+          { prize: "سوم", name: "عصمت جہاں", institution: "محمد مسعود خان ڈگری کالج، اعظم گڑھ — 6,000 روپے" },
+        ]
+      },
+      {
+        name: "گروپ ب — غیر مسلم علماء",
+        results: [
+          { prize: "اول", name: "ابھیجیت کمار بن سنیل کمار", institution: "آدرش نگر، مظفر پور، بہار — 20,000 روپے" },
+          { prize: "دوم", name: "گورکھ پرساد داکھی لال", institution: "بلریاگنج، نیا چوک، اعظم گڑھ — 15,000 روپے" },
+          { prize: "سوم", name: "خوشبو کماری", institution: "بلریاگنج، نیا چوک، اعظم گڑھ — 12,000 روپے" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2013",
+    edition: "پانچواں کل ہند",
+    topic: "قرآن کے آئینے میں مومن",
+    groups: [
+      {
+        name: "نتائج",
+        results: [
+          { prize: "اول", name: "عبد المجید بن سلیم اللہ", institution: "دار العلوم ندوۃ العلماء، لکھنؤ — 10,000 روپے" },
+          { prize: "دوم", name: "عمارہ احسن صدیقی", institution: "جامعۃ الفلاح، اعظم گڑھ — 8,000 روپے" },
+          { prize: "سوم", name: "عالم اللہ بن عنایت اللہ بھٹیاوی", institution: "جامعہ سلفیہ، وارانسی — 6,000 روپے" },
+          { prize: "ترغیبی", name: "نفیسہ خالد", institution: "علی گڑھ مسلم یونیورسٹی — 1,000 روپے" },
+          { prize: "ترغیبی", name: "سید فرقان ملک", institution: "دار العلوم ندوۃ العلماء، لکھنؤ — 1,000 روپے" },
+          { prize: "ترغیبی", name: "ضحیٰ طاہر", institution: "فیکلٹی برائے خواتین، جامعۃ الفلاح — 1,000 روپے" },
+          { prize: "ترغیبی", name: "محمد سلمان لکھیم پوری", institution: "جامعہ سید احمد شہید، لکھنؤ — 1,000 روپے" },
+          { prize: "ترغیبی", name: "مریم جمیلہ بنت بدر العالم فلاحی", institution: "فیکلٹی برائے خواتین، جامعۃ الفلاح — 1,000 روپے" },
+          { prize: "ترغیبی", name: "راضیہ سلطان", institution: "فیکلٹی برائے خواتین، جامعۃ الفلاح — 1,000 روپے" },
+          { prize: "ترغیبی", name: "انعام اللہ بن اعظم اللہ", institution: "جامعہ دار السلام، عمرآباد — 1,000 روپے" },
+          { prize: "ترغیبی", name: "آفتاب فاطمہ فلاحی", institution: "شبلی کالج، اعظم گڑھ — 1,000 روپے" },
+          { prize: "ترغیبی", name: "عمر صیفی بن محمد اسماعیل", institution: "دار العلوم ندوۃ العلماء، لکھنؤ — 1,000 روپے" },
+          { prize: "ترغیبی", name: "محمد شاہد ستاپوری", institution: "دار العلوم دیوبند — 1,000 روپے" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2012",
+    edition: "چوتھا کل ہند",
+    topic: "گروپ الف: قرآن — سب کے لیے | گروپ ب: کیا قرآن سمجھ کر پڑھنا ضروری ہے؟",
+    groups: [
+      {
+        name: "گروپ الف — غیر مسلم علماء",
+        results: [
+          { prize: "اول", name: "ابھیجیت کمار بن سنیل کمار", institution: "آدرش نگر، مظفر پور، بہار — 20,000 روپے" },
+          { prize: "دوم", name: "دھنوشری کلشریشٹھا (صحافی)", institution: "اورنگ آباد، مہاراشٹر — 15,000 روپے" },
+          { prize: "سوم", name: "گورکھ پرساد داکھی لال", institution: "بلریاگنج، نیا چوک، اعظم گڑھ — 12,000 روپے" },
+        ]
+      },
+      {
+        name: "گروپ ب — مسلم طلباء",
+        results: [
+          { prize: "اول", name: "محمد اکرم", institution: "جامعہ اسلامی، شانتاپورم، کیرالہ — 10,000 روپے" },
+          { prize: "دوم", name: "طوبیٰ انیس", institution: "جامعۃ الصالحات، ناصر پور، اعظم گڑھ — 8,000 روپے" },
+          { prize: "سوم", name: "اشفاق احمد واصی اللہ", institution: "جامعہ اسلامی، سنابل، دہلی — 6,000 روپے" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2011",
+    edition: "تیسرا کل ہند",
+    topic: "قرآن کے حقوق اور ہمارا رویہ",
+    groups: [
+      {
+        name: "نتائج",
+        results: [
+          { prize: "اول", name: "محمد اکرم", institution: "جامعہ اسلامی، شانتاپورم، کیرالہ — 10,000 روپے" },
+          { prize: "دوم", name: "ابو ہریرہ بن ابرار احمد", institution: "مدرسۃ الاصلاح، سرائے میر — 8,000 روپے" },
+          { prize: "سوم", name: "عبد اللہ بن حنیف", institution: "جامعۃ الفلاح، بلریاگنج — 6,000 روپے" },
+          { prize: "ترغیبی", name: "محمد سلمان صادق", institution: "مدرسۃ الاصلاح، سرائے میر — 1,000 روپے" },
+          { prize: "ترغیبی", name: "ابو الکلام", institution: "جامعۃ الفلاح، بلریاگنج — 1,000 روپے" },
+          { prize: "ترغیبی", name: "محمد فہیم الدین بن موسیٰ", institution: "جامعہ دار السلام، عمرآباد — 1,000 روپے" },
+          { prize: "ترغیبی", name: "محمد نایاب حسن", institution: "دار الجدید، دار العلوم دیوبند — 1,000 روپے" },
+          { prize: "ترغیبی", name: "اسماء بنت فیروز احمد", institution: "جامعۃ الفلاح، بلریاگنج — 1,000 روپے" },
+          { prize: "ترغیبی", name: "محمد فہیم بن محمد عثمان آدری", institution: "مدرسۃ الاصلاح، سرائے میر — 1,000 روپے" },
+          { prize: "ترغیبی", name: "محمد عبد العزیز بن محمد عزمت علی", institution: "جامعہ دار السلام، عمرآباد — 1,000 روپے" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2010",
+    edition: "دوسرا کل ہند",
+    topic: "گروپ الف: مدارس میں قرآن کی تعلیم کا مطلوب نصاب | گروپ ب: قرآن — کتاب ہدایت",
+    groups: [
+      {
+        name: "گروپ الف — علماء و اساتذہ",
+        results: [
+          { prize: "اول", name: "مولانا انیس احمد فلاحی مدنی", institution: "جامعۃ الفلاح، بلریاگنج — 15,000 روپے" },
+          { prize: "دوم", name: "مولانا عمر اسلم آصفی", institution: "مدرسۃ الاصلاح، سرائے میر — 12,000 روپے" },
+          { prize: "سوم", name: "مولانا اعجاز احمد قاسمی", institution: "جامعۃ الفلاح، بلریاگنج — 8,000 روپے" },
+        ]
+      },
+      {
+        name: "گروپ ب — غیر مسلم علماء",
+        results: [
+          { prize: "اول", name: "ابھیجیت کمار", institution: "مظفر پور، بہار — 15,000 روپے" },
+          { prize: "دوم", name: "دھیرج کیش سونی", institution: "رکاب گنج، فیض آباد — 12,000 روپے" },
+        ]
+      }
+    ]
+  },
+  {
+    year: "2009",
+    edition: "پہلا کل ہند",
+    topic: "گروپ الف: عصر حاضر کے مسائل اور قرآنی تعلیمات | گروپ ب: خاندانی نظام اور قرآنی تعلیمات",
+    groups: [
+      {
+        name: "گروپ الف — محققین و علماء",
+        results: [
+          { prize: "اول", name: "مولانا محمد عمر اسلم آصفی", institution: "مدرسۃ الاصلاح، سرائے میر — 10,000 روپے" },
+          { prize: "دوم", name: "محترمہ تمنا مبین اعظمی", institution: "نئی دہلی — 8,000 روپے" },
+          { prize: "سوم", name: "محمد اسماعیل آصفی", institution: "علی گڑھ مسلم یونیورسٹی — 6,000 روپے" },
+        ]
+      },
+      {
+        name: "گروپ ب — مدارس و یونیورسٹی کے طلباء",
+        results: [
+          { prize: "اول", name: "محمد فہیم", institution: "مدرسۃ الاصلاح، سرائے میر — 5,000 روپے" },
+          { prize: "دوم", name: "ظاہر احمد بن بسم اللہ", institution: "جامعۃ الفلاح، بلریاگنج — 4,000 روپے" },
+          { prize: "سوم", name: "محمد فہیم الدین", institution: "جامعہ دار السلام، عمرآباد — 3,000 روپے" },
+          { prize: "سوم", name: "عبد اللطیف", institution: "ندوۃ العلماء، لکھنؤ — 3,000 روپے" },
+          { prize: "ترغیبی", name: "پرویز عالم انصاری", institution: "جامعۃ الفلاح، بلریاگنج — 1,000 روپے" },
+          { prize: "ترغیبی", name: "شہاب ثاقب", institution: "جامعۃ الفلاح، بلریاگنج — 1,000 روپے" },
+          { prize: "خصوصی", name: "بشریٰ سراج", institution: "فیکلٹی برائے خواتین، جامعۃ الفلاح — 1,000 روپے" },
+        ]
+      }
+    ]
+  },
+];
+---
+
+<Layout
+  title="سالانہ مسابقہ مقالہ نویسی — ادارہ علوم القرآن"
+  description="ادارہ علوم القرآن 2009 سے ہر سال ملک گیر مسابقہ مقالہ نویسی منعقد کرتا ہے جس میں مدارس اور یونیورسٹیز کے طلباء شرکت کرتے ہیں۔"
+  lang="ur"
+  dir="rtl"
+  canonicalUrl="/ur/competitions/"
+>
+  <main class="container page-content">
+
+    <nav class="breadcrumb" aria-label="بریڈکرمب">
+      <a href="/ur/">ہوم</a>
+      <span>‹</span>
+      <span>مسابقے</span>
+    </nav>
+
+    <h1>سالانہ مسابقہ مقالہ نویسی</h1>
+
+    <div class="intro-section">
+      <p>
+        ادارہ علوم القرآن 2009 سے ہر سال <strong>رجوع الی القرآن</strong> کے عنوان سے
+        ملک گیر مسابقہ مقالہ نویسی منعقد کرتا ہے۔ اس مسابقے کے مقاصد یہ ہیں:
+      </p>
+      <ul class="aims-list">
+        <li>طلباء کو قرآن کریم کی تعلیمات کی گہرائی میں اترنے کی ترغیب دینا۔</li>
+        <li>غیر مسلموں کے قرآن سے متعلق شکوک و شبہات کا ازالہ اور تعمیری مکالمے کا موقع فراہم کرنا۔</li>
+        <li>طلباء کو قرآن کے ابدی و آفاقی پیغام کو براہ راست سمجھنے کی استعداد پیدا کرنا۔</li>
+      </ul>
+
+      <div class="how-it-works">
+        <h2>طریقہ کار</h2>
+        <ul class="how-list">
+          <li>مدارس اور یونیورسٹیز کے تحقیق و تحریر میں دلچسپی رکھنے والے طلباء کو دعوت دی جاتی ہے۔</li>
+          <li>ہر مسابقے میں قرآن سے متعلق ایک خاص موضوع مقرر کیا جاتا ہے۔</li>
+          <li>مقالات کا جائزہ دو آزاد ماہر جج کرتے ہیں جو مضمون، ربط، اسلوب اور مآخذ کی بنیاد پر جائزہ لیتے ہیں۔</li>
+          <li>رازداری کے لیے مقالات کو کوڈ دیا جاتا ہے اور ذاتی معلومات ہٹا دی جاتی ہیں۔</li>
+          <li>ادارے کے سربراہ دونوں ججوں کی رائے کے بعد حتمی فیصلہ کرتے ہیں۔</li>
+          <li>ہر شریک کو شرکت کا سرٹیفکیٹ اور انعام یافتگان کو نقد انعامات دیے جاتے ہیں۔</li>
+        </ul>
+      </div>
+
+      <div class="participate-cta">
+        <p>آئندہ مسابقے میں شرکت یا اعلان موصول کرنے کے لیے ہم سے رابطہ کریں۔</p>
+        <a href="/ur/contact/" class="btn-primary">رابطہ کریں</a>
+      </div>
+    </div>
+
+    <h2 class="results-heading">گزشتہ مسابقے اور نتائج</h2>
+
+    <div class="competitions-list">
+      {competitions.map((comp) => (
+        <details class="comp-item">
+          <summary class="comp-summary">
+            <div class="comp-year-badge">{comp.year}</div>
+            <div class="comp-info">
+              <span class="comp-edition">{comp.edition} مسابقہ</span>
+              <span class="comp-topic">{comp.topic}</span>
+            </div>
+            <span class="comp-arrow">‹</span>
+          </summary>
+
+          <div class="comp-body">
+            {comp.groups.map((group) => (
+              <div class="group-section">
+                <h3 class="group-name">{group.name}</h3>
+                <table class="results-table">
+                  <thead>
+                    <tr>
+                      <th>انعام</th>
+                      <th>نام</th>
+                      <th>ادارہ اور رقم</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {group.results.map((r) => (
+                      <tr class={r.prize === 'اول' ? 'row-gold' : r.prize === 'دوم' ? 'row-silver' : r.prize === 'سوم' ? 'row-bronze' : ''}>
+                        <td class="td-prize">{r.prize}</td>
+                        <td class="td-name">{r.name}</td>
+                        <td class="td-inst">{r.institution}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </main>
+</Layout>
+
+<style>
+.page-content {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+  direction: rtl;
+  text-align: right;
+}
+
+nav.breadcrumb,
+nav.breadcrumb a,
+nav.breadcrumb span {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important;
+  color: var(--color-muted);
+}
+
+nav.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+nav.breadcrumb a {
+  color: var(--color-link) !important;
+  text-decoration: none;
+}
+
+nav.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+  line-height: 1.8;
+}
+
+/* ─── Intro ─── */
+.intro-section {
+  margin-bottom: 3rem;
+}
+
+.intro-section > p {
+  font-size: 1rem;
+  line-height: 2.1;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  max-width: 780px;
+}
+
+strong {
+  color: var(--color-primary);
+}
+
+.aims-list {
+  padding-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 780px;
+}
+
+.aims-list li {
+  font-size: 1rem;
+  line-height: 2.1;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.how-it-works {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-right: 4px solid var(--color-primary);
+  border-radius: 8px 0 0 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 780px;
+}
+
+.how-it-works h2 {
+  font-size: 1.15rem;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.8;
+}
+
+.how-list {
+  padding-right: 1.5rem;
+}
+
+.how-list li {
+  font-size: 0.97rem;
+  line-height: 2;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+.participate-cta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.participate-cta p {
+  font-size: 0.97rem;
+  color: var(--color-muted);
+  margin: 0;
+  line-height: 2;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 2;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+  text-decoration: none;
+}
+
+/* ─── Results Heading ─── */
+.results-heading {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-border);
+  line-height: 1.8;
+}
+
+/* ─── Competition Items ─── */
+.competitions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.comp-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.comp-item[open] {
+  border-color: var(--color-primary);
+}
+
+.comp-summary {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.2s;
+}
+
+.comp-summary::-webkit-details-marker {
+  display: none;
+}
+
+.comp-summary:hover {
+  background: #f7f5f1;
+}
+
+.comp-year-badge {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  text-align: center;
+  font-family: 'Source Serif 4', serif;
+  direction: ltr;
+}
+
+.comp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.comp-edition {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-family: 'Source Serif 4', serif;
+}
+
+.comp-topic {
+  font-size: 0.97rem;
+  color: var(--color-text);
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.comp-arrow {
+  font-size: 1.2rem;
+  color: var(--color-muted);
+  transition: transform 0.2s;
+}
+
+.comp-item[open] .comp-arrow {
+  transform: rotate(-90deg);
+}
+
+/* ─── Competition Body ─── */
+.comp-body {
+  padding: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.group-section {
+  margin-bottom: 1.5rem;
+}
+
+.group-section:last-child {
+  margin-bottom: 0;
+}
+
+.group-name {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+/* ─── Results Table ─── */
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.results-table th {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.6rem 0.85rem;
+  text-align: right;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.results-table td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  vertical-align: top;
+  line-height: 1.8;
+}
+
+.results-table tr:last-child td {
+  border-bottom: none;
+}
+
+.row-gold td { background: #fffbeb; }
+.row-silver td { background: #f8f9fa; }
+.row-bronze td { background: #fff8f3; }
+
+.td-prize {
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.td-name {
+  font-weight: 600;
+  min-width: 160px;
+}
+
+.td-inst {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .comp-summary {
+    grid-template-columns: 55px 1fr auto;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .comp-topic {
+    font-size: 0.85rem;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .participate-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
